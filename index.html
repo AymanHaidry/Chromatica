@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8fafc">
+<title>Chromatica — Lock In. No Cap. 2026.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --surface-elevated:#f1f5f9;
+  --surface-hover:#e2e8f0;
+  --primary:#0ea5e9;
+  --primary-dark:#0284c7;
+  --secondary:#38bdf8;
+  --accent:#7dd3fc;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --text-primary:#0f172a;
+  --text-secondary:#475569;
+  --text-muted:#94a3b8;
+  --border:rgba(0,0,0,0.06);
+  --shadow:0 4px 24px rgba(14,165,233,0.08);
+  --shadow-lg:0 20px 60px rgba(14,165,233,0.12);
+  --gradient:linear-gradient(135deg,#0ea5e9,#38bdf8,#7dd3fc);
+  --gradient-hero:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 40%,#f8fafc 100%);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-primary);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(14,165,233,0.15)}50%{box-shadow:0 0 40px rgba(14,165,233,0.35)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200%0}100%{background-position:200%0}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+
+.animate-slideUp{animation:slideUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards}
+.animate-scaleIn{animation:scaleIn 0.6s cubic-bezier(0.16,1,0.3,1) forwards}
+.delay-1{animation-delay:0.1s;opacity:0}
+.delay-2{animation-delay:0.2s;opacity:0}
+.delay-3{animation-delay:0.3s;opacity:0}
+.delay-4{animation-delay:0.4s;opacity:0}
+.delay-5{animation-delay:0.5s;opacity:0}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,250,252,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:center;gap:10px;color:var(--text-primary)}
+.nav-logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-link{padding:8px 16px;border-radius:10px;font-size:14px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:all 0.2s}
+.nav-link:hover{color:var(--primary);background:rgba(14,165,233,0.08)}
+.nav-cta{background:var(--gradient);color:#fff;padding:10px 20px;border-radius:12px;font-size:14px;font-weight:600;text-decoration:none;box-shadow:var(--shadow);transition:all 0.3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--gradient-hero);padding:120px 24px 80px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,0.08);border:1px solid rgba(14,165,233,0.15);color:var(--primary);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:24px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--success);animation:pulse-glow 2s infinite}
+.hero-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(42px,6vw,68px);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px}
+.hero-title .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-subtitle{font-size:18px;color:var(--text-secondary);line-height:1.7;max-width:480px;margin-bottom:32px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--gradient);color:#fff;padding:16px 32px;border-radius:16px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);transition:all 0.3s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 25px 50px rgba(14,165,233,0.25)}
+.btn-secondary{background:#fff;color:var(--text-primary);padding:16px 32px;border-radius:16px;font-size:15px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);box-shadow:var(--shadow);transition:all 0.3s;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-secondary:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+
+.hero-visual{position:relative}
+.hero-phone{width:100%;max-width:380px;margin:0 auto;position:relative;z-index:2}
+.phone-frame{background:#fff;border-radius:32px;padding:12px;box-shadow:0 40px 80px rgba(14,165,233,0.15),0 0 0 1px rgba(0,0,0,0.04);border:1px solid var(--border)}
+.phone-screen{background:var(--bg);border-radius:24px;overflow:hidden;min-height:520px;position:relative}
+.phone-notch{width:120px;height:28px;background:#fff;border-radius:0 0 20px 20px;margin:0 auto;position:relative;z-index:3}
+
+/* Phone mockup content */
+.mock-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.mock-logo{font-family:'Space Grotesk';font-weight:700;font-size:16px;color:var(--text-primary);display:flex;align-items:center;gap:8px}
+.mock-avatar{width:32px;height:32px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:12px}
+.mock-card{background:#fff;border-radius:16px;padding:16px;margin:0 12px 12px;box-shadow:0 2px 8px rgba(0,0,0,0.03);border:1px solid var(--border)}
+.mock-stat{display:flex;justify-content:space-between;align-items:center}
+.mock-stat-val{font-family:'JetBrains Mono';font-size:24px;font-weight:700;color:var(--primary)}
+.mock-stat-label{font-size:11px;color:var(--text-muted);margin-top:2px}
+.mock-bar{height:6px;background:var(--surface-hover);border-radius:3px;margin-top:8px;overflow:hidden}
+.mock-bar-fill{height:100%;background:var(--gradient);border-radius:3px;width:60%}
+.mock-goal{display:flex;align-items:center;gap:12px;padding:12px;margin:0 12px;background:#fff;border-radius:14px;margin-bottom:8px;border:1px solid var(--border)}
+.mock-check{width:28px;height:28px;border:2px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--success);font-size:14px}
+.mock-goal-title{font-size:13px;font-weight:600}
+.mock-goal-meta{font-size:11px;color:var(--text-muted);margin-top:2px}
+.mock-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(245,158,11,0.1);color:var(--warning);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;margin-left:auto}
+
+.hero-float{position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(14,165,233,0.12) 0%,transparent 70%);top:10%;right:-10%;pointer-events:none}
+.hero-float-2{position:absolute;width:200px;height:200px;background:radial-gradient(circle,rgba(125,211,252,0.2) 0%,transparent 70%);bottom:10%;left:-5%;pointer-events:none}
+
+/* SECTIONS */
+.section{padding:100px 24px}
+.section-header{text-align:center;max-width:600px;margin:0 auto 60px}
+.section-label{display:inline-block;background:rgba(14,165,233,0.08);color:var(--primary);padding:6px 16px;border-radius:100px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,4vw,48px);font-weight:800;line-height:1.1;margin-bottom:16px}
+.section-desc{font-size:17px;color:var(--text-secondary);line-height:1.7}
+
+/* PROBLEM */
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.problem-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:32px;text-align:center;transition:all 0.3s}
+.problem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(14,165,233,0.2)}
+.problem-emoji{font-size:40px;margin-bottom:16px}
+.problem-title{font-size:18px;font-weight:700;margin-bottom:8px}
+.problem-text{font-size:14px;color:var(--text-secondary);line-height:1.6}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;align-items:center}
+.feature-img{background:#fff;border-radius:24px;padding:20px;box-shadow:var(--shadow-lg);border:1px solid var(--border);position:relative;overflow:hidden}
+.feature-img img{width:100%;border-radius:16px;display:block}
+.feature-content{padding:20px}
+.feature-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);color:var(--success);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;margin-bottom:16px}
+.feature-title{font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:12px}
+.feature-desc{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.feature-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-secondary)}
+.feature-list li::before{content:'✓';width:20px;height:20px;border-radius:50%;background:rgba(16,185,129,0.1);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+
+/* SCREENSHOTS */
+.screenshots{background:linear-gradient(180deg,#fff 0%,#f0f9ff 50%,#fff 100%)}
+.shots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.shot-card{background:#fff;border-radius:24px;padding:16px;box-shadow:var(--shadow);border:1px solid var(--border);transition:all 0.4s}
+.shot-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-lg)}
+.shot-frame{background:var(--bg);border-radius:16px;overflow:hidden;border:1px solid var(--border);min-height:280px;position:relative}
+.shot-label{text-align:center;margin-top:16px;font-size:14px;font-weight:600;color:var(--text-secondary)}
+
+/* Shot mockups */
+.shot-hero{padding:24px}
+.shot-title{font-family:'Space Grotesk';font-size:20px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.shot-btn{background:var(--gradient);color:#fff;border:none;padding:12px 20px;border-radius:14px;font-size:13px;font-weight:600;margin-bottom:16px;cursor:pointer}
+.shot-goal-item{display:flex;align-items:center;gap:10px;padding:10px;background:#fff;border-radius:12px;margin-bottom:8px;border:1px solid var(--border)}
+.shot-goal-check{width:24px;height:24px;border:2px solid var(--border);border-radius:6px}
+.shot-goal-check.done{background:var(--success);border-color:var(--success);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+.shot-timer{background:rgba(245,158,11,0.1);color:var(--warning);padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;display:inline-flex;align-items:center;gap:4px}
+
+/* HOW IT WORKS */
+.steps{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.step{background:#fff;border:1px solid var(--border);border-radius:24px;padding:40px 32px;text-align:center;max-width:320px;flex:1;transition:all 0.3s;position:relative}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.step-num{width:48px;height:48px;border-radius:50%;background:var(--gradient);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:700;font-size:18px;margin:0 auto 20px;box-shadow:0 8px 24px rgba(14,165,233,0.25)}
+.step-title{font-size:20px;font-weight:700;margin-bottom:10px}
+.step-desc{font-size:14px;color:var(--text-secondary);line-height:1.6}
+.step-arrow{position:absolute;right:-36px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--primary);opacity:0.3}
+@media(max-width:900px){.step-arrow{display:none}}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;position:relative}
+.testi-stars{color:var(--warning);font-size:16px;margin-bottom:12px;letter-spacing:2px}
+.testi-text{font-size:15px;line-height:1.7;color:var(--text-secondary);margin-bottom:20px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+.testi-name{font-weight:700;font-size:14px}
+.testi-handle{font-size:12px;color:var(--text-muted)}
+
+/* PARENT FEATURE */
+.parent-section{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);padding:100px 24px}
+.parent-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.parent-visual{position:relative}
+.parent-card{background:#fff;border-radius:24px;padding:32px;box-shadow:var(--shadow-lg);border:1px solid var(--border);max-width:400px;margin:0 auto}
+.parent-card-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.parent-card-icon{width:48px;height:48px;border-radius:14px;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-size:24px}
+.parent-card-title{font-family:'Space Grotesk';font-size:20px;font-weight:700}
+.parent-card-sub{font-size:13px;color:var(--text-muted)}
+.parent-stat{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.parent-stat:last-child{border-bottom:none}
+.parent-stat-label{font-size:13px;color:var(--text-secondary)}
+.parent-stat-val{font-family:'JetBrains Mono';font-weight:700;color:var(--primary)}
+
+/* CTA */
+.cta-section{background:var(--text-primary);padding:100px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(14,165,233,0.1) 0%,transparent 50%);pointer-events:none}
+.cta-title{font-family:'Space Grotesk';font-size:clamp(36px,5vw,56px);font-weight:800;color:#fff;margin-bottom:16px;position:relative;z-index:1}
+.cta-desc{font-size:18px;color:#94a3b8;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.cta-btn{background:var(--gradient);color:#fff;padding:18px 40px;border-radius:16px;font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;box-shadow:0 20px 40px rgba(14,165,233,0.3);transition:all 0.3s;position:relative;z-index:1;border:none;cursor:pointer}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 30px 60px rgba(14,165,233,0.4)}
+
+/* FOOTER */
+.footer{padding:60px 24px 40px;text-align:center;border-top:1px solid var(--border)}
+.footer-logo{font-family:'Space Grotesk';font-weight:700;font-size:20px;margin-bottom:12px}
+.footer-logo span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-text{font-size:14px;color:var(--text-muted);margin-bottom:24px}
+.footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.footer-links a{color:var(--text-secondary);text-decoration:none;font-size:14px;transition:color 0.2s}
+.footer-links a:hover{color:var(--primary)}
+.footer-copy{font-size:12px;color:var(--text-muted)}
+
+/* MARQUEE */
+.marquee{overflow:hidden;padding:24px 0;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.marquee-track{display:flex;gap:40px;animation:marquee 30s linear infinite;width:max-content}
+.marquee-item{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:14px;color:var(--text-muted);white-space:nowrap}
+.marquee-item span{color:var(--primary);font-weight:700}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(239,68,68,0.08);color:var(--danger);border:1px solid rgba(239,68,68,0.15);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-subtitle{margin:0 auto 32px}
+  .hero-btns{justify-content:center}
+  .hero-visual{display:none}
+  .features-grid{grid-template-columns:1fr}
+  .problem-grid{grid-template-columns:1fr}
+  .shots-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .parent-grid{grid-template-columns:1fr;text-align:center}
+  .nav-links{display:none}
+  .step-arrow{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="50%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#7dd3fc"/></linearGradient></defs><polygon points="50,8 88,72 50,92 12,72" fill="url(#lg)"/></svg>
+    <span>Chromatica</span>
+  </div>
+  <div class="nav-links">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#screenshots" class="nav-link">Screenshots</a>
+    <a href="#how" class="nav-link">How It Works</a>
+    <a href="chromatica.html" class="nav-cta">Open App →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-float"></div>
+  <div class="hero-float-2"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge animate-slideUp delay-1">
+        <span class="dot"></span>
+        Built for Gen Z in 2026
+      </div>
+      <h1 class="hero-title animate-slideUp delay-2">
+        Lock in your goals.<br>
+        <span class="gradient">No cap.</span>
+      </h1>
+      <p class="hero-subtitle animate-slideUp delay-3">
+        The accountability app that actually hits different. Set goals, face real consequences if you miss, and build unstoppable momentum. Your parents can even check in. Its giving main character energy.
+      </p>
+      <div class="hero-btns animate-slideUp delay-4">
+        <a href="chromatica.html" class="btn-primary">Start Your Streak 🔥</a>
+        <a href="#screenshots" class="btn-secondary">See Screenshots</a>
+      </div>
+    </div>
+    <div class="hero-visual animate-scaleIn delay-3">
+      <div class="hero-phone">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="mock-header">
+              <div class="mock-logo">
+                <svg width="20" height="20" viewBox="0 0 100 100"><polygon points="50,8 88,72 50,92 12,72" fill="url(#lg)"/></svg>
+                Chromatica
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span style="font-size:12px">🔥 0</span>
+                <div class="mock-avatar">AH</div>
+              </div>
+            </div>
+            <div style="padding:0 16px 8px">
+              <div style="font-size:11px;color:var(--text-muted);font-family:'JetBrains Mono'">⏰ Day ends in 04:22:18</div>
+            </div>
+            <div class="mock-card">
+              <div class="mock-stat">
+                <div><div class="mock-stat-label">Today's Progress</div><div class="mock-stat-val" style="font-size:20px;color:var(--primary)">60%</div></div>
+                <div style="text-align:right"><div class="mock-stat-label">Streak</div><div class="mock-stat-val" style="font-size:20px;color:var(--warning)">🔥 12</div></div>
+              </div>
+              <div class="mock-bar"><div class="mock-bar-fill"></div></div>
+            </div>
+            <div style="padding:0 16px;margin-bottom:8px;font-size:13px;font-weight:700">Today's Goals</div>
+            <div class="mock-goal">
+              <div class="mock-check">✓</div>
+              <div style="flex:1">
+                <div class="mock-goal-title" style="text-decoration:line-through;color:var(--text-muted)">📚 Finish Chapter 4</div>
+                <div class="mock-goal-meta">60 min · ✅ Done</div>
+              </div>
+            </div>
+            <div class="mock-goal">
+              <div class="mock-check" style="border-color:var(--border)"></div>
+              <div style="flex:1">
+                <div class="mock-goal-title">💪 Morning Run</div>
+                <div class="mock-goal-meta">30 min · ⏳ Pending</div>
+              </div>
+              <div class="mock-tag">⏱️ 00:04:22</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="marquee-item">🔒 <span>Goals lock in 5 min</span> — no takesies backsies</div>
+    <div class="marquee-item">🎬 <span>Reel Mode</span> — miss a goal? post a consequence reel</div>
+    <div class="marquee-item">👨‍👩‍👧 <span>Parent Login</span> — they see everything. no cap.</div>
+    <div class="marquee-item">🎨 <span>4 Themes</span> — Arctic, Blackberry, Plaster, Rainbow</div>
+    <div class="marquee-item">🏆 <span>Leaderboard</span> — compete with friends. climb ranks.</div>
+    <div class="marquee-item">🔒 <span>Goals lock in 5 min</span> — no takesies backsies</div>
+    <div class="marquee-item">🎬 <span>Reel Mode</span> — miss a goal? post a consequence reel</div>
+    <div class="marquee-item">👨‍👩‍👧 <span>Parent Login</span> — they see everything. no cap.</div>
+    <div class="marquee-item">🎨 <span>4 Themes</span> — Arctic, Blackberry, Plaster, Rainbow</div>
+    <div class="marquee-item">🏆 <span>Leaderboard</span> — compete with friends. climb ranks.</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">The Problem</div>
+      <h2 class="section-title">We all be procrastinating fr fr</h2>
+      <p class="section-desc">You set goals. You forget them. You scroll TikTok for 3 hours. Rinse and repeat. No accountability = no results. Its not giving productive.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card animate-slideUp delay-1">
+        <div class="problem-emoji">📱</div>
+        <div class="problem-title">Doomscrolling</div>
+        <div class="problem-text">"Just 5 more minutes" turns into 5 hours. Your goals? Forgotten. Your screen time? Astronomical.</div>
+      </div>
+      <div class="problem-card animate-slideUp delay-2">
+        <div class="problem-emoji">🫥</div>
+        <div class="problem-title">Zero Accountability</div>
+        <div class="problem-text">No one checks if you actually did the thing. You lie to yourself daily. We have all been there.</div>
+      </div>
+      <div class="problem-card animate-slideUp delay-3">
+        <div class="problem-emoji">💀</div>
+        <div class="problem-title">The Guilt Cycle</div>
+        <div class="problem-text">Miss a goal → feel bad → avoid thinking about it → miss more goals. The spiral is real.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features" style="background:var(--gradient-hero)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Built different. Built for <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent">you.</span></h2>
+    </div>
+
+    <div class="features-grid" style="margin-bottom:60px">
+      <div class="feature-img animate-slideUp delay-1">
+        <div class="shot-frame" style="min-height:320px;padding:20px">
+          <div class="shot-title">🎯 Today's Goals</div>
+          <button class="shot-btn">+ Add Goal</button>
+          <div class="shot-goal-item">
+            <div class="shot-goal-check"></div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:600">📚 Finish Geo atleast half</div>
+              <div style="font-size:11px;color:var(--text-muted);margin-top:2px">60 min · 📝 Editable</div>
+            </div>
+            <div class="shot-timer">⏱️ 00:04:59 until lock</div>
+          </div>
+          <div class="shot-goal-item">
+            <div class="shot-goal-check done">✓</div>
+            <div style="flex:1">
+              <div style="font-size:13px;font-weight:600;text-decoration:line-through;color:var(--text-muted)">📊 Math Assignment</div>
+              <div style="font-size:11px;color:var(--success);margin-top:2px">✅ Done</div>
+            </div>
+          </div>
+          <div style="margin-top:12px;padding:12px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:12px">
+            <div style="font-size:12px;color:var(--warning);font-weight:600">⚠️ Lock Notice</div>
+            <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">This goal will lock in 5 minutes. After that, it cannot be edited or deleted.</div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-content animate-slideUp delay-2">
+        <div class="feature-tag">🔒 Core Mechanic</div>
+        <h3 class="feature-title">Lock In. No Backsies.</h3>
+        <p class="feature-desc">Set a goal and you have 5 minutes to edit or delete it. After that? Its locked. You either complete it or face the consequences. No cap, no excuses.</p>
+        <ul class="feature-list">
+          <li>5-minute grace period for edits</li>
+          <li>Goals auto-lock at midnight</li>
+          <li>Track completion with one tap</li>
+          <li>Category tags (Study, Work, Health, Creative)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="features-grid" style="direction:rtl;margin-bottom:60px">
+      <div class="feature-img animate-slideUp delay-1" style="direction:ltr">
+        <div class="shot-frame" style="min-height:320px;padding:20px">
+          <div class="shot-title">🎨 Themes</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <div style="padding:16px;border:2px solid var(--border);border-radius:14px;text-align:center;background:#f8fafc">
+              <div style="width:100%;height:40px;border-radius:8px;background:linear-gradient(135deg,#0ea5e9,#38bdf8);margin-bottom:8px"></div>
+              <div style="font-size:12px;font-weight:700">Arctic Fox</div>
+              <div style="font-size:10px;color:var(--text-muted)">Light & icy</div>
+            </div>
+            <div style="padding:16px;border:2px solid var(--border);border-radius:14px;text-align:center;background:#0a0a0f;color:#fff">
+              <div style="width:100%;height:40px;border-radius:8px;background:linear-gradient(135deg,#d946ef,#f43f5e);margin-bottom:8px"></div>
+              <div style="font-size:12px;font-weight:700">Blackberry</div>
+              <div style="font-size:10px;color:#94a3b8">Dark premium</div>
+            </div>
+            <div style="padding:16px;border:2px solid var(--border);border-radius:14px;text-align:center;background:#fff">
+              <div style="width:100%;height:40px;border-radius:8px;background:linear-gradient(135deg,#0071e3,#5ac8fa);margin-bottom:8px"></div>
+              <div style="font-size:12px;font-weight:700">White Plaster</div>
+              <div style="font-size:10px;color:var(--text-muted)">Minimal Apple</div>
+            </div>
+            <div style="padding:16px;border:2px solid var(--border);border-radius:14px;text-align:center;background:#0c0a1a;color:#fff">
+              <div style="width:100%;height:40px;border-radius:8px;background:linear-gradient(135deg,#fde047,#fb923c,#ec4899);margin-bottom:8px"></div>
+              <div style="font-size:12px;font-weight:700">Wild Rainbow</div>
+              <div style="font-size:10px;color:#94a3b8">Tropical pop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-content animate-slideUp delay-2" style="direction:ltr">
+        <div class="feature-tag" style="background:rgba(14,165,233,0.1);color:var(--primary)">🎨 Vibes</div>
+        <h3 class="feature-title">4 Themes. Zero Boring.</h3>
+        <p class="feature-desc">Your app should match your energy. Arctic Fox for that clean icy aesthetic. Blackberry for late-night grinding. White Plaster for the minimalists. Wild Rainbow for when you are feeling unhinged.</p>
+        <ul class="feature-list">
+          <li>Arctic Fox — light, frosty, clean</li>
+          <li>Blackberry — dark, magenta, premium</li>
+          <li>White Plaster — Apple minimal, pure</li>
+          <li>Wild Rainbow — tropical, Rio energy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-img animate-slideUp delay-1">
+        <div class="shot-frame" style="min-height:320px;padding:20px">
+          <div class="shot-title">🏆 Leaderboard</div>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:12px">
+              <div style="font-family:'JetBrains Mono';font-weight:700;color:var(--warning);width:24px">1</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700">AC</div>
+              <div style="flex:1"><div style="font-size:13px;font-weight:600">Alex Chen</div><div style="font-size:11px;color:var(--text-muted)">47 day streak</div></div>
+              <div style="font-family:'JetBrains Mono';font-weight:700;color:var(--primary)">47 🔥</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#fff;border:1px solid var(--border);border-radius:12px">
+              <div style="font-family:'JetBrains Mono';font-weight:700;color:var(--text-muted);width:24px">2</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#8b5cf6);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700">MP</div>
+              <div style="flex:1"><div style="font-size:13px;font-weight:600">Maya Patel</div><div style="font-size:11px;color:var(--text-muted)">31 day streak</div></div>
+              <div style="font-family:'JetBrains Mono';font-weight:700;color:var(--primary)">31 🔥</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(14,165,233,0.06);border:1px solid rgba(14,165,233,0.2);border-radius:12px">
+              <div style="font-family:'JetBrains Mono';font-weight:700;color:var(--primary);width:24px">5</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#059669);display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700">YOU</div>
+              <div style="flex:1"><div style="font-size:13px;font-weight:600">You</div><div style="font-size:11px;color:var(--text-muted)">12 day streak</div></div>
+              <div style="font-family:'JetBrains Mono';font-weight:700;color:var(--primary)">12 🔥</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-content animate-slideUp delay-2">
+        <div class="feature-tag" style="background:rgba(245,158,11,0.1);color:var(--warning)">🏆 Competition</div>
+        <h3 class="feature-title">Compete. Climb. Flex.</h3>
+        <p class="feature-desc">Add friends, compare streaks, and fight for the top spot. Nothing hits quite like seeing your name above someone who said they would "definitely be productive today."</p>
+        <ul class="feature-list">
+          <li>Friend system with requests</li>
+          <li>Leaderboard by streak, goals, or XP</li>
+          <li>Real-time activity feed</li>
+          <li>Badge collection for achievements</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="section screenshots" id="screenshots">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Screenshots</div>
+      <h2 class="section-title">The app in action. No filters.</h2>
+      <p class="section-desc">Real screenshots from the actual app. This is what you get. No stock photos, no AI renders, no cap.</p>
+    </div>
+    <div class="shots-grid">
+      <div class="shot-card animate-slideUp delay-1">
+        <div class="shot-frame">
+          <div style="padding:20px">
+            <div style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px">🎯 Today's Goals</div>
+            <button style="background:var(--gradient);color:#fff;border:none;padding:10px 18px;border-radius:12px;font-size:13px;font-weight:600;margin-bottom:16px">+ Add Goal</button>
+            <div style="padding:14px;background:#fff;border-radius:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;align-items:center;gap:12px">
+              <div style="width:36px;height:36px;border:2px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center"><span style="font-size:16px">🚫</span></div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:600">📚 Finish Geo atleast half</div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:2px">60 min · 📝 Editable</div>
+              </div>
+              <div style="background:rgba(245,158,11,0.1);color:var(--warning);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:4px">⏱️ 🔒 LOCKED</div>
+            </div>
+            <div style="padding:14px;background:#fff;border-radius:14px;border:1px solid var(--border);display:flex;align-items:center;gap:12px">
+              <div style="width:36px;height:36px;border:2px solid var(--success);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--success);font-size:14px">✓</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:600;text-decoration:line-through;color:var(--text-muted)">📊 Math Assignment</div>
+                <div style="font-size:11px;color:var(--success);margin-top:2px">✅ Done</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="shot-label">Goal Tracking</div>
+      </div>
+
+      <div class="shot-card animate-slideUp delay-2">
+        <div class="shot-frame">
+          <div style="padding:20px">
+            <div style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px">➕ Add New Goal</div>
+            <div style="margin-bottom:14px">
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px">Category</div>
+              <div style="padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:12px;font-size:13px;display:flex;align-items:center;gap:8px">📚 Study</div>
+            </div>
+            <div style="margin-bottom:14px">
+              <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px">Estimated Time</div>
+              <div style="padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:12px;font-size:13px">30 minutes</div>
+            </div>
+            <div style="padding:12px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);border-radius:12px;margin-bottom:14px">
+              <div style="font-size:12px;color:var(--warning);font-weight:600">⚠️ Lock Notice</div>
+              <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">This goal will lock in 5 minutes. After that, it cannot be edited or deleted.</div>
+            </div>
+            <button style="background:var(--gradient);color:#fff;border:none;padding:12px;width:100%;border-radius:12px;font-size:13px;font-weight:700">Lock In Goal</button>
+          </div>
+        </div>
+        <div class="shot-label">Add Goal Modal</div>
+      </div>
+
+      <div class="shot-card animate-slideUp delay-3">
+        <div class="shot-frame">
+          <div style="padding:20px">
+            <div style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px">📊 Dashboard</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+              <div style="padding:14px;background:#fff;border-radius:14px;border:1px solid var(--border)">
+                <div style="font-size:11px;color:var(--text-muted)">Progress</div>
+                <div style="font-family:'JetBrains Mono';font-size:22px;font-weight:700;color:var(--primary);margin-top:4px">60%</div>
+                <div style="height:4px;background:var(--surface-hover);border-radius:2px;margin-top:8px"><div style="height:100%;width:60%;background:var(--gradient);border-radius:2px"></div></div>
+              </div>
+              <div style="padding:14px;background:#fff;border-radius:14px;border:1px solid var(--border)">
+                <div style="font-size:11px;color:var(--text-muted)">Streak</div>
+                <div style="font-size:22px;font-weight:700;color:var(--warning);margin-top:4px">🔥 12</div>
+              </div>
+            </div>
+            <div style="text-align:center;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--border)">
+              <div style="width:100px;height:100px;margin:0 auto;border:8px solid var(--surface-hover);border-top-color:var(--primary);border-radius:50%;transform:rotate(45deg)"></div>
+              <div style="font-family:'JetBrains Mono';font-size:20px;font-weight:700;margin-top:12px">60%</div>
+              <div style="font-size:11px;color:var(--text-muted)">Chroma</div>
+            </div>
+          </div>
+        </div>
+        <div class="shot-label">Dashboard Stats</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how" style="background:#fff">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">3 steps to lock in. Thats it.</h2>
+    </div>
+    <div class="steps">
+      <div class="step animate-slideUp delay-1">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Set Your Goals</h3>
+        <p class="step-desc">Add goals for the day. Pick a category, set the time, and lock it in. You have 5 minutes to change your mind. After that? Its permanent.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step animate-slideUp delay-2">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Do The Work</h3>
+        <p class="step-desc">Check off goals as you complete them. Watch your Chroma meter fill up. Build your streak. Flex on the leaderboard. Main character energy only.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step animate-slideUp delay-3">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Face The Music</h3>
+        <p class="step-desc">Miss a goal? Choose your consequence: post a Reel, notify your parent, or take the solo L. Accountability is the whole point. No skipping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARENT SECTION -->
+<section class="parent-section">
+  <div class="parent-grid">
+    <div class="animate-slideUp delay-1">
+      <div class="section-label" style="margin-bottom:16px">Parent Mode</div>
+      <h2 class="section-title" style="margin-bottom:16px">Parents can log in too.<br>No cap.</h2>
+      <p class="section-desc" style="margin-bottom:24px">Your child sets a PIN. You enter your phone number + PIN. Boom — you see their goals, progress, and streak. No spying, no extras. Just the essentials. Its giving responsible parenting.</p>
+      <ul class="feature-list">
+        <li>See today's goals and completion status</li>
+        <li>Track streak and overall progress</li>
+        <li>Know the accountability mode</li>
+        <li>No editing — read-only access</li>
+      </ul>
+    </div>
+    <div class="parent-visual animate-slideUp delay-2">
+      <div class="parent-card">
+        <div class="parent-card-header">
+          <div class="parent-card-icon">👨‍👩‍👧</div>
+          <div>
+            <div class="parent-card-title">Parent Dashboard</div>
+            <div class="parent-card-sub">Viewing Ayman's progress</div>
+          </div>
+        </div>
+        <div class="parent-stat">
+          <span class="parent-stat-label">🔥 Streak</span>
+          <span class="parent-stat-val">12</span>
+        </div>
+        <div class="parent-stat">
+          <span class="parent-stat-label">📊 Today's Progress</span>
+          <span class="parent-stat-val">60%</span>
+        </div>
+        <div class="parent-stat">
+          <span class="parent-stat-label">✅ Total Goals</span>
+          <span class="parent-stat-val">47</span>
+        </div>
+        <div style="margin-top:16px;padding:12px;background:var(--bg);border-radius:12px">
+          <div style="font-size:12px;font-weight:600;margin-bottom:8px">Today's Goals</div>
+          <div style="display:flex;align-items:center;gap:8px;padding:8px;background:#fff;border-radius:8px;margin-bottom:6px">
+            <span style="color:var(--success)">✅</span>
+            <span style="font-size:12px;flex:1">Finish Geo atleast half</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;padding:8px;background:#fff;border-radius:8px">
+            <span style="color:var(--warning)">⏳</span>
+            <span style="font-size:12px;flex:1">Morning Run</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" style="background:var(--gradient-hero)">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Reviews</div>
+      <h2 class="section-title">The people have spoken.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card animate-slideUp delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I used to lie to myself about studying. Now my mom sees everything. The fear is real but my grades are too. Chromatica saved my GPA no cap."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AH</div>
+          <div>
+            <div class="testi-name">Ayman H.</div>
+            <div class="testi-handle">@meanteverythingg</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card animate-slideUp delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The reel mode is unhinged. I missed a goal and had to dance to a meme song on Instagram. My friends roasted me for days. 10/10 would recommend."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JL</div>
+          <div>
+            <div class="testi-name">Jordan L.</div>
+            <div class="testi-handle">@jordanl</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card animate-slideUp delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Finally an app that doesnt look like it was made in 2014. The Arctic theme is immaculate. The streak system actually works. Im on day 31 and not stopping."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MP</div>
+          <div>
+            <div class="testi-name">Maya P.</div>
+            <div class="testi-handle">@mayap</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Stop scrolling.<br>Start locking in.</h2>
+  <p class="cta-desc">Free forever. No ads. No subscriptions. Just you, your goals, and the consequences. Its 2026. Time to level up.</p>
+  <a href="chromatica.html" class="cta-btn">Launch Chromatica →</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo"><span>Chromatica</span></div>
+  <p class="footer-text">Real goals deserve real consequences. Earn Your Colors.</p>
+  <div class="footer-links">
+    <a href="chromatica.html">Open App</a>
+    <a href="#features">Features</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#how">How It Works</a>
+  </div>
+  <p class="footer-copy">© 2026 Chromatica. Built with 💎 by someone who was tired of their own excuses.</p>
+</footer>
+
+</body>
+</html>
