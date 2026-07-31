@@ -814,10 +814,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-primar
 <div>
 <h2 class="section-title"><span>📊</span> Chroma Meter</h2>
 <div class="card" style="text-align:center;padding:32px 24px;">
-<div class="progress-ring-container" style="width:160px;height:160px;margin:0 auto 20px;">
-<svg class="progress-ring-svg" width="160" height="160"><circle class="progress-ring-bg" cx="80" cy="80" r="70" stroke-width="10"/><circle class="progress-ring-fill" id="chromaRing" cx="80" cy="80" r="70" stroke-width="10" stroke-dasharray="440" stroke-dashoffset="440"/></svg>
-<div class="progress-ring-text"><div style="font-family:'JetBrains Mono';font-size:32px;font-weight:700;" id="chromaPercent">0%</div><div style="font-size:12px;color:var(--text-muted);">Chroma</div></div>
+<div class="progress-ring-container" style="width:180px;height:180px;margin:0 auto 20px;position:relative;">
+<svg class="progress-ring-svg" width="180" height="180" id="chromaRingSvg"></svg>
+<div class="progress-ring-text" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+<div style="font-family:'JetBrains Mono';font-size:28px;font-weight:700;" id="chromaPercent">0%</div>
+<div style="font-size:11px;color:var(--text-muted);margin-top:2px;" id="chromaFraction">0/0</div>
 </div>
+</div>
+<div id="chromaGoalLegend" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px;max-height:120px;overflow-y:auto;"></div>
 <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;" id="chromaStatus">Monochrome. Complete goals to earn color.</div>
 </div>
 <h2 class="section-title" style="margin-top:24px;"><span>🔔</span> Recent Events</h2>
@@ -2235,7 +2239,7 @@ async function handleAddGoal(e){
 
 async function toggleGoalComplete(id){
   const goal=STATE.goals.find(g=>g.id===id);
-  if(!goal||goal.locked===false)return;
+  if(!goal)return;
   if(goal.failed)return;
   goal.completed=!goal.completed;
   if(goal.completed){
@@ -2294,6 +2298,65 @@ function getTodayProgress(){
 }
 function updateChroma(){STATE.chroma=getTodayProgress();}
 
+function renderChromaRing(goals,progress){
+  const svg=document.getElementById('chromaRingSvg');
+  const legend=document.getElementById('chromaGoalLegend');
+  const fraction=document.getElementById('chromaFraction');
+  if(!svg)return;
+
+  const cx=90,cy=90,r=72,stroke=14;
+  const total=goals.length;
+  const completed=goals.filter(g=>g.completed).length;
+
+  if(fraction)fraction.textContent=completed+'/'+total+' done';
+
+  if(total===0){
+    svg.innerHTML='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="var(--track-bg)" stroke-width="'+stroke+'"/>';
+    if(legend)legend.innerHTML='';
+    return;
+  }
+
+  const gap=2; // degrees gap between segments
+  const available=360-(total*gap);
+  const segSize=available/total;
+  let html='';
+  let currentAngle=-90; // start at top
+
+  const colors={study:'#0ea5e9',work:'#6366f1',health:'#22c55e',creative:'#f59e0b',other:'#94a3b8'};
+  const catLabels={study:'Study',work:'Work',health:'Health',creative:'Creative',other:'Other'};
+
+  goals.forEach((g,i)=>{
+    const start=currentAngle;
+    const end=currentAngle+segSize;
+    const radStart=(start*Math.PI)/180;
+    const radEnd=(end*Math.PI)/180;
+    const x1=cx+r*Math.cos(radStart);
+    const y1=cy+r*Math.sin(radStart);
+    const x2=cx+r*Math.cos(radEnd);
+    const y2=cy+r*Math.sin(radEnd);
+    const largeArc=segSize>180?1:0;
+
+    const color=g.completed?colors[g.category]||colors.other:'var(--track-bg)';
+    const opacity=g.completed?1:0.35;
+
+    html+='<path d="M'+x1.toFixed(2)+','+y1.toFixed(2)+' A'+r+','+r+' 0 '+largeArc+',1 '+x2.toFixed(2)+','+y2.toFixed(2)+'" fill="none" stroke="'+color+'" stroke-width="'+stroke+'" stroke-linecap="round" opacity="'+opacity+'" style="transition:all 0.4s ease"/>';
+
+    currentAngle=end+gap;
+  });
+
+  svg.innerHTML=html;
+
+  // Build legend
+  if(legend){
+    legend.innerHTML=goals.map(g=>{
+      const c=colors[g.category]||colors.other;
+      const done=g.completed?'✅':'⬜';
+      const title=g.title.length>18?g.title.substring(0,18)+'...':g.title;
+      return '<div style="display:flex;align-items:center;gap:6px;background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:11px;max-width:140px;" title="'+g.title+'"><span style="width:8px;height:8px;border-radius:50%;background:'+c+';"></span><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+done+' '+title+'</span></div>';
+    }).join('');
+  }
+}
+
 // ==================== RENDERING ====================
 function renderDashboard(){
   checkGoalLocks();
@@ -2315,9 +2378,7 @@ function renderDashboard(){
   bar.style.width=progress+'%';
   bar.className='chroma-fill '+(progress===0?'chroma-bg-0':progress<25?'chroma-bg-25':progress<50?'chroma-bg-50':progress<100?'chroma-bg-75':'chroma-bg-100');
 
-  const ring=document.getElementById('chromaRing');
-  const circumference=440;
-  ring.setAttribute('stroke-dashoffset',circumference-(progress/100)*circumference);
+  renderChromaRing(todayGoals,progress);
   document.getElementById('chromaPercent').textContent=progress+'%';
 
   const statuses={
@@ -2350,7 +2411,7 @@ function renderGoalItem(g){
   const catIcons={study:'📚',work:'💼',health:'💪',creative:'🎨',other:'🔧'};
   return `
     <div class="goal-item ${g.completed?'completed':''} ${g.failed?'failed':''} ${isLocked?'locked':''}">
-      <div class="goal-checkbox ${g.completed?'checked':''} ${isLocked?'':'locked'}" onclick="${isLocked?`toggleGoalComplete('${g.id}')`:''}" style="${!isLocked?'cursor:not-allowed':''}">
+      <div class="goal-checkbox ${g.completed?'checked':''}" onclick="toggleGoalComplete('${g.id}')" style="cursor:pointer;">
         ${g.completed?'✓':''}
       </div>
       <div class="goal-info">
