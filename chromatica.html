@@ -1387,21 +1387,112 @@ const BADGES_DEF = [
 ];
 
 const CHALLENGES = [
-  'Dance to a meme song for 15 seconds',
-  'Say "I love productivity" 10 times fast',
-  'Do your best impression of a robot',
-  'Read a tongue twister 3 times without messing up',
-  'Do 10 jumping jacks while explaining why you missed your goal',
-  'Sing the chorus of your favorite song acapella',
-  'Tell a dad joke to the camera',
-  'Do a dramatic reading of your grocery list'
+  'Do the Naagin dance for 15 seconds',
+  'Sing "Happy Birthday" in a funny voice to yourself',
+  'Pretend to be a news anchor reporting your own failure',
+  'Do 20 squats while saying "I will not miss my goals"',
+  'Make a paper boat, float it in water, and apologize to it',
+  'Speak only in rhymes for the next 30 seconds',
+  'Do the classic Bollywood villain monologue about your failure',
+  'Walk like a penguin for 20 seconds',
+  'Make 5 different animal sounds in a row',
+  'Do the Kolaveri Di step while looking serious',
+  'Pretend to be a strict teacher scolding yourself for 20 seconds',
+  'Do 15 jumping jacks while clapping above your head',
+  'Make a rap about productivity in Hinglish for 15 seconds',
+  'Pretend to be a panipuri vendor selling "goal-puris" to the camera',
+  'Do the Gangnam Style dance for 15 seconds',
+  'Make a heart with your hands and say "I love my goals" 5 times',
+  'Do the Kala Chashma step with imaginary chashma',
+  'Pretend to be a cricket commentator describing your missed goal',
+  'Do 10 burpees while shouting "Never give up"',
+  'Make the funniest face you can and hold it for 10 seconds',
+  'Do the Zingaat step with full energy',
+  'Pretend to be a radio j interviewing yourself about failure',
+  'Do the Vaathi Coming step with attitude',
+  'Make a paper airplane, throw it, and salute it',
+  'Pretend to be an aunty gossiping about your own laziness',
+  'Do the Natu Natu step with a partner or pillow',
+  'Make shadow puppets on the wall for 15 seconds',
+  'Do the Chaiyya Chaiyya train step',
+  'Pretend to be a gym trainer shouting motivation at yourself',
+  'Make a beatbox rhythm about discipline for 10 seconds',
+  'Do the Arabic Kuthu step with hand signs',
+  'Pretend to be a pilot announcing your comeback from failure',
+  'Make a funny handshake with yourself for 10 seconds',
+  'Do the Ranjithame step with a smile',
+  'Pretend to be a magician making your laziness disappear',
+  'Make a tower of 3 books and bow down to it',
+  'Do the Pushpa style walk saying "Thaggede Le"',
+  'Pretend to be a traffic cop directing your goals into order',
+  'Do 15 high-knees while saluting the camera',
+  'Make up a 10-second jingle about waking up early',
+  'Do the Tum Tum step with full expressions',
+  'Pretend to be a barber giving yourself a motivational haircut',
+  'Make a TikTok-style transition from lazy to productive',
+  'Do the Kesariya step with imaginary colors in the air',
+  'Pretend to be a fortune teller predicting your success',
+  'Do the Bijlee Bijlee step with finger guns',
+  'Make a paper crown, wear it, and declare yourself Goal King/Queen',
+  'Do the Saami Saami step with dramatic expressions',
+  'Pretend to be a strict principal giving yourself detention',
+  'Make a heart with your fingers and wink at the camera',
+  'Do the Jimikki Ponnu step with imaginary jhumkas',
+  'Pretend to be a news reporter at the scene of your missed goal',
+  'Do the Ponniyin Selvan style royal walk',
+  'Make a funny commercial ad for "Discipline" for 15 seconds',
+  'Do the Butta Bomma step while smiling',
+  'Pretend to be a chef cooking "success" with imaginary ingredients',
+  'Do the Srivalli step with shy expressions',
+  'Make a paper mustache, stick it on, and give a motivational speech',
+  'Do the Kalaavathi step with classical hand gestures',
+  'Pretend to be a robot doing household chores for 20 seconds',
+  'Do the Aankh Marey step with winks',
+  'Make a tower of playing cards and say "building discipline"',
+  'Do the Lungi Dance step with an imaginary lungi',
+  'Pretend to be a panwala giving advice about hard work',
+  'Do the Mauka Mauka dance after admitting your mistake',
+  'Make a puppet show with socks about goal-setting',
+  'Do the Daru Badnaam step (with juice) — dance only',
+  'Pretend to be a weather reporter forecasting a storm of productivity',
+  'Do the Dhinkachika step with full dhinchak energy',
+  'Make a funny award acceptance speech for "Most Likely to Improve"'
 ];
 
+
+// ==================== SERVER TIME SYNC ====================
+let serverTimeOffset = 0;
+async function syncServerTime(){
+  const tryFetch = async (url) => {
+    const start = Date.now();
+    const res = await fetch(url);
+    const data = await res.json();
+    const end = Date.now();
+    const rtt = end - start;
+    const serverTime = new Date(data.datetime || data.utc_datetime).getTime();
+    const localTime = end - (rtt / 2);
+    return serverTime - localTime;
+  };
+  try{
+    serverTimeOffset = await tryFetch('https://timeapi.world/api/ip');
+    console.log('Server time synced (timeapi.world). Offset:', serverTimeOffset, 'ms');
+  }catch(e1){
+    try{
+      serverTimeOffset = await tryFetch('https://worldtimeapi.org/api/ip');
+      console.log('Server time synced (worldtimeapi). Offset:', serverTimeOffset, 'ms');
+    }catch(e2){
+      console.log('Server time sync failed, using local device time');
+      serverTimeOffset = 0;
+    }
+  }
+}
+
+function getYesterday(){const d=new Date();d.setDate(d.getDate()-1);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 // ==================== UTILS ====================
 function generateId(){return Math.random().toString(36).substring(2,9);}
 function generateToken(){return 'CHT-'+Math.random().toString(36).substring(2,7).toUpperCase()+Math.random().toString(36).substring(2,5).toUpperCase();}
-function getToday(){return new Date().toISOString().split('T')[0];}
-function getTomorrowMidnight(){const d=new Date();d.setHours(24,0,0,0);return d;}
+function getToday(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function getTomorrowMidnight(){const d=new Date();d.setDate(d.getDate()+1);d.setHours(0,0,0,0);return d;}
 function timeUntilMidnight(){const now=new Date();const mid=getTomorrowMidnight();return mid-now;}
 function formatTime(ms){const h=Math.floor(ms/3600000);const m=Math.floor((ms%3600000)/60000);const s=Math.floor((ms%60000)/1000);return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}
 function getTotalCompletedGoals(){return STATE.goals.filter(g=>g.completed).length;}
@@ -1920,7 +2011,7 @@ async function handleLogin(e){
   STATE.lastLoginDate=getToday();
 
   // Load from Supabase
-  STATE.goals = await dbGetGoals(userId,getToday());
+  STATE.goals = await dbGetGoals(userId,null);
   STATE.events = await dbGetEvents(userId,20);
   STATE.badges = await dbGetBadges(userId);
   STATE.friends = (await dbGetFriends(userId)).map(f=>f.friend_id);
@@ -2407,6 +2498,9 @@ function renderGoalItem(g){
   const isLocked=g.locked;
   const canEdit=!isLocked&&timeLeft>0;
   const lockText=canEdit?formatTime(Math.max(0,timeLeft))+' until lock':'🔒 LOCKED';
+  const today=getToday();
+  const isToday=g.date===today;
+  const dateLabel=!isToday?`<span style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--text-muted);margin-left:8px;">${g.date}</span>`:'';
 
   const catIcons={study:'📚',work:'💼',health:'💪',creative:'🎨',other:'🔧'};
   return `
@@ -2415,7 +2509,7 @@ function renderGoalItem(g){
         ${g.completed?'✓':''}
       </div>
       <div class="goal-info">
-        <div class="goal-title ${g.completed?'completed':''}">${catIcons[g.category]||'🔧'} ${g.title}</div>
+        <div class="goal-title ${g.completed?'completed':''}">${catIcons[g.category]||'🔧'} ${g.title}${dateLabel}</div>
         <div class="goal-meta">
           <span>${g.time} min</span>
           <span>${isLocked?'🔒 Locked':'📝 Editable'}</span>
@@ -2442,7 +2536,21 @@ function renderAllGoals(){
   if(goals.length===0){
     list.innerHTML='<div class="empty-state"><div class="empty-state-icon">📋</div><h3>No goals here</h3><p>'+(filter==='all'?'Start by adding your first goal.':'No '+filter+' goals yet.')+'</p></div>';
   }else{
-    list.innerHTML=goals.map(g=>renderGoalItem(g)).join('');
+    // Group by date
+    const today=getToday();
+    const grouped={};
+    goals.forEach(g=>{
+      const d=g.date||today;
+      if(!grouped[d])grouped[d]=[];
+      grouped[d].push(g);
+    });
+    let html='';
+    Object.keys(grouped).sort((a,b)=>b.localeCompare(a)).forEach(date=>{
+      const label=date===today?'Today':date===getYesterday()?'Yesterday':date;
+      html+=`<div style="font-size:12px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;margin:16px 0 8px 4px;text-transform:uppercase;letter-spacing:0.05em;">${label}</div>`;
+      html+=grouped[date].map(g=>renderGoalItem(g)).join('');
+    });
+    list.innerHTML=html;
   }
 }
 
@@ -2553,7 +2661,20 @@ function checkLevelUp(){
 function updateDeadlineTimer(){
   const el=document.getElementById('deadlineText');
   if(!el)return;
-  const ms=timeUntilMidnight();
+
+  // Server-synced time if available, else local
+  const now = window.serverTimeOffset ? new Date(Date.now() + window.serverTimeOffset) : new Date();
+
+  // Check for day rollover every tick
+  const today = getToday();
+  if(STATE.lastLoginDate && STATE.lastLoginDate !== today){
+    STATE.dayProcessed = false;
+    STATE.lastLoginDate = today;
+    STATE.goals = STATE.goals.filter(g => g.date === today || g.completed || g.failed);
+    saveState();
+  }
+
+  const ms = getTomorrowMidnight() - now;
   if(ms<=0){
     el.textContent='Day ended. Processing...';
     processDayEnd();
@@ -2562,7 +2683,8 @@ function updateDeadlineTimer(){
   const h=Math.floor(ms/3600000);
   const m=Math.floor((ms%3600000)/60000);
   const s=Math.floor((ms%60000)/1000);
-  el.textContent=`Day ends in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  el.textContent=`Day ends in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} · ${tz}`;
   if(h===0&&m<30){
     document.getElementById('deadlineTimer').classList.add('pulse');
   }else{
@@ -2572,10 +2694,12 @@ function updateDeadlineTimer(){
 
 // ==================== DAY END / ACCOUNTABILITY ====================
 async function processDayEnd(){
-  if(STATE.dayProcessed)return;
   const todayGoals=getTodayGoals();
   const missed=todayGoals.filter(g=>!g.completed&&!g.failed);
   const completed=todayGoals.filter(g=>g.completed);
+
+  // Only process if there are pending goals or we haven't processed today
+  if(STATE.dayProcessed && missed.length===0 && todayGoals.length>0) return;
 
   for(const g of missed){
     g.failed=true;
@@ -2682,9 +2806,16 @@ function checkDayRollover(){
   if(STATE.lastLoginDate&&STATE.lastLoginDate!==today){
     STATE.dayProcessed=false;
     STATE.lastLoginDate=today;
-    STATE.goals=STATE.goals.filter(g=>g.date===today||g.completed||g.failed);
+    // Mark pending goals from previous days as failed, don't delete them
+    STATE.goals.forEach(async g=>{
+      if(g.date!==today && !g.completed && !g.failed){
+        g.failed=true;
+        g.locked=true;
+        if(g.id) dbUpdateGoal(g.id,{failed:true,locked:true});
+      }
+    });
     saveState();
-    toast('New day! Your goals have been reset.','info');
+    toast('New day! Previous pending goals marked as missed.','info');
   }else if(!STATE.lastLoginDate){
     STATE.lastLoginDate=today;
     saveState();
@@ -2708,6 +2839,7 @@ document.querySelectorAll('.nav-link').forEach(link=>{
 
 // ==================== INIT ====================
 async function init(){
+  await syncServerTime();
   loadState();
   loadTheme();
   loadParentSession();
@@ -2732,7 +2864,7 @@ async function init(){
       STATE.chroma=profile.chroma||0;
       STATE.accountabilityMode=profile.accountability_mode;
       STATE.lastLoginDate=getToday();
-      STATE.goals = await dbGetGoals(userId,getToday());
+      STATE.goals = await dbGetGoals(userId,null);
       STATE.events = await dbGetEvents(userId,20);
       STATE.badges = await dbGetBadges(userId);
       STATE.friends = (await dbGetFriends(userId)).map(f=>f.friend_id);
