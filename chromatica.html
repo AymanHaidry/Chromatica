@@ -140,46 +140,77 @@
 }
 
 [data-theme="plaster"] {
-  --bg:#ffffff;
-  --surface:#f5f5f7;
-  --surface-elevated:#ffffff;
-  --surface-hover:#e8e8ed;
-  --primary:#0071e3;
-  --secondary:#5ac8fa;
-  --success:#34c759;
-  --warning:#ff9500;
-  --danger:#ff3b30;
-  --text-primary:#1d1d1f;
-  --text-secondary:#86868b;
-  --text-muted:#d2d2d7;
-  --border:rgba(0,0,0,0.06);
-  --gradient:linear-gradient(135deg,#0071e3,#5ac8fa);
-  --gradient-soft:linear-gradient(135deg,rgba(0,113,227,0.08),rgba(90,200,250,0.08));
-  --prism-1:#0071e3;
-  --prism-2:#5ac8fa;
-  --prism-3:#86868b;
-  --glow:rgba(0,113,227,0.2);
-  --nav-bg:rgba(255,255,255,0.95);
-  --glass-bg:rgba(245,245,247,0.85);
-  --overlay-bg:rgba(0,0,0,0.35);
-  --track-bg:rgba(0,0,0,0.05);
-  --hover-bg:rgba(0,0,0,0.02);
-  --border-strong:rgba(0,0,0,0.08);
-  --primary-soft:rgba(0,113,227,0.1);
-  --primary-medium:rgba(0,113,227,0.25);
-  --primary-glow:rgba(0,113,227,0.4);
-  --primary-faint:rgba(0,113,227,0.06);
-  --secondary-soft:rgba(90,200,250,0.1);
-  --secondary-medium:rgba(90,200,250,0.25);
-  --success-soft:rgba(52,199,89,0.1);
-  --success-faint:rgba(52,199,89,0.04);
-  --success-medium:rgba(52,199,89,0.25);
-  --warning-soft:rgba(255,149,0,0.1);
-  --warning-faint:rgba(255,149,0,0.06);
-  --danger-soft:rgba(255,59,48,0.1);
-  --danger-medium:rgba(255,59,48,0.25);
-  --danger-faint:rgba(255,59,48,0.08);
-  --shadow-color:rgba(0,0,0,0.06);
+  /* Core */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-hover: #f5f5f7;
+
+  /* Brand */
+  --primary: #007aff;
+  --secondary: #5ac8fa;
+  --success: #34c759;
+  --warning: #ff9f0a;
+  --danger: #ff3b30;
+
+  /* Typography */
+  --text-primary: #000000;
+  --text-secondary: #3c3c43;
+  --text-muted: #8e8e93;
+
+  /* Borders */
+  --border: rgba(60, 60, 67, 0.12);
+  --border-strong: rgba(60, 60, 67, 0.18);
+
+  /* Gradients */
+  --gradient: linear-gradient(135deg, #007aff, #5ac8fa);
+  --gradient-soft: linear-gradient(
+    135deg,
+    rgba(0, 122, 255, 0.08),
+    rgba(90, 200, 250, 0.08)
+  );
+
+  /* Prism */
+  --prism-1: #007aff;
+  --prism-2: #5ac8fa;
+  --prism-3: #8e8e93;
+
+  /* Effects */
+  --glow: rgba(0, 122, 255, 0.18);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+
+  /* Navigation / Glass */
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+
+  /* UI */
+  --track-bg: rgba(60, 60, 67, 0.12);
+  --hover-bg: rgba(60, 60, 67, 0.04);
+
+  /* Primary variants */
+  --primary-soft: rgba(0, 122, 255, 0.08);
+  --primary-medium: rgba(0, 122, 255, 0.2);
+  --primary-glow: rgba(0, 122, 255, 0.32);
+  --primary-faint: rgba(0, 122, 255, 0.04);
+
+  /* Secondary variants */
+  --secondary-soft: rgba(90, 200, 250, 0.08);
+  --secondary-medium: rgba(90, 200, 250, 0.2);
+
+  /* Success variants */
+  --success-soft: rgba(52, 199, 89, 0.08);
+  --success-faint: rgba(52, 199, 89, 0.04);
+  --success-medium: rgba(52, 199, 89, 0.2);
+
+  /* Warning variants */
+  --warning-soft: rgba(255, 159, 10, 0.08);
+  --warning-faint: rgba(255, 159, 10, 0.04);
+
+  /* Danger variants */
+  --danger-soft: rgba(255, 59, 48, 0.08);
+  --danger-medium: rgba(255, 59, 48, 0.2);
+  --danger-faint: rgba(255, 59, 48, 0.04);
 }
 
 [data-theme="rainbow"] {
@@ -226,7 +257,17 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text-primary);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body {
+  font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeInScale{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
