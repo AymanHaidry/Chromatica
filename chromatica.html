@@ -816,6 +816,7 @@ body::after{
 <div class="nav-link" data-page="friends">Friends</div>
 <div class="nav-link" data-page="leaderboard">Leaderboard</div>
 <div class="nav-link" data-page="badges">Badges</div>
+<div class="nav-link" data-page="links">Links</div>
 <div class="nav-link" data-page="profile">Profile</div>
 </div>
 <div class="nav-user">
@@ -843,6 +844,9 @@ body::after{
 </div>
 <div class="mobile-drawer-link" data-page="badges" onclick="navigateFromDrawer('badges')">
 <span class="icon">🎖️</span>Badges
+</div>
+<div class="mobile-drawer-link" data-page="links" onclick="navigateFromDrawer('links')">
+<span class="icon">🔗</span>Links
 </div>
 <div class="mobile-drawer-link" data-page="profile" onclick="navigateFromDrawer('profile')">
 <span class="icon">👤</span>Profile
@@ -1210,6 +1214,37 @@ body::after{
 <div class="badges-grid" id="badgesGrid"></div>
 </div>
 
+<!-- ============ LINKS ============ -->
+<div class="page" id="page-links">
+<div style="margin-bottom:24px;"><h1 style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:4px;">Saved Links</h1><p style="color:var(--text-secondary);font-size:14px;">Curate your digital workspace. Save articles, tools, and references.</p></div>
+
+<div class="card" style="margin-bottom:20px;">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px;">Add Link</h3>
+<form onsubmit="handleAddLink(event)">
+<div class="input-group"><label class="input-label">URL</label><input type="url" class="input-field" id="linkUrl" placeholder="https://example.com" required></div>
+<div class="input-group"><label class="input-label">Title <span style="color:var(--text-muted);font-weight:400;">(Optional)</span></label><input type="text" class="input-field" id="linkTitle" placeholder="e.g. MDN Web Docs"></div>
+<div class="input-group"><label class="input-label">Category</label>
+<select class="input-field" id="linkCategory" style="cursor:pointer;">
+<option value="article">📄 Article</option>
+<option value="tool">🛠️ Tool</option>
+<option value="video">🎥 Video</option>
+<option value="docs">📚 Docs</option>
+<option value="other">🔧 Other</option>
+</select>
+</div>
+<button type="submit" class="btn btn-primary">Save Link</button>
+</form>
+</div>
+
+<div class="goals-header" style="margin-bottom:16px;">
+<h2 class="section-title" style="margin-bottom:0;"><span>🔗</span> Your Links <span id="linkCount" style="font-size:14px;color:var(--text-muted);font-weight:400;">(0)</span></h2>
+<div style="display:flex;gap:8px;">
+<input type="text" class="input-field" id="linkSearch" placeholder="Search links..." style="width:200px;padding:10px 14px;font-size:13px;" oninput="renderLinks()">
+</div>
+</div>
+<div id="linksList"></div>
+</div>
+
 <!-- ============ ACCOUNTABILITY ============ -->
 <div class="page" id="page-accountability">
 <div style="max-width:640px;margin:0 auto;">
@@ -1387,6 +1422,20 @@ async function dbRemoveFriendship(userId,friendId){
   const {error} = await supabaseClient.from('friendships').delete().or(`and(user_id.eq.${userId},friend_id.eq.${friendId}),and(user_id.eq.${friendId},friend_id.eq.${userId})`);
   if(error)console.error('dbRemoveFriendship',error);
 }
+async function dbGetLinks(userId){
+  const {data,error} = await supabaseClient.from('links').select('*').eq('user_id',userId).order('created_at',{ascending:false});
+  if(error){console.error('dbGetLinks',error);return [];}
+  return data||[];
+}
+async function dbInsertLink(link){
+  const {data,error} = await supabaseClient.from('links').insert(link).select().single();
+  if(error){console.error('dbInsertLink',error);return null;}
+  return data;
+}
+async function dbDeleteLink(id){
+  const {error} = await supabaseClient.from('links').delete().eq('id',id);
+  if(error)console.error('dbDeleteLink',error);
+}
 
 /*
 ==================== SUPABASE SQL SETUP ====================
@@ -1485,6 +1534,20 @@ CREATE POLICY "Users can delete friendships" ON friendships FOR DELETE USING (au
 
 CREATE POLICY "Users can view own badges" ON user_badges FOR SELECT USING (auth.uid() = user_id);
 CREATE POLICY "Users can insert own badges" ON user_badges FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+-- Links table
+create table links (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references auth.users on delete cascade not null,
+  url text not null,
+  title text not null,
+  category text default 'other',
+  created_at timestamptz default now()
+);
+
+CREATE POLICY "Users can view own links" ON links FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own links" ON links FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can delete own links" ON links FOR DELETE USING (auth.uid() = user_id);
 */
 async function dbGetLeaderboard(){
   const {data,error} = await supabaseClient.from('profiles').select('name,initials,avatar_preset,streak,xp,goals_completed').order('streak',{ascending:false}).limit(20);
@@ -1542,7 +1605,8 @@ const STATE = {
   lastLoginDate: null,
   friends: [],
   friendRequests: [],
-  pendingReel: null
+  pendingReel: null,
+  links: []
 };
 
 const AVATAR_PRESETS = [
@@ -2086,7 +2150,7 @@ function showPage(name){
 
   const nav=document.getElementById('mainNav');
   const footer=document.getElementById('mainFooter');
-  const showNav=['dashboard','goals','friends','leaderboard','badges','profile','accountability'].includes(name);
+  const showNav=['dashboard','goals','friends','leaderboard','badges','links','profile','accountability'].includes(name);
   const isParentPage=name==='parent-dashboard';
   nav.classList.toggle('hidden',!showNav&&!isParentPage);
   footer.style.display=showNav?'block':'none';
@@ -2110,6 +2174,7 @@ function showPage(name){
   if(name==='friends')renderFriends();
   if(name==='leaderboard')renderLeaderboard();
   if(name==='badges')renderBadges();
+  if(name==='links')renderLinks();
   if(name==='profile')renderProfile();
   if(name==='accountability')renderAccountability();
   if(name==='parent-dashboard')renderParentDashboard();
@@ -2200,6 +2265,7 @@ async function handleLogin(e){
   STATE.friends = (await dbGetFriends(userId)).map(f=>f.friend_id);
   STATE.friendRequests = await dbGetFriendRequests(userId);
   STATE.leaderboard = await dbGetLeaderboard();
+  STATE.links = await dbGetLinks(userId);
   // No demo fallback — leaderboard stays empty until real data loads
 
   checkDayRollover();
@@ -3020,6 +3086,71 @@ document.querySelectorAll('.nav-link').forEach(link=>{
   link.addEventListener('click',()=>showPage(link.dataset.page));
 });
 
+// ==================== LINKS ====================
+function getLinkFavicon(url){
+  try{const u=new URL(url);return 'https://www.google.com/s2/favicons?domain='+u.hostname+'&sz=64';}catch(e){return '';}
+}
+function getLinkDomain(url){
+  try{const u=new URL(url);return u.hostname.replace('www.','');}catch(e){return url;}
+}
+async function handleAddLink(e){
+  e.preventDefault();
+  const url=document.getElementById('linkUrl').value.trim();
+  const title=document.getElementById('linkTitle').value.trim();
+  const category=document.getElementById('linkCategory').value;
+  if(!url){toast('Enter a URL.','warning');return;}
+  const linkPayload={user_id:STATE.user.id,url,title:title||getLinkDomain(url),category};
+  const dbLink = await dbInsertLink(linkPayload);
+  const link=dbLink||{id:generateId(),url,title:title||getLinkDomain(url),category,createdAt:new Date().toISOString()};
+  STATE.links.unshift(link);
+  saveState();
+  document.getElementById('linkUrl').value='';
+  document.getElementById('linkTitle').value='';
+  renderLinks();
+  toast('Link saved!','success');
+}
+async function deleteLink(id){
+  if(!confirm('Delete this link?'))return;
+  STATE.links=STATE.links.filter(l=>l.id!==id);
+  await dbDeleteLink(id);
+  saveState();
+  renderLinks();
+  toast('Link deleted.','info');
+}
+function renderLinks(){
+  const list=document.getElementById('linksList');
+  const query=(document.getElementById('linkSearch')?.value||'').toLowerCase();
+  let links=[...STATE.links];
+  if(query)links=links.filter(l=>(l.title+l.url+l.category).toLowerCase().includes(query));
+  document.getElementById('linkCount').textContent='('+STATE.links.length+')';
+  if(links.length===0){
+    list.innerHTML='<div class="empty-state"><div class="empty-state-icon">🔗</div><h3>No links saved</h3><p>Add your first important link above.</p></div>';
+    return;
+  }
+  const catIcons={article:'📄',tool:'🛠️',video:'🎥',docs:'📚',other:'🔧'};
+  const catColors={article:'#0ea5e9',tool:'#6366f1',video:'#ec4899',docs:'#22c55e',other:'#94a3b8'};
+  list.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">'+links.map(l=>{
+    const fav=getLinkFavicon(l.url);
+    const c=catColors[l.category]||catColors.other;
+    return `<div class="card" style="display:flex;flex-direction:column;gap:12px;padding:20px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="${fav}" onerror="this.style.display='none'" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;background:var(--surface-elevated);padding:4px;" alt="">
+        <div style="min-width:0;flex:1;">
+          <div style="font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${l.title}">${l.title}</div>
+          <div style="font-size:12px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${getLinkDomain(l.url)}</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;background:${c}22;color:${c};">${catIcons[l.category]||'🔧'} ${(l.category||'other').charAt(0).toUpperCase()+(l.category||'other').slice(1)}</span>
+        <div style="display:flex;gap:8px;">
+          <a href="${l.url}" target="_blank" class="btn btn-primary btn-sm" style="text-decoration:none;">Open</a>
+          <button class="btn btn-danger btn-sm" onclick="deleteLink('${l.id}')">Delete</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('')+'</div>';
+}
+
 // ==================== INIT ====================
 async function init(){
   await syncServerTime();
@@ -3053,6 +3184,7 @@ async function init(){
       STATE.friends = (await dbGetFriends(userId)).map(f=>f.friend_id);
       STATE.friendRequests = await dbGetFriendRequests(userId);
       STATE.leaderboard = await dbGetLeaderboard();
+      STATE.links = await dbGetLinks(userId);
       // No demo fallback — leaderboard stays empty until real data loads
       checkDayRollover();
       saveState();
