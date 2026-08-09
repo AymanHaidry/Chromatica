@@ -23,7 +23,7 @@
   --text-primary:#fafafa;
   --text-secondary:#a1a1aa;
   --text-muted:#52525b;
-  --border:var(--border);
+  --border:rgba(255,255,255,0.06);
   --gradient:linear-gradient(135deg,#d946ef,#f43f5e,#f59e0b);
   --gradient-soft:linear-gradient(135deg,rgba(217,70,239,0.15),rgba(244,63,94,0.15),rgba(245,158,11,0.15));
   --prism-1:#d946ef;
@@ -33,9 +33,9 @@
   --nav-bg:rgba(10,10,15,0.9);
   --glass-bg:rgba(20,20,25,0.75);
   --overlay-bg:rgba(0,0,0,0.7);
-  --track-bg:var(--track-bg);
-  --hover-bg:var(--hover-bg);
-  --border-strong:var(--border-strong);
+  --track-bg:rgba(255,255,255,0.05);
+  --hover-bg:rgba(255,255,255,0.03);
+  --border-strong:rgba(255,255,255,0.1);
   --primary-soft:rgba(217,70,239,0.15);
   --primary-medium:rgba(217,70,239,0.3);
   --primary-glow:rgba(217,70,239,0.5);
@@ -196,6 +196,247 @@
   --danger-faint:rgba(248,113,113,0.1);
   --shadow-color:rgba(0,0,0,0.5);
 }
+
+
+[data-theme="ember"] {
+  --bg:#1a0a00;
+  --surface:#2d1405;
+  --surface-elevated:#3d1c08;
+  --surface-hover:#4f260c;
+  --primary:#ff6b35;
+  --secondary:#f7931e;
+  --success:#10b981;
+  --warning:#fbbf24;
+  --danger:#ef4444;
+  --text-primary:#fff7ed;
+  --text-secondary:#fdba74;
+  --text-muted:#9a3412;
+  --border:rgba(255,255,255,0.06);
+  --gradient:linear-gradient(135deg,#ff6b35,#f7931e,#fbbf24);
+  --gradient-soft:linear-gradient(135deg,rgba(255,107,53,0.15),rgba(247,147,30,0.15),rgba(251,191,36,0.15));
+  --prism-1:#ff6b35;
+  --prism-2:#f7931e;
+  --prism-3:#fbbf24;
+  --glow:rgba(255,107,53,0.4);
+  --nav-bg:rgba(26,10,0,0.9);
+  --glass-bg:rgba(45,20,5,0.75);
+  --overlay-bg:rgba(0,0,0,0.7);
+  --track-bg:rgba(255,255,255,0.05);
+  --hover-bg:rgba(255,255,255,0.03);
+  --border-strong:rgba(255,255,255,0.1);
+  --primary-soft:rgba(255,107,53,0.15);
+  --primary-medium:rgba(255,107,53,0.3);
+  --primary-glow:rgba(255,107,53,0.5);
+  --primary-faint:rgba(255,107,53,0.08);
+  --secondary-soft:rgba(247,147,30,0.15);
+  --secondary-medium:rgba(247,147,30,0.3);
+  --success-soft:rgba(16,185,129,0.15);
+  --success-faint:rgba(16,185,129,0.05);
+  --success-medium:rgba(16,185,129,0.3);
+  --warning-soft:rgba(251,191,36,0.15);
+  --warning-faint:rgba(251,191,36,0.08);
+  --danger-soft:rgba(239,68,68,0.15);
+  --danger-medium:rgba(239,68,68,0.3);
+  --danger-faint:rgba(239,68,68,0.1);
+  --shadow-color:rgba(0,0,0,0.5);
+}
+
+[data-theme="neon"] {
+  --bg:#050505;
+  --surface:#0a0a0a;
+  --surface-elevated:#111111;
+  --surface-hover:#1a1a1a;
+  --primary:#39ff14;
+  --secondary:#00f0ff;
+  --success:#39ff14;
+  --warning:#fffc00;
+  --danger:#ff003c;
+  --text-primary:#e8e8e8;
+  --text-secondary:#888888;
+  --text-muted:#444444;
+  --border:rgba(57,255,20,0.1);
+  --gradient:linear-gradient(135deg,#39ff14,#00f0ff,#ff00ff);
+  --gradient-soft:linear-gradient(135deg,rgba(57,255,20,0.15),rgba(0,240,255,0.15),rgba(255,0,255,0.15));
+  --prism-1:#39ff14;
+  --prism-2:#00f0ff;
+  --prism-3:#ff00ff;
+  --glow:rgba(57,255,20,0.4);
+  --nav-bg:rgba(5,5,5,0.9);
+  --glass-bg:rgba(10,10,10,0.75);
+  --overlay-bg:rgba(0,0,0,0.8);
+  --track-bg:rgba(57,255,20,0.05);
+  --hover-bg:rgba(57,255,20,0.03);
+  --border-strong:rgba(57,255,20,0.15);
+  --primary-soft:rgba(57,255,20,0.15);
+  --primary-medium:rgba(57,255,20,0.3);
+  --primary-glow:rgba(57,255,20,0.5);
+  --primary-faint:rgba(57,255,20,0.08);
+  --secondary-soft:rgba(0,240,255,0.15);
+  --secondary-medium:rgba(0,240,255,0.3);
+  --success-soft:rgba(57,255,20,0.15);
+  --success-faint:rgba(57,255,20,0.05);
+  --success-medium:rgba(57,255,20,0.3);
+  --warning-soft:rgba(255,252,0,0.15);
+  --warning-faint:rgba(255,252,0,0.08);
+  --danger-soft:rgba(255,0,60,0.15);
+  --danger-medium:rgba(255,0,60,0.3);
+  --danger-faint:rgba(255,0,60,0.1);
+  --shadow-color:rgba(0,0,0,0.6);
+}
+
+[data-theme="sakura"] {
+  --bg:#fff0f5;
+  --surface:#ffe4ec;
+  --surface-elevated:#ffd6e3;
+  --surface-hover:#ffc9d8;
+  --primary:#db2777;
+  --secondary:#f472b6;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --text-primary:#4a0a23;
+  --text-secondary:#9d174d;
+  --text-muted:#f9a8d4;
+  --border:rgba(219,39,119,0.08);
+  --gradient:linear-gradient(135deg,#db2777,#f472b6,#fbbf24);
+  --gradient-soft:linear-gradient(135deg,rgba(219,39,119,0.10),rgba(244,114,182,0.08),rgba(251,191,36,0.12));
+  --prism-1:#db2777;
+  --prism-2:#f472b6;
+  --prism-3:#fbbf24;
+  --glow:rgba(219,39,119,0.2);
+  --nav-bg:rgba(255,240,245,0.88);
+  --glass-bg:rgba(255,228,236,0.72);
+  --overlay-bg:rgba(74,10,35,0.35);
+  --track-bg:rgba(219,39,119,0.08);
+  --hover-bg:rgba(219,39,119,0.04);
+  --border-strong:rgba(219,39,119,0.12);
+  --shadow-color:rgba(74,10,35,0.08);
+}
+
+[data-theme="forest"] {
+  --bg:#0c1f0c;
+  --surface:#143214;
+  --surface-elevated:#1a401a;
+  --surface-hover:#225022;
+  --primary:#4ade80;
+  --secondary:#22c55e;
+  --success:#10b981;
+  --warning:#eab308;
+  --danger:#ef4444;
+  --text-primary:#f0fdf4;
+  --text-secondary:#86efac;
+  --text-muted:#166534;
+  --border:rgba(74,222,128,0.08);
+  --gradient:linear-gradient(135deg,#4ade80,#22c55e,#a3e635);
+  --gradient-soft:linear-gradient(135deg,rgba(74,222,128,0.15),rgba(34,197,94,0.15),rgba(163,230,53,0.15));
+  --prism-1:#4ade80;
+  --prism-2:#22c55e;
+  --prism-3:#a3e635;
+  --glow:rgba(74,222,128,0.35);
+  --nav-bg:rgba(12,31,12,0.9);
+  --glass-bg:rgba(20,50,20,0.75);
+  --overlay-bg:rgba(0,0,0,0.6);
+  --track-bg:rgba(74,222,128,0.05);
+  --hover-bg:rgba(74,222,128,0.03);
+  --border-strong:rgba(74,222,128,0.12);
+  --primary-soft:rgba(74,222,128,0.15);
+  --primary-medium:rgba(74,222,128,0.3);
+  --primary-glow:rgba(74,222,128,0.5);
+  --primary-faint:rgba(74,222,128,0.08);
+  --secondary-soft:rgba(34,197,94,0.15);
+  --secondary-medium:rgba(34,197,94,0.3);
+  --success-soft:rgba(16,185,129,0.15);
+  --success-faint:rgba(16,185,129,0.05);
+  --success-medium:rgba(16,185,129,0.3);
+  --warning-soft:rgba(234,179,8,0.15);
+  --warning-faint:rgba(234,179,8,0.08);
+  --danger-soft:rgba(239,68,68,0.15);
+  --danger-medium:rgba(239,68,68,0.3);
+  --danger-faint:rgba(239,68,68,0.1);
+  --shadow-color:rgba(0,0,0,0.5);
+}
+
+/* ===== SIMPLE + PREMIUM THEMES ===== */
+[data-theme="midnight"]{
+  --bg:#090b10;--surface:#11151c;--surface-elevated:#171d26;--surface-hover:#202833;
+  --primary:#f5f7fa;--secondary:#94a3b8;--success:#34d399;--warning:#fbbf24;--danger:#fb7185;
+  --text-primary:#f8fafc;--text-secondary:#a7b0bd;--text-muted:#667085;--border:rgba(255,255,255,.09);
+  --gradient:linear-gradient(135deg,#f8fafc,#94a3b8);--gradient-soft:linear-gradient(135deg,rgba(255,255,255,.08),rgba(148,163,184,.05));
+  --prism-1:#f8fafc;--prism-2:#94a3b8;--prism-3:#475569;--glow:rgba(255,255,255,.18);
+  --nav-bg:rgba(9,11,16,.78);--glass-bg:rgba(255,255,255,.045);--overlay-bg:rgba(0,0,0,.72);
+  --track-bg:rgba(255,255,255,.07);--hover-bg:rgba(255,255,255,.04);--border-strong:rgba(255,255,255,.15);
+  --primary-soft:rgba(255,255,255,.08);--primary-medium:rgba(255,255,255,.15);--primary-glow:rgba(255,255,255,.24);--primary-faint:rgba(255,255,255,.04);
+  --secondary-soft:rgba(148,163,184,.12);--secondary-medium:rgba(148,163,184,.2);--success-soft:rgba(52,211,153,.12);--success-faint:rgba(52,211,153,.04);--success-medium:rgba(52,211,153,.24);
+  --warning-soft:rgba(251,191,36,.12);--warning-faint:rgba(251,191,36,.06);--danger-soft:rgba(251,113,133,.12);--danger-medium:rgba(251,113,133,.24);--danger-faint:rgba(251,113,133,.06);--shadow-color:rgba(0,0,0,.42);
+}
+[data-theme="snow"]{
+  --bg:#f6f7f9;--surface:#ffffff;--surface-elevated:#f0f2f5;--surface-hover:#e7eaf0;
+  --primary:#111827;--secondary:#4b5563;--success:#059669;--warning:#d97706;--danger:#dc2626;
+  --text-primary:#111827;--text-secondary:#4b5563;--text-muted:#9ca3af;--border:rgba(17,24,39,.09);
+  --gradient:linear-gradient(135deg,#111827,#6b7280);--gradient-soft:linear-gradient(135deg,rgba(17,24,39,.06),rgba(107,114,128,.04));
+  --prism-1:#111827;--prism-2:#6b7280;--prism-3:#d1d5db;--glow:rgba(17,24,39,.12);
+  --nav-bg:rgba(255,255,255,.76);--glass-bg:rgba(255,255,255,.58);--overlay-bg:rgba(17,24,39,.35);
+  --track-bg:rgba(17,24,39,.08);--hover-bg:rgba(17,24,39,.04);--border-strong:rgba(17,24,39,.13);
+  --primary-soft:rgba(17,24,39,.07);--primary-medium:rgba(17,24,39,.13);--primary-glow:rgba(17,24,39,.18);--primary-faint:rgba(17,24,39,.035);
+  --secondary-soft:rgba(75,85,99,.1);--secondary-medium:rgba(75,85,99,.18);--success-soft:rgba(5,150,105,.1);--success-faint:rgba(5,150,105,.04);--success-medium:rgba(5,150,105,.2);
+  --warning-soft:rgba(217,119,6,.1);--warning-faint:rgba(217,119,6,.05);--danger-soft:rgba(220,38,38,.1);--danger-medium:rgba(220,38,38,.2);--danger-faint:rgba(220,38,38,.05);--shadow-color:rgba(17,24,39,.12);
+}
+[data-theme="coffee"]{
+  --bg:#17110d;--surface:#211812;--surface-elevated:#2a1f18;--surface-hover:#35271f;
+  --primary:#f1c27d;--secondary:#d6a56f;--success:#8fbc8f;--warning:#eab676;--danger:#e58b8b;
+  --text-primary:#fff7ed;--text-secondary:#d6c2ad;--text-muted:#8f7a67;--border:rgba(255,236,214,.1);
+  --gradient:linear-gradient(135deg,#f1c27d,#c08457,#8b5e3c);--gradient-soft:linear-gradient(135deg,rgba(241,194,125,.13),rgba(192,132,87,.08));
+  --prism-1:#f1c27d;--prism-2:#c08457;--prism-3:#8b5e3c;--glow:rgba(241,194,125,.25);
+  --nav-bg:rgba(23,17,13,.78);--glass-bg:rgba(255,236,214,.055);--overlay-bg:rgba(10,6,4,.72);
+  --track-bg:rgba(255,236,214,.08);--hover-bg:rgba(255,236,214,.045);--border-strong:rgba(255,236,214,.15);
+  --primary-soft:rgba(241,194,125,.12);--primary-medium:rgba(241,194,125,.22);--primary-glow:rgba(241,194,125,.3);--primary-faint:rgba(241,194,125,.055);
+  --secondary-soft:rgba(214,165,111,.12);--secondary-medium:rgba(214,165,111,.2);--success-soft:rgba(143,188,143,.12);--success-faint:rgba(143,188,143,.05);--success-medium:rgba(143,188,143,.22);
+  --warning-soft:rgba(234,182,118,.12);--warning-faint:rgba(234,182,118,.06);--danger-soft:rgba(229,139,139,.12);--danger-medium:rgba(229,139,139,.22);--danger-faint:rgba(229,139,139,.06);--shadow-color:rgba(0,0,0,.45);
+}
+[data-theme="parchment"]{
+  --bg:#eee6d7;--surface:#f8f1e5;--surface-elevated:#e8ddc9;--surface-hover:#ded0b8;
+  --primary:#5b4636;--secondary:#806b57;--success:#4d7c5a;--warning:#a36b25;--danger:#a34f4f;
+  --text-primary:#34281f;--text-secondary:#665547;--text-muted:#9a8874;--border:rgba(91,70,54,.12);
+  --gradient:linear-gradient(135deg,#5b4636,#9a7655,#c8a77a);--gradient-soft:linear-gradient(135deg,rgba(91,70,54,.08),rgba(154,118,85,.06));
+  --prism-1:#5b4636;--prism-2:#9a7655;--prism-3:#c8a77a;--glow:rgba(91,70,54,.16);
+  --nav-bg:rgba(248,241,229,.78);--glass-bg:rgba(255,250,240,.48);--overlay-bg:rgba(52,40,31,.35);
+  --track-bg:rgba(91,70,54,.1);--hover-bg:rgba(91,70,54,.05);--border-strong:rgba(91,70,54,.17);
+  --primary-soft:rgba(91,70,54,.09);--primary-medium:rgba(91,70,54,.17);--primary-glow:rgba(91,70,54,.22);--primary-faint:rgba(91,70,54,.045);
+  --secondary-soft:rgba(128,107,87,.1);--secondary-medium:rgba(128,107,87,.18);--success-soft:rgba(77,124,90,.1);--success-faint:rgba(77,124,90,.04);--success-medium:rgba(77,124,90,.2);
+  --warning-soft:rgba(163,107,37,.1);--warning-faint:rgba(163,107,37,.05);--danger-soft:rgba(163,79,79,.1);--danger-medium:rgba(163,79,79,.2);--danger-faint:rgba(163,79,79,.05);--shadow-color:rgba(91,70,54,.14);
+}
+
+[data-theme="marvel"]{
+  --bg:#05070b;--surface:#0b1018;--surface-elevated:#111a26;--surface-hover:#182536;
+  --primary:#ffb52e;--secondary:#e53935;--success:#35d07f;--warning:#ffd166;--danger:#ff4d5a;
+  --text-primary:#f7f9fc;--text-secondary:#aab5c5;--text-muted:#566477;--border:rgba(255,255,255,.10);
+  --gradient:linear-gradient(120deg,#ffcf55,#ff8a2a,#e53935,#5c7cfa);--gradient-soft:linear-gradient(120deg,rgba(255,207,85,.12),rgba(229,57,53,.08),rgba(92,124,250,.08));
+  --prism-1:#ffcf55;--prism-2:#ff7a45;--prism-3:#5c7cfa;--glow:rgba(255,181,46,.32);
+  --nav-bg:rgba(5,7,11,.72);--glass-bg:rgba(255,255,255,.045);--overlay-bg:rgba(0,0,0,.78);
+  --track-bg:rgba(255,255,255,.07);--hover-bg:rgba(255,255,255,.045);--border-strong:rgba(255,207,85,.22);
+  --primary-soft:rgba(255,181,46,.12);--primary-medium:rgba(255,181,46,.24);--primary-glow:rgba(255,181,46,.38);--primary-faint:rgba(255,181,46,.055);
+  --secondary-soft:rgba(229,57,53,.12);--secondary-medium:rgba(229,57,53,.24);--success-soft:rgba(53,208,127,.12);--success-faint:rgba(53,208,127,.05);--success-medium:rgba(53,208,127,.24);
+  --warning-soft:rgba(255,209,102,.12);--warning-faint:rgba(255,209,102,.06);--danger-soft:rgba(255,77,90,.12);--danger-medium:rgba(255,77,90,.24);--danger-faint:rgba(255,77,90,.06);--shadow-color:rgba(0,0,0,.55);
+}
+[data-theme="marvel"] body::before{
+  background:radial-gradient(circle at 18% 15%,rgba(255,181,46,.16),transparent 24%),radial-gradient(circle at 82% 18%,rgba(92,124,250,.13),transparent 25%),radial-gradient(circle at 50% 88%,rgba(229,57,53,.10),transparent 30%),linear-gradient(180deg,#05070b,#08101a 55%,#05070b);
+  filter:blur(55px) saturate(135%);
+}
+[data-theme="marvel"] body::after{background:radial-gradient(circle at 50% 50%,transparent 42%,rgba(0,0,0,.45) 100%),repeating-linear-gradient(90deg,transparent 0,transparent 7px,rgba(255,255,255,.012) 8px);opacity:.5;}
+[data-theme="marvel"] .nav{border-color:rgba(255,207,85,.24);box-shadow:0 18px 60px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.18);}
+[data-theme="marvel"] .nav-logo span{letter-spacing:.08em;text-transform:uppercase;}
+[data-theme="marvel"] .nav-logo span::after{content:' // STARK PROTOCOL';color:var(--primary);font-size:.48em;vertical-align:middle;margin-left:8px;letter-spacing:.16em;}
+[data-theme="marvel"] .hero-title .gradient-text::after{content:'  // PROTOCOL ONLINE';display:block;color:var(--primary);font-family:'JetBrains Mono',monospace;font-size:.24em;letter-spacing:.16em;margin-top:12px;}
+[data-theme="marvel"] .hero-tagline::before{content:'[ S.H.I.E.L.D. // ';}
+[data-theme="marvel"] .hero-tagline::after{content:' ]';}
+[data-theme="marvel"] .hero-bg{background:radial-gradient(circle at 30% 20%,rgba(255,207,85,.18),transparent 20%),radial-gradient(circle at 72% 28%,rgba(92,124,250,.14),transparent 23%),radial-gradient(circle at 50% 78%,rgba(229,57,53,.12),transparent 25%);filter:blur(50px) saturate(150%);}
+[data-theme="marvel"] .card,[data-theme="marvel"] .auth-container{box-shadow:0 22px 70px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.12);}
+[data-theme="marvel"] .btn-primary{background:linear-gradient(135deg,#ffd45c,#ff9f2f,#e53935);color:#090b10;box-shadow:0 12px 36px rgba(255,181,46,.22);}
+[data-theme="marvel"] .streak-flame .flame{filter:drop-shadow(0 0 10px #ffb52e);}
+[data-theme="marvel"] .section-title span{filter:drop-shadow(0 0 8px rgba(255,181,46,.35));}
+[data-theme="marvel"] .theme-card[data-theme="marvel"]{background:linear-gradient(135deg,rgba(255,181,46,.13),rgba(92,124,250,.10));border-color:rgba(255,207,85,.35);}
+
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body {
@@ -385,6 +626,32 @@ body::after{
 .card-elevated{background:var(--surface-elevated);border:1px solid var(--primary-soft)}
 
 .glass{background:var(--glass-bg);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:1px solid rgba(255,255,255,0.65);box-shadow:0 24px 60px rgba(0,0,0,0.10),inset 0 1px 0 rgba(255,255,255,0.75);}
+
+/* ===== LIQUID GLASS 2.0 ===== */
+:root{
+  --glass-bg:rgba(255,255,255,.045);--glass-bg-hover:rgba(255,255,255,.075);
+  --glass-border:rgba(255,255,255,.18);--glass-border-top:rgba(255,255,255,.40);
+  --glass-shadow:0 8px 32px rgba(0,0,0,.34),0 2px 8px rgba(0,0,0,.18);
+  --glass-inset:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.12);
+  --glass-blur:blur(24px) saturate(180%);--glass-blur-heavy:blur(40px) saturate(200%) brightness(1.06);
+  --glass-refract:rgba(126,255,245,.06);
+}
+.card,.nav,.auth-container,.modal,.tabs,.glass-surface,.glass{
+  background:var(--glass-bg);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-top-color:var(--glass-border-top);
+  box-shadow:var(--glass-shadow),var(--glass-inset);position:relative;overflow:hidden;
+}
+.card::before,.nav::before,.auth-container::before,.modal::before,.tabs::before,.glass-surface::before,.glass::before{
+  content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.025) 30%,transparent 52%,var(--glass-refract) 72%,rgba(255,126,244,.025));pointer-events:none;z-index:0;
+}
+.card::after,.nav::after,.auth-container::after,.modal::after,.tabs::after,.glass-surface::after,.glass::after{
+  content:'';position:absolute;top:-70%;left:-70%;width:240%;height:240%;background:conic-gradient(from 0deg at 30% 30%,transparent 0deg,rgba(255,255,255,.018) 45deg,transparent 85deg,var(--glass-refract) 145deg,transparent 205deg,rgba(255,255,255,.012) 285deg,transparent 360deg);animation:causticSpin 16s linear infinite;pointer-events:none;z-index:0;
+}
+.card>* ,.nav>* ,.auth-container>* ,.modal>* ,.tabs>* ,.glass-surface>* ,.glass>*{position:relative;z-index:1;}
+.card:hover,.glass:hover{background:var(--glass-bg-hover);}
+@keyframes causticSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.card::after,.nav::after,.auth-container::after,.modal::after,.tabs::after,.glass-surface::after,.glass::after{animation:none}}
+
 
 .progress-ring-container{position:relative;display:inline-flex;align-items:center;justify-content:center}
 .progress-ring-svg{transform:rotate(-90deg)}
@@ -686,6 +953,31 @@ body::after{
 .theme-name{font-weight:700;font-size:13px;margin-bottom:2px;color:var(--text-primary);}
 .theme-desc{font-size:11px;color:var(--text-secondary);}
 
+
+/* ===== STUDY TIMER ===== */
+.study-timer-display{font-family:"SF Mono","SFMono-Regular",ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:clamp(48px,10vw,96px);font-weight:700;text-align:center;letter-spacing:-0.02em;line-height:1;margin:24px 0;}
+.study-timer-display.running{color:var(--primary);animation:tokenGlow 2s ease-in-out infinite;}
+.study-timer-display.paused{color:var(--warning);}
+.study-timer-display.stopped{color:var(--text-muted);}
+.study-controls{display:flex;gap:12px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;}
+.study-subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:24px;}
+.study-subject-btn{padding:14px 10px;border-radius:14px;border:2px solid var(--border);background:var(--surface);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;transition:all 0.25s ease;text-align:center;font-family:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+.study-subject-btn:hover{border-color:var(--primary-medium);background:var(--surface-elevated);color:var(--text-primary);}
+.study-subject-btn.active{border-color:var(--primary);background:var(--primary-faint);color:var(--primary);box-shadow:0 0 20px var(--primary-soft);}
+.study-session-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:14px;transition:all 0.2s ease;}
+.study-session-card:hover{border-color:var(--primary-soft);}
+.study-session-time{font-family:"SF Mono","SFMono-Regular",ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:13px;color:var(--text-muted);min-width:80px;}
+.study-session-subject{font-weight:600;font-size:14px;flex:1;}
+.study-session-duration{font-family:"SF Mono","SFMono-Regular",ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:14px;font-weight:700;color:var(--primary);}
+.study-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+.study-stat-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;text-align:center;}
+.study-stat-value{font-family:"SF Mono","SFMono-Regular",ui-monospace,Menlo,Monaco,Consolas,monospace;font-size:24px;font-weight:700;color:var(--primary);}
+.study-stat-label{font-size:11px;color:var(--text-secondary);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em;}
+.study-timer-ring{position:relative;width:240px;height:240px;margin:0 auto 24px;}
+.study-timer-ring svg{transform:rotate(-90deg);}
+.study-timer-ring-bg{fill:none;stroke:var(--track-bg);stroke-width:8;}
+.study-timer-ring-fill{fill:none;stroke:url(#progressGradient);stroke-width:8;filter:drop-shadow(0 0 5px var(--primary-glow));stroke-linecap:round;transition:stroke-dashoffset 0.5s ease;}
+
 /* ===== MOBILE OPTIMIZATIONS ===== */
 @media(max-width:768px){
   .nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(36px) saturate(200%);-webkit-backdrop-filter:blur(36px) saturate(200%);border-bottom:1px solid rgba(255,255,255,0.65);padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 40px rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.7);}
@@ -794,15 +1086,227 @@ body::after{
   .btn-sm{padding:10px 16px}
 }
 
+
+
+/* ================================================================
+   STUDY TIMER — dedicated page header
+   ================================================================ */
+.study-hero-header{
+  min-height:112px;
+  margin:0 0 24px;
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  border-radius:22px;
+  isolation:isolate;
+}
+.study-hero-header::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--primary),var(--secondary),transparent);
+  opacity:.8;
+}
+.study-hero-icon{
+  width:62px;height:62px;flex:0 0 62px;
+  display:grid;place-items:center;
+  border-radius:18px;
+  font-size:30px;
+  background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.035));
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 10px 28px rgba(0,0,0,.18);
+}
+.study-hero-copy{min-width:0}
+.study-hero-eyebrow{
+  font-size:10px;font-weight:800;letter-spacing:.18em;
+  color:var(--primary);margin-bottom:3px;
+}
+.study-hero-copy h1{
+  margin:0;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:30px;line-height:1.1;font-weight:800;
+  letter-spacing:-.025em;
+}
+.study-hero-copy p{
+  margin:6px 0 0;
+  color:var(--text-secondary);font-size:13px;
+}
+.study-hero-status{
+  margin-left:auto;
+  display:flex;align-items:center;gap:7px;
+  padding:8px 11px;border-radius:999px;
+  font-size:10px;font-weight:800;letter-spacing:.12em;
+  color:var(--text-secondary);
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--glass-border);
+}
+.study-hero-status span{
+  width:7px;height:7px;border-radius:50%;
+  background:#34d399;box-shadow:0 0 12px #34d399;
+}
+@media(max-width:600px){
+  .study-hero-header{padding:18px;min-height:96px}
+  .study-hero-icon{width:50px;height:50px;flex-basis:50px;font-size:24px}
+  .study-hero-copy h1{font-size:24px}
+  .study-hero-status{display:none}
+}
+
+/* ================================================================
+   CHROMATICA LIQUID GLASS v3
+   ================================================================ */
+:root{
+  --glass-bg:rgba(255,255,255,.045);
+  --glass-bg-hover:rgba(255,255,255,.075);
+  --glass-border:rgba(255,255,255,.18);
+  --glass-border-top:rgba(255,255,255,.42);
+  --glass-shadow:0 18px 48px rgba(0,0,0,.30),0 4px 12px rgba(0,0,0,.16);
+  --glass-inset:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.12);
+  --glass-blur:blur(24px) saturate(180%);
+  --glass-refract:rgba(126,255,245,.05);
+}
+.glass,.card,.auth-container,.modal,.nav,.tabs,.profile-header,.profile-stat-card,.study-page-header{
+  background:var(--glass-bg);
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);
+  border-top-color:var(--glass-border-top);
+  box-shadow:var(--glass-shadow),var(--glass-inset);
+}
+.glass,.card,.auth-container,.modal,.profile-header,.profile-stat-card,.study-page-header{position:relative;overflow:hidden}
+.glass::before,.card::before,.auth-container::before,.modal::before,.profile-header::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.11) 0%,rgba(255,255,255,.035) 28%,transparent 52%,var(--glass-refract) 100%);
+}
+.glass>* ,.card>* ,.auth-container>* ,.modal>* ,.profile-header>* ,.study-page-header>*{position:relative;z-index:1}
+.card:hover{background:var(--glass-bg-hover)}
+.input-field,.btn-secondary,.goal-action-btn,.modal-close,.theme-card,.study-subject-btn{
+  background:rgba(255,255,255,.055);
+  border:1px solid var(--glass-border);
+}
+.input-field{backdrop-filter:blur(16px) saturate(165%);-webkit-backdrop-filter:blur(16px) saturate(165%)}
+.nav{background:rgba(255,255,255,.055)}
+.nav::after{content:"";position:absolute;left:8%;right:8%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--glass-border-top),transparent);pointer-events:none}
+
+/* Premium themes stay cheap: variables + one background layer, no particle systems. */
+[data-theme="midnight"] body::before,[data-theme="snow"] body::before{filter:blur(42px);}
+[data-theme="coffee"] body::before{background:radial-gradient(circle at 18% 12%,rgba(241,194,125,.16),transparent 28%),radial-gradient(circle at 82% 22%,rgba(139,94,60,.13),transparent 30%),linear-gradient(180deg,#21170f,#17100c);filter:blur(46px)}
+[data-theme="parchment"] body::before{background:radial-gradient(circle at 20% 12%,rgba(255,255,255,.9),transparent 28%),radial-gradient(circle at 80% 22%,rgba(200,167,122,.22),transparent 30%),linear-gradient(180deg,#fff8ea,#eee1cb);filter:blur(46px)}
+
+/* ================================================================
+   MCU / INFINITY PROTOCOL — full-app transformation
+   ================================================================ */
+[data-theme="marvel"]{
+  --bg:#04070c;--surface:#0a1019;--surface-elevated:#101a28;--surface-hover:#172438;
+  --primary:#ffd45c;--secondary:#5c7cfa;--success:#35d39a;--warning:#ffb52e;--danger:#ef5350;
+  --text-primary:#f5f8ff;--text-secondary:#9eacc0;--text-muted:#536176;
+  --border:rgba(255,255,255,.09);--border-strong:rgba(255,212,92,.22);
+  --gradient:linear-gradient(110deg,#ffd45c,#ff9f2f 30%,#e53935 52%,#5c7cfa 78%,#9b6cff);
+  --gradient-soft:linear-gradient(110deg,rgba(255,212,92,.14),rgba(229,57,53,.10),rgba(92,124,250,.12));
+  --prism-1:#ffd45c;--prism-2:#e53935;--prism-3:#5c7cfa;--glow:rgba(92,124,250,.30);
+  --nav-bg:rgba(4,7,12,.82);--glass-bg:rgba(10,16,25,.62);--overlay-bg:rgba(0,0,0,.80);
+  --track-bg:rgba(255,255,255,.07);--hover-bg:rgba(255,212,92,.045);
+  --glass-border:rgba(174,199,255,.14);--glass-border-top:rgba(255,255,255,.28);
+  --glass-shadow:0 24px 70px rgba(0,0,0,.50),inset 0 1px 0 rgba(255,255,255,.13);
+}
+[data-theme="marvel"] body{font-family:"Space Grotesk","Segoe UI",sans-serif;background:var(--bg);}
+[data-theme="marvel"] body::before{background:radial-gradient(circle at 18% 12%,rgba(255,181,46,.18),transparent 23%),radial-gradient(circle at 78% 20%,rgba(92,124,250,.17),transparent 27%),radial-gradient(circle at 52% 85%,rgba(229,57,53,.12),transparent 25%);filter:blur(48px) saturate(150%)}
+[data-theme="marvel"] body::after{background:radial-gradient(circle at 50% 0,rgba(255,255,255,.08),transparent 28%),repeating-linear-gradient(90deg,transparent 0 8px,rgba(255,255,255,.012) 9px);opacity:.5;animation:none}
+[data-theme="marvel"] .nav{border-radius:18px;background:linear-gradient(180deg,rgba(17,27,43,.88),rgba(5,9,15,.78));border-color:rgba(255,212,92,.20);box-shadow:0 20px 65px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.18)}
+[data-theme="marvel"] .nav-logo{letter-spacing:.08em;text-transform:uppercase}
+[data-theme="marvel"] .nav-logo span{background:var(--gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+[data-theme="marvel"] .nav-link{letter-spacing:.02em;text-transform:uppercase;font-size:11px}
+[data-theme="marvel"] .nav-link.active{background:linear-gradient(135deg,rgba(255,212,92,.14),rgba(92,124,250,.12));border:1px solid rgba(255,212,92,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+[data-theme="marvel"] .card,[data-theme="marvel"] .auth-container,[data-theme="marvel"] .modal,[data-theme="marvel"] .study-page-header{border-radius:20px;background:linear-gradient(145deg,rgba(17,27,43,.76),rgba(6,10,17,.70));}
+[data-theme="marvel"] .card:hover{transform:translateY(-2px);border-color:rgba(255,212,92,.28)}
+[data-theme="marvel"] .btn-primary{background:linear-gradient(135deg,#ffd45c,#ff9f2f,#e53935);color:#090b10;box-shadow:0 12px 36px rgba(255,181,46,.22)}
+[data-theme="marvel"] .btn-secondary{background:rgba(255,255,255,.04);color:var(--text-primary);border-color:rgba(174,199,255,.18)}
+[data-theme="marvel"] .hero-bg{background:radial-gradient(circle at 30% 20%,rgba(255,207,85,.20),transparent 20%),radial-gradient(circle at 72% 28%,rgba(92,124,250,.16),transparent 23%),radial-gradient(circle at 50% 78%,rgba(229,57,53,.13),transparent 25%);filter:blur(54px) saturate(160%)}
+[data-theme="marvel"] .hero-title{letter-spacing:-.045em}
+[data-theme="marvel"] .gradient-text{background:var(--gradient);background-size:240% 240%;animation:gradientShift 7s ease infinite}
+[data-theme="marvel"] .hero-tagline{color:#ffd45c;letter-spacing:.28em}
+[data-theme="marvel"] .section-title span{filter:drop-shadow(0 0 8px rgba(255,181,46,.35))}
+[data-theme="marvel"] .streak-flame .flame{filter:drop-shadow(0 0 10px #ffb52e)}
+[data-theme="marvel"] .study-page-header{border-color:rgba(255,212,92,.20)}
+
+/* Keep the MCU transformation functional on mobile too. */
+@media(max-width:768px){[data-theme="marvel"] .nav{border-radius:0;border-left:0;border-right:0;border-top:0}}
+
+/* ================================================================
+   CHROMATICA LIQUID GLASS v4 — deeper refraction / layered depth
+   ================================================================ */
+:root{
+  --glass-bg:rgba(255,255,255,.045);
+  --glass-bg-hover:rgba(255,255,255,.085);
+  --glass-border:rgba(255,255,255,.17);
+  --glass-border-top:rgba(255,255,255,.42);
+  --glass-shadow:0 20px 60px rgba(0,0,0,.28),0 5px 18px rgba(0,0,0,.16);
+  --glass-inset:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.12);
+  --glass-blur:blur(24px) saturate(180%);
+  --glass-blur-heavy:blur(40px) saturate(200%) brightness(1.06);
+}
+.glass,.card,.auth-container,.modal,.nav,.tabs,.profile-header,.profile-stat-card,.study-page-header,.theme-card,.study-subject-btn,.input-field,.btn-secondary,.goal-action-btn{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
+  backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);
+  border:1px solid var(--glass-border);border-top-color:var(--glass-border-top);
+  box-shadow:var(--glass-shadow),var(--glass-inset);
+}
+.glass::before,.card::before,.auth-container::before,.modal::before,.nav::before,.tabs::before,.profile-header::before,.profile-stat-card::before,.study-page-header::before,.theme-card::before,.study-subject-btn::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.035) 28%,transparent 52%,rgba(126,255,245,.035) 76%,rgba(255,126,244,.025));
+}
+.glass::after,.card::after,.auth-container::after,.modal::after,.nav::after,.tabs::after,.profile-header::after,.profile-stat-card::after,.study-page-header::after,.theme-card::after,.study-subject-btn::after{
+  content:"";position:absolute;top:-70%;left:-55%;width:210%;height:210%;pointer-events:none;z-index:0;
+  background:conic-gradient(from 15deg at 30% 30%,transparent 0deg,rgba(255,255,255,.018) 45deg,transparent 85deg,rgba(126,255,245,.018) 145deg,transparent 205deg,rgba(255,255,255,.012) 285deg,transparent 360deg);
+  animation:glassCaustic 18s linear infinite;opacity:.8;
+}
+.glass>* ,.card>* ,.auth-container>* ,.modal>* ,.nav>* ,.tabs>* ,.profile-header>* ,.profile-stat-card>* ,.study-page-header>* ,.theme-card>* ,.study-subject-btn>*{position:relative;z-index:1}
+@keyframes glassCaustic{to{transform:rotate(360deg)}}
+.input-field:focus{box-shadow:0 0 0 3px var(--primary-faint),0 12px 34px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.28)}
+.card:hover,.theme-card:hover,.study-subject-btn:hover{transform:translateY(-2px);background:var(--glass-bg-hover)}
+.study-page-header{padding:22px 24px;margin-bottom:18px;border-radius:20px}
+.study-page-header .section-title{display:flex;align-items:center;gap:10px}
+.study-page-header .section-title span{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--gradient-soft);border:1px solid var(--border-strong);box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
+.background-motion-card{padding:18px 20px}
+.motion-toggle{position:relative;display:inline-block;width:52px;height:30px;flex:0 0 auto}
+.motion-toggle input{opacity:0;width:0;height:0}
+.motion-toggle span{position:absolute;inset:0;border-radius:999px;background:var(--surface-elevated);border:1px solid var(--border-strong);cursor:pointer;transition:.2s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.motion-toggle span::before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;border-radius:50%;background:var(--text-secondary);transition:.2s ease;box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.motion-toggle input:checked+span{background:var(--primary-soft);border-color:var(--primary-medium)}
+.motion-toggle input:checked+span::before{transform:translateX(22px);background:var(--primary);box-shadow:0 0 14px var(--primary-glow)}
+#chromatica-bg{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none;opacity:.72;transition:opacity .35s ease}
+.motion-disabled #chromatica-bg{opacity:0!important}
+[data-theme="midnight"] #chromatica-bg,[data-theme="snow"] #chromatica-bg,[data-theme="parchment"] #chromatica-bg,[data-theme="coffee"] #chromatica-bg{display:none}
+[data-theme="midnight"] body::after,[data-theme="snow"] body::after,[data-theme="parchment"] body::after,[data-theme="coffee"] body::after{animation:none!important}
+[data-theme="midnight"] body::before,[data-theme="snow"] body::before,[data-theme="parchment"] body::before,[data-theme="coffee"] body::before{animation:none!important}
+[data-theme="parchment"] .card,[data-theme="parchment"] .nav,[data-theme="parchment"] .modal,[data-theme="parchment"] .study-page-header{background:linear-gradient(145deg,rgba(255,251,242,.66),rgba(239,226,203,.48));border-color:rgba(91,70,54,.16);border-top-color:rgba(255,255,255,.78);box-shadow:0 22px 55px rgba(91,70,54,.13),inset 0 1px 0 rgba(255,255,255,.82),inset 0 -1px 0 rgba(91,70,54,.06)}
+[data-theme="parchment"] .glass::before,[data-theme="parchment"] .card::before,[data-theme="parchment"] .nav::before,[data-theme="parchment"] .study-page-header::before{background:linear-gradient(135deg,rgba(255,255,255,.52),rgba(255,248,232,.16) 40%,transparent 65%,rgba(200,167,122,.08))}
+[data-theme="parchment"] .glass::after,[data-theme="parchment"] .card::after,[data-theme="parchment"] .nav::after,[data-theme="parchment"] .study-page-header::after{opacity:.25;animation:none}
+[data-theme="marvel"] #chromatica-bg,[data-theme="rainbow"] #chromatica-bg{opacity:.88}
+[data-theme="marvel"] .card,[data-theme="marvel"] .nav,[data-theme="marvel"] .modal,[data-theme="marvel"] .study-page-header{background:linear-gradient(145deg,rgba(19,29,45,.64),rgba(4,8,14,.62));backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border-color:rgba(174,199,255,.16);border-top-color:rgba(255,255,255,.32)}
+[data-theme="rainbow"] .card,[data-theme="rainbow"] .nav,[data-theme="rainbow"] .modal,[data-theme="rainbow"] .study-page-header{background:linear-gradient(145deg,rgba(40,35,100,.44),rgba(18,12,42,.42));backdrop-filter:blur(28px) saturate(195%);-webkit-backdrop-filter:blur(28px) saturate(195%)}
+@media(prefers-reduced-motion:reduce){.glass::after,.card::after,.nav::after,.tabs::after{animation:none!important}.card:hover,.theme-card:hover,.study-subject-btn:hover{transform:none}}
+
+
+/* ================================================================
+   WORLD PARALLAX — illustrated game-like scene for MCU + Rainbow
+   ================================================================ */
+#world-parallax-bg{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:-3;pointer-events:none;opacity:1;
+}
+[data-theme="marvel"] #network-bg,
+[data-theme="rainbow"] #network-bg{display:none}
+.motion-disabled #world-parallax-bg{display:none}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <base target="_blank">
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+<canvas id="chromatica-bg" aria-hidden="true"></canvas>
 <svg width="0" height="0" style="position:absolute;"><defs><linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:var(--prism-1)"/><stop offset="50%" style="stop-color:var(--prism-2)"/><stop offset="100%" style="stop-color:var(--prism-3)"/></linearGradient></defs></svg>
 
 <div class="toast-container" id="toastContainer"></div>
@@ -817,6 +1321,7 @@ body::after{
 <div class="nav-links" id="navLinks">
 <div class="nav-link active" data-page="dashboard">Dashboard</div>
 <div class="nav-link" data-page="goals">Goals</div>
+<div class="nav-link" data-page="study">Study</div>
 <div class="nav-link" data-page="friends">Friends</div>
 <div class="nav-link" data-page="leaderboard">Leaderboard</div>
 <div class="nav-link" data-page="badges">Badges</div>
@@ -839,6 +1344,9 @@ body::after{
 </div>
 <div class="mobile-drawer-link" data-page="goals" onclick="navigateFromDrawer('goals')">
 <span class="icon">🎯</span>Goals
+</div>
+<div class="mobile-drawer-link" data-page="study" onclick="navigateFromDrawer('study')">
+<span class="icon">⏱️</span>Study Timer
 </div>
 <div class="mobile-drawer-link" data-page="friends" onclick="navigateFromDrawer('friends')">
 <span class="icon">👥</span>Friends
@@ -896,7 +1404,7 @@ body::after{
 <button class="btn btn-secondary btn-lg" onclick="showPage('login')">Sign In</button>
 </div>
 <div class="animate-fadeIn" style="animation-delay:0.4s;margin-top:16px;">
-<button class="btn btn-ghost" onclick="location.href='parent.html'" style="font-size:13px;">👨‍👩‍👧 Parent Login</button>
+<button class="btn btn-ghost" onclick="showPage('parent-login')" style="font-size:13px;">👨‍👩‍👧 Parent Login</button>
 </div>
 <div class="animate-fadeIn" style="animation-delay:0.5s;margin-top:60px;display:flex;gap:40px;flex-wrap:wrap;justify-content:center;opacity:0.6;">
 <div class="text-center"><div style="font-family:'JetBrains Mono';font-size:28px;font-weight:700;">24h</div><div style="font-size:12px;color:var(--text-muted);">Lock Period</div></div>
@@ -943,6 +1451,23 @@ body::after{
 </div>
 </div>
 
+
+<!-- ============ PARENT LOGIN ============ -->
+<div class="page" id="page-parent-login">
+<div class="auth-container">
+<div class="auth-header">
+<div style="width:56px;height:56px;margin:0 auto 16px;">
+<svg viewBox="0 0 100 100" fill="none"><defs><linearGradient id="plPrism" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:var(--prism-1)"/><stop offset="50%" style="stop-color:var(--prism-2)"/><stop offset="100%" style="stop-color:var(--prism-3)"/></linearGradient></defs><polygon points="50,5 92,72 50,92 8,72" fill="url(#plPrism)"/><polygon points="50,5 50,92 92,72" fill="var(--prism-1)" opacity="0.6"/><polygon points="50,5 50,92 8,72" fill="var(--prism-3)" opacity="0.4"/></svg>
+</div>
+<h2>Parent Login</h2><p>Check in on your child's progress.</p></div>
+<form id="parentLoginForm" onsubmit="handleParentLogin(event)">
+<div class="input-group"><label class="input-label">Your Phone Number</label><input type="tel" class="input-field" id="plPhone" placeholder="+1 234 567 8900" required></div>
+<div class="input-group"><label class="input-label">Parent PIN</label><input type="password" class="input-field" id="plPin" placeholder="4-6 digit PIN" required maxlength="10"></div>
+<button type="submit" class="btn btn-primary w-full" style="margin-top:8px;">View Dashboard</button>
+</form>
+<div class="auth-toggle">This is your child's app? <span onclick="showPage('landing')">Go to Chromatica</span></div>
+</div>
+</div>
 
 <!-- ============ ONBOARDING ============ -->
 <div class="page" id="page-onboarding">
@@ -1004,6 +1529,70 @@ body::after{
 </div>
 </div>
 
+
+
+<!-- ============ STUDY TIMER ============ -->
+<div class="page" id="page-study">
+<header class="study-hero-header study-page-header">
+  <div class="study-hero-icon">⏱</div>
+  <div class="study-hero-copy">
+    <div class="study-hero-eyebrow">FOCUS LAB</div>
+    <h1>Study Timer</h1>
+    <p>Focus. Track. Improve. Your parent can see this live.</p>
+  </div>
+  <div class="study-hero-status"><span></span> READY</div>
+</header>
+
+<div class="dashboard-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:24px;">
+<div class="card" style="text-align:center;"><div class="stat-label">Today's Focus</div><div class="stat-value" style="color:var(--primary);" id="studyTodayTotal">0m</div></div>
+<div class="card" style="text-align:center;"><div class="stat-label">Sessions</div><div class="stat-value" id="studySessionCount">0</div></div>
+<div class="card" style="text-align:center;"><div class="stat-label">Current Streak</div><div class="stat-value" style="color:var(--warning);"><span style="font-size:28px;">🔥</span> <span id="studyStreakDisplay">0</span></div></div>
+</div>
+
+<div class="card" style="text-align:center;padding:40px 24px;margin-bottom:24px;">
+<div class="study-timer-ring">
+<svg width="240" height="240" viewBox="0 0 240 240">
+<circle class="study-timer-ring-bg" cx="120" cy="120" r="100"/>
+<circle class="study-timer-ring-fill" id="studyRingFill" cx="120" cy="120" r="100" stroke-dasharray="628" stroke-dashoffset="628"/>
+</svg>
+<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+<div class="study-timer-display stopped" id="studyTimerDisplay">00:00:00</div>
+<div style="font-size:13px;color:var(--text-muted);margin-top:4px;" id="studySubjectLabel">Select a subject</div>
+</div>
+</div>
+
+<div class="study-controls">
+<button class="btn btn-primary btn-lg" id="studyStartBtn" onclick="startStudySession()">▶ Start</button>
+<button class="btn btn-secondary btn-lg" id="studyPauseBtn" onclick="pauseStudySession()" style="display:none;">⏸ Pause</button>
+<button class="btn btn-danger btn-lg" id="studyStopBtn" onclick="stopStudySession()" style="display:none;">⏹ Stop</button>
+</div>
+</div>
+
+<div class="card" style="margin-bottom:24px;">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px;">Select Subject</h3>
+<div class="study-subject-grid" id="studySubjectGrid">
+<button class="study-subject-btn" data-subject="Math" onclick="selectStudySubject('Math')">📐 Math</button>
+<button class="study-subject-btn" data-subject="Science" onclick="selectStudySubject('Science')">🔬 Science</button>
+<button class="study-subject-btn" data-subject="English" onclick="selectStudySubject('English')">📖 English</button>
+<button class="study-subject-btn" data-subject="History" onclick="selectStudySubject('History')">🏛️ History</button>
+<button class="study-subject-btn" data-subject="Coding" onclick="selectStudySubject('Coding')">💻 Coding</button>
+<button class="study-subject-btn" data-subject="Physics" onclick="selectStudySubject('Physics')">⚛️ Physics</button>
+<button class="study-subject-btn" data-subject="Chemistry" onclick="selectStudySubject('Chemistry')">🧪 Chemistry</button>
+<button class="study-subject-btn" data-subject="Biology" onclick="selectStudySubject('Biology')">🧬 Biology</button>
+<button class="study-subject-btn" data-subject="Economics" onclick="selectStudySubject('Economics')">📈 Economics</button>
+<button class="study-subject-btn" data-subject="Art" onclick="selectStudySubject('Art')">🎨 Art</button>
+<button class="study-subject-btn" data-subject="Music" onclick="selectStudySubject('Music')">🎵 Music</button>
+<button class="study-subject-btn" data-subject="Other" onclick="selectStudySubject('Other')">📚 Other</button>
+</div>
+</div>
+
+<div class="card">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px;">Today's Sessions</h3>
+<div id="studySessionsList">
+<div class="empty-state" style="padding:32px 24px;"><div class="empty-state-icon">⏱️</div><h3>No sessions yet</h3><p>Start a timer to begin tracking your study time.</p></div>
+</div>
+</div>
+</div>
 
 <!-- ============ PARENT DASHBOARD ============ -->
 <div class="page" id="page-parent-dashboard">
@@ -1145,7 +1734,19 @@ body::after{
 <div class="avatar-presets" id="avatarPresets"></div>
 
 <h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-top:24px;margin-bottom:16px;">Theme</h3>
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:8px;" id="themeGrid">
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;" id="themeGrid">
+  <div class="theme-card" data-theme="midnight" onclick="setTheme('midnight')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#090b10,#475569);"></div><div class="theme-name">Dark</div><div class="theme-desc">Simple dark</div>
+  </div>
+  <div class="theme-card" data-theme="snow" onclick="setTheme('snow')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#ffffff,#d1d5db);"></div><div class="theme-name">Light</div><div class="theme-desc">Simple light</div>
+  </div>
+  <div class="theme-card" data-theme="coffee" onclick="setTheme('coffee')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#f1c27d,#8b5e3c,#17110d);"></div><div class="theme-name">Café Noir</div><div class="theme-desc">Premium espresso</div>
+  </div>
+  <div class="theme-card" data-theme="parchment" onclick="setTheme('parchment')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#fff8ea,#c8a77a,#5b4636);"></div><div class="theme-name">Parchment</div><div class="theme-desc">Warm paper & ink</div>
+  </div>
   <div class="theme-card" data-theme="blackberry" onclick="setTheme('blackberry')">
     <div class="theme-preview" style="background:linear-gradient(135deg,#d946ef,#f43f5e,#f59e0b);"></div>
     <div class="theme-name">Blackberry</div>
@@ -1159,12 +1760,45 @@ body::after{
   <div class="theme-card" data-theme="plaster" onclick="setTheme('plaster')">
     <div class="theme-preview" style="background:linear-gradient(135deg,#000000,#6e6e73);"></div>
     <div class="theme-name">White Plaster</div>
-    <div class="theme-desc">Stripped back for performance. And focus.</div>
+    <div class="theme-desc">Stripped back</div>
   </div>
   <div class="theme-card" data-theme="rainbow" onclick="setTheme('rainbow')">
     <div class="theme-preview" style="background:linear-gradient(135deg,#fde047,#fb923c,#ec4899,#22d3ee);"></div>
     <div class="theme-name">Wild Rainbow</div>
-    <div class="theme-desc">Tropical pop</div>
+    <div class="theme-desc">Tropical pop (Default)</div>
+  </div>
+  <div class="theme-card" data-theme="ember" onclick="setTheme('ember')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#ff6b35,#f7931e,#fbbf24);"></div>
+    <div class="theme-name">Ember</div>
+    <div class="theme-desc">Burning orange</div>
+  </div>
+  <div class="theme-card" data-theme="neon" onclick="setTheme('neon')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#39ff14,#00f0ff,#ff00ff);"></div>
+    <div class="theme-name">Neon City</div>
+    <div class="theme-desc">Cyberpunk glow</div>
+  </div>
+  <div class="theme-card" data-theme="sakura" onclick="setTheme('sakura')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#db2777,#f472b6,#fbbf24);"></div>
+    <div class="theme-name">Sakura</div>
+    <div class="theme-desc">Soft pink bloom</div>
+  </div>
+  <div class="theme-card" data-theme="forest" onclick="setTheme('forest')">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#4ade80,#22c55e,#a3e635);"></div>
+    <div class="theme-name">Forest</div>
+    <div class="theme-desc">Deep green calm</div>
+  </div>
+  <div class="theme-card" data-theme="marvel" onclick="unlockMarvelTheme()">
+    <div class="theme-preview" style="background:linear-gradient(135deg,#ef4444,#3b82f6,#f59e0b,#10b981,#8b5cf6);"></div>
+    <div class="theme-name">Marvel Protocol 🔒</div>
+    <div class="theme-desc">Secure command mode</div>
+  </div>
+</div>
+
+<div class="card background-motion-card" style="margin-top:18px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;">
+    <div><h3 style="font-family:'Space Grotesk';font-size:17px;font-weight:700;margin-bottom:4px;">Animated Background</h3>
+    <p style="font-size:12px;color:var(--text-secondary);line-height:1.5;">Lightweight ambient motion. MCU and Wild Rainbow use interactive parallax.</p></div>
+    <label class="motion-toggle" aria-label="Toggle animated background"><input id="animatedBackgroundToggle" type="checkbox" onchange="setAnimatedBackground(this.checked)"><span></span></label>
   </div>
 </div>
 
@@ -1293,6 +1927,9 @@ body::after{
 <option value="120">2 hours</option>
 <option value="180">3+ hours</option>
 </select>
+</div>
+<div class="input-group"><label class="input-label">Deadline <span style="color:var(--danger);">*</span></label>
+<input type="datetime-local" class="input-field" id="goalDeadline" required>
 </div>
 <div style="background:var(--warning-faint);border:1px solid var(--warning-soft);border-radius:10px;padding:12px 16px;margin-bottom:20px;">
 <div style="font-size:13px;color:var(--warning);font-weight:500;">⚠️ Lock Notice</div>
@@ -1434,6 +2071,9 @@ alter table goals enable row level security;
 alter table events enable row level security;
 alter table friendships enable row level security;
 alter table user_badges enable row level security;
+alter table links enable row level security;
+alter table study_sessions enable row level security;
+alter table parent_notifications enable row level security;
 
 -- Profiles table (extends auth.users)
 create table profiles (
@@ -1448,7 +2088,7 @@ create table profiles (
   avatar_preset int default 0,
   bio text default '',
   accountability_mode text,
-  theme text default 'blackberry',
+  theme text default 'rainbow',
   streak int default 0,
   xp int default 0,
   level int default 1,
@@ -1466,6 +2106,7 @@ create table goals (
   time int default 30,
   created_at timestamptz default now(),
   lock_at timestamptz,
+  deadline timestamptz,
   locked boolean default false,
   completed boolean default false,
   completed_at timestamptz,
@@ -1535,6 +2176,39 @@ create table links (
 CREATE POLICY "Users can view own links" ON links FOR SELECT USING (auth.uid() = user_id);
 CREATE POLICY "Users can insert own links" ON links FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can delete own links" ON links FOR DELETE USING (auth.uid() = user_id);
+
+-- Study sessions table
+create table study_sessions (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references auth.users on delete cascade not null,
+  subject text not null,
+  duration_min int not null,
+  started_at timestamptz default now(),
+  ended_at timestamptz,
+  date text not null
+);
+
+CREATE POLICY "Users can view own study sessions" ON study_sessions FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own study sessions" ON study_sessions FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+-- Parent notifications table
+create table parent_notifications (
+  id uuid default gen_random_uuid() primary key,
+  student_id uuid references auth.users on delete cascade not null,
+  student_name text,
+  parent_phone text not null,
+  type text not null,
+  title text not null,
+  body text not null,
+  goal_title text,
+  read boolean default false,
+  created_at timestamptz default now()
+);
+
+CREATE POLICY "Parents can view notifications for their phone" ON parent_notifications FOR SELECT USING (parent_phone = current_setting('app.current_phone', true));
+
+-- Add study_status column to profiles (run separately if needed)
+-- alter table profiles add column if not exists study_status jsonb default '{}';
 */
 async function dbGetLeaderboard(){
   const {data,error} = await supabaseClient.from('profiles').select('name,initials,avatar_preset,streak,xp,goals_completed').order('streak',{ascending:false}).limit(20);
@@ -1733,6 +2407,9 @@ function getTotalCompletedGoals(){return STATE.goals.filter(g=>g.completed).leng
 // ==================== PARENT DATA SYNC ====================
 function buildParentData(){
   const todayGoals = getTodayGoals();
+  const todayStudy = (STATE.studySessions||[]).filter(s=>s.date===getToday());
+  const totalStudyMin = todayStudy.reduce((a,s)=>a+(s.duration_min||0),0);
+  const lastSession = todayStudy[0]||null;
   return {
     student_name: STATE.user ? STATE.user.name : '',
     student_initials: STATE.user ? STATE.user.initials : '',
@@ -1745,11 +2422,17 @@ function buildParentData(){
       category: g.category,
       completed: g.completed,
       failed: g.failed,
-      time: g.time
+      time: g.time,
+      deadline: g.deadline
     })),
     today_progress: getTodayProgress(),
     goals_completed_total: getTotalCompletedGoals(),
     accountability_mode: STATE.accountabilityMode,
+    study_today_min: totalStudyMin,
+    study_sessions_today: todayStudy.length,
+    last_study_subject: lastSession?lastSession.subject:null,
+    last_study_time: lastSession?lastSession.started_at:null,
+    is_currently_studying: false,
     last_updated: new Date().toISOString()
   };
 }
@@ -2034,29 +2717,68 @@ function renderParentDashboard(){
   document.getElementById('pdModeIcon').textContent=modeIcons[mode]||'🎯';
 }
 
+function unlockMarvelTheme(){
+  if(document.body.dataset.theme==='marvel')return;
+  const key=prompt('MARVEL PROTOCOL // Enter access code:');
+  if(key==='190927'){
+    sessionStorage.setItem('chromatica_mcu_unlocked','1');
+    setTheme('marvel');
+    toast('Protocol unlocked. Welcome to command mode.','success',4500);
+  }else if(key!==null){
+    toast('Access denied.','error');
+  }
+}
+
+function setMCUInterface(enabled){
+  document.documentElement.classList.toggle('mcu-mode',enabled);
+  const navLogo=document.querySelector('.nav-logo span');
+  const heroTitle=document.querySelector('.hero-title .gradient-text');
+  const heroTag=document.querySelector('.hero-tagline');
+  const heroSub=document.querySelector('.hero-subtitle');
+  const navNames=enabled?['Command','Missions','Training','Allies','Vanguard','Achievements','Intel','Identity']:['Dashboard','Goals','Study','Friends','Leaderboard','Badges','Links','Profile'];
+  document.querySelectorAll('#navLinks .nav-link').forEach((el,i)=>{if(navNames[i])el.textContent=navNames[i];});
+  document.querySelectorAll('#mobileDrawer .mobile-drawer-link').forEach((el,i)=>{const icon=el.querySelector('.icon'); if(navNames[i]){el.innerHTML=''; if(icon)el.appendChild(icon); el.appendChild(document.createTextNode(navNames[i]));}});
+  if(enabled){
+    if(navLogo)navLogo.textContent='CHROMATICA';
+    if(heroTitle)heroTitle.textContent='CHROMATICA // PROTOCOL';
+    if(heroTag)heroTag.textContent='COMMAND SYSTEM';
+    if(heroSub)heroSub.textContent='Mission control for your goals. Lock objectives. Track performance. Protect the streak.';
+  }else{
+    if(navLogo)navLogo.textContent='Chromatica';
+    if(heroTitle)heroTitle.textContent='Chromatica';
+    if(heroTag)heroTag.textContent='Earn Your Colors';
+    if(heroSub)heroSub.textContent='Lock in your goals. Face real consequences. Turn discipline into something visible, competitive, and rewarding.';
+  }
+}
+
 function setTheme(theme){
   document.body.setAttribute('data-theme',theme);
   STATE.theme=theme;
-  localStorage.setItem('chromatica_theme',theme);
+  setMCUInterface(theme==='marvel');
+  // Theme is persisted in Supabase when signed in, with local state as a lightweight fallback.
   // Update UI
   document.querySelectorAll('.theme-card').forEach(c=>c.classList.toggle('selected',c.dataset.theme===theme));
   // Update meta theme-color for mobile
   const metaTheme=document.querySelector('meta[name="theme-color"]');
   if(metaTheme){
-    const colors={blackberry:'#0a0a0f',arctic:'#f8fafc',plaster:'#ffffff',rainbow:'#0c0a1a'};
+    const colors={blackberry:'#0a0a0f',arctic:'#f8fafc',plaster:'#ffffff',rainbow:'#0c0a1a',ember:'#1a0a00',neon:'#050505',sakura:'#fff0f5',forest:'#0c1f0c',midnight:'#090b10',snow:'#f6f7f9',coffee:'#17110d',parchment:'#eee6d7',marvel:'#05070b'};
     metaTheme.setAttribute('content',colors[theme]||'#0a0a0f');
   }
-  // Try to persist to Supabase (best effort)
+  localStorage.setItem('chromatica_theme',theme);
+  // Persist to Supabase
   if(STATE.user&&STATE.user.id){
     supabaseClient.from('profiles').update({theme}).eq('id',STATE.user.id).then(({error})=>{
-      if(error)console.log('Theme save to DB skipped (column may not exist yet)');
+      if(error)console.log('Theme save to DB error:',error);
     });
   }
   toast('Theme updated: '+theme.charAt(0).toUpperCase()+theme.slice(1),'success');
 }
 function loadTheme(){
-  const saved=localStorage.getItem('chromatica_theme')||STATE.theme||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'arctic':'blackberry');
-  setTheme(saved);
+  const dbTheme=STATE.user&&STATE.user.theme;
+  const saved=localStorage.getItem('chromatica_theme');
+  setTheme(dbTheme||saved||'rainbow');
+  const toggle=document.getElementById('animatedBackgroundToggle');
+  if(toggle)toggle.checked=localStorage.getItem('chromatica_animated_bg')!=='0';
 }
 function rand(arr){return arr[Math.floor(Math.random()*arr.length)];}
 // ==================== SMS (Textbelt — free tier: 1 SMS/day) ====================
@@ -2158,6 +2880,7 @@ function showPage(name){
 
   if(name==='dashboard')renderDashboard();
   if(name==='goals')renderAllGoals();
+  if(name==='study')renderStudyTimer();
   if(name==='friends')renderFriends();
   if(name==='leaderboard')renderLeaderboard();
   if(name==='badges')renderBadges();
@@ -2197,7 +2920,7 @@ async function handleSignup(e){
   const profile = {
     id:userId,name,email,instagram,parent_phone:(parentPhone||'').replace(/\D/g,'')||null,
     initials:name.split(' ').map(n=>n[0]).join('').toUpperCase().substring(0,2),
-    avatar_preset:0,bio:'',accountability_mode:null,theme:'blackberry',
+    avatar_preset:0,bio:'',accountability_mode:null,theme:'rainbow',
     parent_pin:null,parent_data:null,
     streak:0,xp:0,level:1,chroma:0,goals_completed:0,
     joined_at:new Date().toISOString()
@@ -2214,7 +2937,7 @@ async function handleSignup(e){
 
   STATE.user={...profile,id:userId,password};
   STATE.streak=0;STATE.xp=0;STATE.level=1;STATE.chroma=0;STATE.goals=[];STATE.events=[];STATE.badges=[];
-  STATE.friends=[];STATE.friendRequests=[];STATE.dayProcessed=false;STATE.lastLoginDate=getToday();
+  STATE.friends=[];STATE.friendRequests=[];STATE.dayProcessed=false;STATE.lastLoginDate=STATE.lastLoginDate||getToday();
   STATE.theme='blackberry';
   STATE.leaderboard=[];
   saveState();
@@ -2243,7 +2966,7 @@ async function handleLogin(e){
   STATE.theme=profile.theme||'blackberry';
   STATE.user.parent_pin=profile.parent_pin||'';
   STATE.parentData=profile.parent_data||null;
-  STATE.lastLoginDate=getToday();
+  STATE.lastLoginDate=STATE.lastLoginDate||getToday();
 
   // Load from Supabase
   STATE.goals = await dbGetGoals(userId,null);
@@ -2535,6 +3258,10 @@ async function handleAddGoal(e){
   const title=document.getElementById('goalTitle').value;
   const category=document.getElementById('goalCategory').value;
   const time=document.getElementById('goalTime').value;
+  const deadlineVal=document.getElementById('goalDeadline').value;
+  if(!deadlineVal){toast('Set a deadline for this goal.','warning');return;}
+  const deadline=new Date(deadlineVal);
+  if(deadline<=new Date()){toast('Deadline must be in the future.','warning');return;}
   const now=new Date();
   const lockAt=new Date(now.getTime()+5*60*1000);
 
@@ -2543,6 +3270,7 @@ async function handleAddGoal(e){
     title,
     category,
     time:parseInt(time),
+    deadline:deadline.toISOString(),
     created_at:now.toISOString(),
     lock_at:lockAt.toISOString(),
     locked:false,
@@ -2605,15 +3333,52 @@ async function deleteGoal(id){
 }
 
 function checkGoalLocks(){
-  const now=new Date().toISOString();
+  const now=new Date();
+  const nowISO=now.toISOString();
   let changed=false;
-  STATE.goals.forEach(g=>{
-    if(!g.locked&&g.lockAt<now){
+  let anyFailed=false;
+  STATE.goals.forEach(async g=>{
+    // Lock after 5 min grace period
+    if(!g.locked&&g.lockAt<nowISO){
       g.locked=true;
       changed=true;
     }
+    // FAIL if deadline crossed and not completed
+    if(!g.completed&&!g.failed&&g.deadline&&new Date(g.deadline)<now){
+      g.failed=true;
+      g.locked=true;
+      changed=true;
+      anyFailed=true;
+      await dbUpdateGoal(g.id,{failed:true,locked:true});
+      await addEvent('Deadline missed: '+g.title,'goal_failed');
+      // Notify parent immediately
+      await notifyParentOfFailure(g);
+    }
   });
   if(changed)saveState();
+  if(anyFailed){
+    renderDashboard();
+    renderAllGoals();
+  }
+}
+
+async function notifyParentOfFailure(goal){
+  if(!STATE.user||!STATE.user.parent_phone)return;
+  const msg='🚨 Chromatica Alert: '+STATE.user.name+' missed the deadline for "'+goal.title+'". Consequence triggered.';
+  // Store notification in DB for parent app
+  await supabaseClient.from('parent_notifications').insert({
+    student_id:STATE.user.id,
+    student_name:STATE.user.name,
+    parent_phone:STATE.user.parent_phone,
+    type:'goal_failed',
+    title:'Goal Deadline Missed',
+    body:msg,
+    goal_title:goal.title,
+    read:false,
+    created_at:new Date().toISOString()
+  });
+  // Also try SMS
+  await sendParentSMS(STATE.user.parent_phone, msg);
 }
 
 function getTodayGoals(){return STATE.goals.filter(g=>g.date===getToday());}
@@ -2630,56 +3395,27 @@ function renderChromaRing(goals,progress){
   const legend=document.getElementById('chromaGoalLegend');
   const fraction=document.getElementById('chromaFraction');
   if(!svg)return;
-
   const cx=90,cy=90,r=72,stroke=14;
   const total=goals.length;
   const completed=goals.filter(g=>g.completed).length;
-
   if(fraction)fraction.textContent=completed+'/'+total+' done';
 
-  if(total===0){
-    svg.innerHTML='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="var(--track-bg)" stroke-width="'+stroke+'"/>';
-    if(legend)legend.innerHTML='';
-    return;
-  }
+  const circumference=2*Math.PI*r;
+  const progressOffset=circumference*(1-Math.max(0,Math.min(progress,100))/100);
+  svg.innerHTML=`
+    <defs><linearGradient id="chromaRingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/><stop offset="25%" stop-color="#f59e0b"/><stop offset="50%" stop-color="#22c55e"/><stop offset="75%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient></defs>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="url(#chromaRingGradient)" stroke-width="${stroke}" opacity=".22"/>
+    <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="url(#chromaRingGradient)" stroke-width="${stroke}" stroke-linecap="round" stroke-dasharray="${circumference}" stroke-dashoffset="${progressOffset}" style="transition:stroke-dashoffset .7s ease,filter .3s ease;filter:drop-shadow(0 0 9px rgba(126,255,245,.28));"/>
+  `;
 
-  const gap=2; // degrees gap between segments
-  const available=360-(total*gap);
-  const segSize=available/total;
-  let html='';
-  let currentAngle=-90; // start at top
-
-  const colors={study:'#0ea5e9',work:'#6366f1',health:'#22c55e',creative:'#f59e0b',other:'#94a3b8'};
-  const catLabels={study:'Study',work:'Work',health:'Health',creative:'Creative',other:'Other'};
-
-  goals.forEach((g,i)=>{
-    const start=currentAngle;
-    const end=currentAngle+segSize;
-    const radStart=(start*Math.PI)/180;
-    const radEnd=(end*Math.PI)/180;
-    const x1=cx+r*Math.cos(radStart);
-    const y1=cy+r*Math.sin(radStart);
-    const x2=cx+r*Math.cos(radEnd);
-    const y2=cy+r*Math.sin(radEnd);
-    const largeArc=segSize>180?1:0;
-
-    const color=g.completed?colors[g.category]||colors.other:'var(--track-bg)';
-    const opacity=g.completed?1:0.35;
-
-    html+='<path d="M'+x1.toFixed(2)+','+y1.toFixed(2)+' A'+r+','+r+' 0 '+largeArc+',1 '+x2.toFixed(2)+','+y2.toFixed(2)+'" fill="none" stroke="'+color+'" stroke-width="'+stroke+'" stroke-linecap="round" opacity="'+opacity+'" style="transition:all 0.4s ease"/>';
-
-    currentAngle=end+gap;
-  });
-
-  svg.innerHTML=html;
-
-  // Build legend
   if(legend){
+    const colors={study:'#0ea5e9',work:'#6366f1',health:'#22c55e',creative:'#f59e0b',other:'#d946ef'};
     legend.innerHTML=goals.map(g=>{
-      const c=colors[g.category]||colors.other;
-      const done=g.completed?'✅':'⬜';
+      const c=colors[g.category]||colors.other; const done=g.completed?'✅':'⬜';
       const title=g.title.length>18?g.title.substring(0,18)+'...':g.title;
-      return '<div style="display:flex;align-items:center;gap:6px;background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:11px;max-width:140px;" title="'+g.title+'"><span style="width:8px;height:8px;border-radius:50%;background:'+c+';"></span><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+done+' '+title+'</span></div>';
+      return '<div style="display:flex;align-items:center;gap:6px;background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:11px;max-width:140px;" title="'+g.title+'"><span style="width:8px;height:8px;border-radius:50%;background:'+c+';box-shadow:0 0 8px '+c+'66;"></span><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">'+done+' '+title+'</span></div>';
     }).join('');
   }
 }
@@ -2731,32 +3467,49 @@ function renderGoalItem(g){
   const now=new Date();
   const lockTime=new Date(g.lockAt);
   const timeLeft=lockTime-now;
-  const isLocked=g.locked;
-  const canEdit=!isLocked&&timeLeft>0;
+  const isLocked=g.locked||g.failed;
+  const canEdit=!isLocked&&timeLeft>0&&!g.failed;
   const lockText=canEdit?formatTime(Math.max(0,timeLeft))+' until lock':'🔒 LOCKED';
   const today=getToday();
   const isToday=g.date===today;
-  const dateLabel=!isToday?`<span style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--text-muted);margin-left:8px;">${g.date}</span>`:'';
+  const dateLabel=!isToday?'<span style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:11px;color:var(--text-muted);margin-left:8px;">'+g.date+'</span>':'';
+
+  // Deadline display
+  let deadlineHtml='';
+  if(g.deadline){
+    const dl=new Date(g.deadline);
+    const dlMs=dl-now;
+    const dlColor=dlMs<0?'var(--danger)':dlMs<3600000?'var(--warning)':'var(--text-muted)';
+    const dlText=dlMs<0?'OVERDUE':formatTime(Math.max(0,dlMs))+' left';
+    deadlineHtml='<span style="color:'+dlColor+';font-weight:600;">⏰ '+dlText+'</span>';
+  }
 
   const catIcons={study:'📚',work:'💼',health:'💪',creative:'🎨',other:'🔧'};
-  return `
-    <div class="goal-item ${g.completed?'completed':''} ${g.failed?'failed':''} ${isLocked?'locked':''}">
-      <div class="goal-checkbox ${g.completed?'checked':''}" onclick="toggleGoalComplete('${g.id}')" style="cursor:pointer;">
-        ${g.completed?'✓':''}
-      </div>
-      <div class="goal-info">
-        <div class="goal-title ${g.completed?'completed':''}">${catIcons[g.category]||'🔧'} ${g.title}${dateLabel}</div>
-        <div class="goal-meta">
-          <span>${g.time} min</span>
-          <span>${isLocked?'🔒 Locked':'📝 Editable'}</span>
-          ${g.completed?'<span style="color:var(--success)">✅ Done</span>':''}
-          ${g.failed?'<span style="color:var(--danger)">❌ Missed</span>':''}
-        </div>
-      </div>
-      ${!isLocked?`<div class="goal-lock-timer">⏱️ ${lockText}</div>`:''}
-      ${canEdit?`<div class="goal-actions"><button class="goal-action-btn" onclick="deleteGoal('${g.id}')" title="Delete">🗑️</button></div>`:''}
-    </div>
-  `;
+  const clickAttr=g.failed?'':' onclick="toggleGoalComplete(\''+g.id+'\')"';
+  const cursorStyle=g.failed?'not-allowed':'pointer';
+  const checkContent=g.completed?'✓':'';
+  const titleClass=g.completed?'completed':'';
+  const titleClass2=g.failed?'':'';
+  const doneBadge=g.completed?'<span style="color:var(--success)">✅ Done</span>':'';
+  const failedBadge=g.failed?'<span style="color:var(--danger)">❌ DEADLINE MISSED</span>':'';
+  const lockTimer=!isLocked?'<div class="goal-lock-timer">⏱️ '+lockText+'</div>':'';
+  const deleteBtn=canEdit?'<div class="goal-actions"><button class="goal-action-btn" onclick="deleteGoal(\'+g.id+\')" title="Delete">🗑️</button></div>':'';
+
+  return '<div class="goal-item '+(g.completed?'completed ':'')+(g.failed?'failed ':'')+(isLocked?'locked':'')+'">'+
+    '<div class="goal-checkbox '+(g.completed?'checked ':'')+(g.failed?'locked ':'')+'"'+clickAttr+' style="cursor:'+cursorStyle+';">'+checkContent+'</div>'+
+    '<div class="goal-info">'+
+      '<div class="goal-title '+titleClass+' '+titleClass2+'">'+(catIcons[g.category]||'🔧')+' '+g.title+dateLabel+'</div>'+
+      '<div class="goal-meta">'+
+        '<span>'+g.time+' min</span>'+
+        '<span>'+(isLocked?'🔒 Locked':'📝 Editable')+'</span>'+
+        deadlineHtml+
+        doneBadge+
+        failedBadge+
+      '</div>'+
+    '</div>'+
+    lockTimer+
+    deleteBtn+
+  '</div>';
 }
 
 function renderAllGoals(){
@@ -2894,74 +3647,63 @@ function checkLevelUp(){
 }
 
 // ==================== DEADLINE TIMER ====================
-function updateDeadlineTimer(){
+let rolloverProcessing=false;
+async function updateDeadlineTimer(){
   const el=document.getElementById('deadlineText');
   if(!el)return;
+  const now=new Date(Date.now() + (window.serverTimeOffset||0));
+  const today=getToday();
 
-  // Server-synced time if available, else local
-  const now = window.serverTimeOffset ? new Date(Date.now() + window.serverTimeOffset) : new Date();
-
-  // Check for day rollover every tick
-  const today = getToday();
-  if(STATE.lastLoginDate && STATE.lastLoginDate !== today){
-    STATE.dayProcessed = false;
-    STATE.lastLoginDate = today;
-    STATE.goals = STATE.goals.filter(g => g.date === today || g.completed || g.failed);
-    saveState();
+  if(STATE.lastLoginDate && STATE.lastLoginDate!==today && !rolloverProcessing){
+    rolloverProcessing=true;
+    const previousDate=STATE.lastLoginDate;
+    await processDayEnd(previousDate);
+    STATE.lastLoginDate=today;
+    STATE.dayProcessed=false;
+    STATE.goals=STATE.goals.filter(g=>g.date===today||g.completed||g.failed);
+    await saveState();
+    rolloverProcessing=false;
+    renderDashboard();
   }
 
-  const ms = getTomorrowMidnight() - now;
-  if(ms<=0){
-    el.textContent='Day ended. Processing...';
-    processDayEnd();
-    return;
-  }
-  const h=Math.floor(ms/3600000);
-  const m=Math.floor((ms%3600000)/60000);
-  const s=Math.floor((ms%60000)/1000);
-  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  el.textContent=`Day ends in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} · ${tz}`;
-  if(h===0&&m<30){
-    document.getElementById('deadlineTimer').classList.add('pulse');
-  }else{
-    document.getElementById('deadlineTimer').classList.remove('pulse');
-  }
+  const ms=getTomorrowMidnight()-now;
+  if(ms<=0){el.textContent='Day ended. Processing...';return;}
+  const h=Math.floor(ms/3600000),m=Math.floor((ms%3600000)/60000),ss=Math.floor((ms%60000)/1000);
+  const tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+  el.textContent=`Day ends in ${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')} · ${tz}`;
+  document.getElementById('deadlineTimer').classList.toggle('pulse',h===0&&m<30);
 }
 
 // ==================== DAY END / ACCOUNTABILITY ====================
-async function processDayEnd(){
-  const todayGoals=getTodayGoals();
-  const missed=todayGoals.filter(g=>!g.completed&&!g.failed);
-  const completed=todayGoals.filter(g=>g.completed);
+async function processDayEnd(targetDate=getToday()){
+  const dayGoals=STATE.goals.filter(g=>g.date===targetDate);
+  if(dayGoals.length===0){STATE.dayProcessed=true;return;}
+  if(STATE.dayProcessed && targetDate===getToday())return;
 
-  // Only process if there are pending goals or we haven't processed today
-  if(STATE.dayProcessed && missed.length===0 && todayGoals.length>0) return;
-
-  for(const g of missed){
-    g.failed=true;
-    await dbUpdateGoal(g.id,{failed:true});
-    await addEvent('Missed: '+g.title,'goal_failed');
-  }
-
-  if(missed.length===0&&todayGoals.length>0){
-    STATE.streak++;
-    await addEvent('Day complete! Streak: '+STATE.streak,'day_complete');
-    toast('Day complete! Streak: '+STATE.streak+' days 🔥','success',6000);
-    confetti();
-  }else if(missed.length>0){
+  const missed=dayGoals.filter(g=>!g.completed&&!g.failed);
+  const hadFailure=dayGoals.some(g=>g.failed);
+  if(missed.length||hadFailure){
+    for(const g of missed){
+      g.failed=true;
+      if(g.id)await dbUpdateGoal(g.id,{failed:true});
+      await addEvent('Missed: '+g.title,'goal_failed');
+    }
     STATE.streak=0;
     await addEvent('Streak broken. '+missed.length+' goal(s) missed.','streak_broken');
     toast('Streak broken. '+missed.length+' goal(s) missed.','error',6000);
     triggerAccountability(missed);
   }else{
-    await addEvent('No goals set today.','day_complete');
+    STATE.streak=Math.max(0,STATE.streak)+1;
+    await addEvent('Day complete! Streak: '+STATE.streak,'day_complete');
+    toast('Day complete! Streak: '+STATE.streak+' days 🔥','success',6000);
+    confetti();
+    checkBadges();
   }
 
   STATE.dayProcessed=true;
   STATE.chroma=0;
   await syncParentData();
   await saveState();
-  renderDashboard();
 }
 
 function triggerAccountability(missed){
@@ -3037,24 +3779,17 @@ async function acknowledgeConsequence(){
 }
 
 // ==================== DAY ROLLOVER ====================
-function checkDayRollover(){
+async function checkDayRollover(){
   const today=getToday();
-  if(STATE.lastLoginDate&&STATE.lastLoginDate!==today){
+  if(!STATE.lastLoginDate){STATE.lastLoginDate=today;await saveState();return;}
+  if(STATE.lastLoginDate!==today){
+    const previousDate=STATE.lastLoginDate;
+    await processDayEnd(previousDate);
+    STATE.lastLoginDate=today;
     STATE.dayProcessed=false;
-    STATE.lastLoginDate=today;
-    // Mark pending goals from previous days as failed, don't delete them
-    STATE.goals.forEach(async g=>{
-      if(g.date!==today && !g.completed && !g.failed){
-        g.failed=true;
-        g.locked=true;
-        if(g.id) dbUpdateGoal(g.id,{failed:true,locked:true});
-      }
-    });
-    saveState();
-    toast('New day! Previous pending goals marked as missed.','info');
-  }else if(!STATE.lastLoginDate){
-    STATE.lastLoginDate=today;
-    saveState();
+    STATE.goals=STATE.goals.filter(g=>g.date===today||g.completed||g.failed);
+    await saveState();
+    toast('New day! Your streak is ready.','info');
   }
 }
 
@@ -3138,6 +3873,165 @@ function renderLinks(){
   }).join('')+'</div>';
 }
 
+
+// ==================== STUDY TIMER ====================
+let studyTimerInterval=null;
+let studyStartTime=null;
+let studyElapsedMs=0;
+let studyCurrentSubject='';
+let studyIsRunning=false;
+let studyIsPaused=false;
+
+function selectStudySubject(subject){
+  if(studyIsRunning){toast('Stop current session first.','warning');return;}
+  studyCurrentSubject=subject;
+  document.querySelectorAll('.study-subject-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.study-subject-btn[data-subject="'+subject+'"]').classList.add('active');
+  document.getElementById('studySubjectLabel').textContent=subject+' — Ready';
+}
+
+function formatStudyTime(ms){
+  const totalSec=Math.floor(ms/1000);
+  const h=Math.floor(totalSec/3600);
+  const m=Math.floor((totalSec%3600)/60);
+  const s=totalSec%60;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+
+function updateStudyTimerDisplay(){
+  const display=document.getElementById('studyTimerDisplay');
+  const now=Date.now();
+  studyElapsedMs=now-studyStartTime;
+  display.textContent=formatStudyTime(studyElapsedMs);
+  // Update ring
+  const ring=document.getElementById('studyRingFill');
+  if(ring){
+    const circumference=2*Math.PI*100;
+    const progress=Math.min(studyElapsedMs/3600000,1); // 1 hour = full ring
+    ring.style.strokeDashoffset=circumference*(1-progress);
+  }
+}
+
+async function startStudySession(){
+  if(!studyCurrentSubject){toast('Select a subject first.','warning');return;}
+  studyIsRunning=true;
+  studyIsPaused=false;
+  studyStartTime=Date.now()-studyElapsedMs;
+  document.getElementById('studyStartBtn').style.display='none';
+  document.getElementById('studyPauseBtn').style.display='inline-flex';
+  document.getElementById('studyStopBtn').style.display='inline-flex';
+  document.getElementById('studyTimerDisplay').className='study-timer-display running';
+  document.getElementById('studySubjectLabel').textContent=studyCurrentSubject+' — Focusing...';
+
+  // Sync to DB that user is studying
+  await syncStudyStatus(true);
+
+  studyTimerInterval=setInterval(updateStudyTimerDisplay,1000);
+}
+
+function pauseStudySession(){
+  if(!studyIsRunning)return;
+  studyIsPaused=true;
+  clearInterval(studyTimerInterval);
+  document.getElementById('studyStartBtn').style.display='inline-flex';
+  document.getElementById('studyStartBtn').textContent='▶ Resume';
+  document.getElementById('studyPauseBtn').style.display='none';
+  document.getElementById('studyTimerDisplay').className='study-timer-display paused';
+  document.getElementById('studySubjectLabel').textContent=studyCurrentSubject+' — Paused';
+  syncStudyStatus(false);
+}
+
+async function stopStudySession(){
+  if(!studyIsRunning&&!studyIsPaused)return;
+  clearInterval(studyTimerInterval);
+  const finalMs=studyElapsedMs;
+  const finalMin=Math.round(finalMs/60000);
+
+  if(finalMin<1){toast('Session too short (<1 min). Not saved.','warning');resetStudyTimer();return;}
+
+  const session={
+    user_id:STATE.user.id,
+    subject:studyCurrentSubject,
+    duration_min:finalMin,
+    started_at:new Date(studyStartTime).toISOString(),
+    ended_at:new Date().toISOString(),
+    date:getToday()
+  };
+
+  // Save to DB
+  const {data,error}=await supabaseClient.from('study_sessions').insert(session).select().single();
+  if(error){console.error('study session save error',error);}
+  else{
+    if(!STATE.studySessions)STATE.studySessions=[];
+    STATE.studySessions.unshift(data||session);
+    await addEvent('Studied '+studyCurrentSubject+' for '+finalMin+' min','study_complete');
+    toast('Session saved! '+finalMin+' min of '+studyCurrentSubject,'success');
+  }
+
+  await syncStudyStatus(false);
+  resetStudyTimer();
+  renderStudyTimer();
+  await syncParentData();
+}
+
+function resetStudyTimer(){
+  studyIsRunning=false;
+  studyIsPaused=false;
+  studyElapsedMs=0;
+  studyStartTime=null;
+  clearInterval(studyTimerInterval);
+  document.getElementById('studyTimerDisplay').textContent='00:00:00';
+  document.getElementById('studyTimerDisplay').className='study-timer-display stopped';
+  document.getElementById('studyStartBtn').style.display='inline-flex';
+  document.getElementById('studyStartBtn').textContent='▶ Start';
+  document.getElementById('studyPauseBtn').style.display='none';
+  document.getElementById('studyStopBtn').style.display='none';
+  document.getElementById('studySubjectLabel').textContent='Select a subject';
+  document.getElementById('studyRingFill').style.strokeDashoffset=628;
+}
+
+async function syncStudyStatus(isStudying){
+  if(!STATE.user||!STATE.user.id)return;
+  const status={
+    is_studying:isStudying,
+    subject:isStudying?studyCurrentSubject:null,
+    started_at:isStudying?new Date().toISOString():null,
+    last_updated:new Date().toISOString()
+  };
+  await supabaseClient.from('profiles').update({study_status:status}).eq('id',STATE.user.id);
+}
+
+async function loadStudySessions(){
+  if(!STATE.user||!STATE.user.id)return;
+  const {data,error}=await supabaseClient.from('study_sessions').select('*').eq('user_id',STATE.user.id).order('started_at',{ascending:false}).limit(50);
+  if(error){console.error('loadStudySessions',error);return;}
+  STATE.studySessions=data||[];
+}
+
+function renderStudyTimer(){
+  if(!STATE.studySessions)STATE.studySessions=[];
+  const todaySessions=STATE.studySessions.filter(s=>s.date===getToday());
+  const totalMin=todaySessions.reduce((a,s)=>a+(s.duration_min||0),0);
+  document.getElementById('studyTodayTotal').textContent=totalMin+'m';
+  document.getElementById('studySessionCount').textContent=todaySessions.length;
+
+  const list=document.getElementById('studySessionsList');
+  if(STATE.studySessions.length===0){
+    list.innerHTML='<div class="empty-state" style="padding:32px 24px;"><div class="empty-state-icon">⏱️</div><h3>No sessions yet</h3><p>Start a timer to begin tracking your study time.</p></div>';
+  }else{
+    const subjectIcons={Math:'📐',Science:'🔬',English:'📖',History:'🏛️',Coding:'💻',Physics:'⚛️',Chemistry:'🧪',Biology:'🧬',Economics:'📈',Art:'🎨',Music:'🎵',Other:'📚'};
+    list.innerHTML=STATE.studySessions.slice(0,20).map(s=>{
+      const t=new Date(s.started_at||s.created_at);
+      const timeStr=t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+      return `<div class="study-session-card">
+        <div class="study-session-time">${timeStr}</div>
+        <div class="study-session-subject">${subjectIcons[s.subject]||'📚'} ${s.subject}</div>
+        <div class="study-session-duration">${s.duration_min}m</div>
+      </div>`;
+    }).join('');
+  }
+}
+
 // ==================== INIT ====================
 async function init(){
   await syncServerTime();
@@ -3152,6 +4046,7 @@ async function init(){
     const profile = await dbGetProfile(userId);
     if(profile){
       STATE.user={...profile,id:userId,password:''};
+      loadTheme();
       // Preserve locally-set fields that might not be in DB yet
       const saved=localStorage.getItem('chromatica_state_v2');
       const local=saved?JSON.parse(saved):{};
@@ -3164,7 +4059,7 @@ async function init(){
       STATE.level=profile.level||1;
       STATE.chroma=profile.chroma||0;
       STATE.accountabilityMode=profile.accountability_mode;
-      STATE.lastLoginDate=getToday();
+      STATE.lastLoginDate=STATE.lastLoginDate||getToday();
       STATE.goals = await dbGetGoals(userId,null);
       STATE.events = await dbGetEvents(userId,20);
       STATE.badges = await dbGetBadges(userId);
@@ -3173,7 +4068,7 @@ async function init(){
       STATE.leaderboard = await dbGetLeaderboard();
       STATE.links = await dbGetLinks(userId);
       // No demo fallback — leaderboard stays empty until real data loads
-      checkDayRollover();
+      await checkDayRollover();
       saveState();
       showPage('dashboard');
       setInterval(updateDeadlineTimer,1000);
@@ -3200,7 +4095,7 @@ async function init(){
 
   // Fallback to localStorage
   if(STATE.user){
-    checkDayRollover();
+    await checkDayRollover();
     setInterval(updateDeadlineTimer,1000);
     setInterval(checkGoalLocks,1000);
     updateDeadlineTimer();
@@ -3213,6 +4108,219 @@ async function init(){
 init();
 </script>
 
+
+
+<script>
+/* ================================================================
+   CHROMATICA WORLD PARALLAX
+   Original illustrated landscape — MCU + Wild Rainbow only.
+   ================================================================ */
+(() => {
+  const c=document.getElementById('world-parallax-bg');
+  if(!c)return;
+  const ctx=c.getContext('2d',{alpha:true});
+  let W=0,H=0,dpr=1,mx=.5,my=.5,last=0,enabled=true;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+
+  function resize(){
+    dpr=Math.min(devicePixelRatio||1,1.5);
+    W=innerWidth;H=innerHeight;
+    c.width=Math.floor(W*dpr);c.height=Math.floor(H*dpr);
+    c.style.width=W+'px';c.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function theme(){return document.body.dataset.theme||'blackberry'}
+  function sync(){
+    enabled=localStorage.getItem('chromatica_animated_bg')!=='0';
+    const t=theme();
+    c.style.display=enabled && !reduce.matches && (t==='marvel'||t==='rainbow')?'block':'none';
+  }
+  function lerp(a,b,t){return a+(b-a)*t}
+  function cloud(x,y,s,alpha){
+    ctx.save();ctx.globalAlpha=alpha;
+    ctx.fillStyle='#fff';ctx.beginPath();
+    ctx.arc(x,y,22*s,0,Math.PI*2);
+    ctx.arc(x+25*s,y-9*s,28*s,0,Math.PI*2);
+    ctx.arc(x+55*s,y,20*s,0,Math.PI*2);
+    ctx.arc(x+28*s,y+9*s,27*s,0,Math.PI*2);
+    ctx.fill();ctx.restore();
+  }
+  function hill(y,amp,color,parallax){
+    const shift=(mx-.5)*parallax;
+    ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(-50,H);
+    ctx.lineTo(-50,y);
+    for(let x=-50;x<=W+50;x+=55){
+      const yy=y+Math.sin(x*.006+parallax)*amp+Math.sin(x*.013)*amp*.42;
+      ctx.lineTo(x+shift,yy);
+    }
+    ctx.lineTo(W+50,H);ctx.closePath();ctx.fill();
+  }
+  function tree(x,y,s,color,shift){
+    x+=(mx-.5)*shift;
+    ctx.fillStyle='#6b4327';ctx.fillRect(x-5*s,y,10*s,38*s);
+    ctx.fillStyle=color;ctx.beginPath();
+    ctx.arc(x,y-3*s,22*s,0,Math.PI*2);
+    ctx.arc(x-18*s,y+10*s,17*s,0,Math.PI*2);
+    ctx.arc(x+18*s,y+10*s,17*s,0,Math.PI*2);
+    ctx.fill();
+  }
+  function rock(x,y,s,color,shift){
+    x+=(mx-.5)*shift;
+    ctx.fillStyle=color;ctx.beginPath();
+    ctx.moveTo(x-20*s,y+10*s);ctx.lineTo(x-11*s,y-10*s);
+    ctx.lineTo(x+10*s,y-14*s);ctx.lineTo(x+23*s,y+8*s);
+    ctx.lineTo(x+8*s,y+16*s);ctx.closePath();ctx.fill();
+  }
+  function draw(t){
+    requestAnimationFrame(draw);
+    if(t-last<33)return;last=t;
+    sync();if(!enabled)return;
+    const th=theme(), rainbow=th==='rainbow';
+    ctx.clearRect(0,0,W,H);
+
+    /* Sky */
+    const sky=ctx.createLinearGradient(0,0,0,H);
+    if(rainbow){
+      sky.addColorStop(0,'#7dd3fc');sky.addColorStop(.52,'#c4b5fd');sky.addColorStop(1,'#fbcfe8');
+    }else{
+      sky.addColorStop(0,'#030712');sky.addColorStop(.55,'#111827');sky.addColorStop(1,'#172033');
+    }
+    ctx.fillStyle=sky;ctx.fillRect(0,0,W,H);
+
+    const px=(mx-.5),py=(my-.5);
+    /* sun / reactor */
+    const sx=W*(rainbow?.78:.76)+px*18, sy=H*(rainbow?.20:.18)+py*12;
+    const rg=ctx.createRadialGradient(sx,sy,2,sx,sy,rainbow?105:120);
+    rg.addColorStop(0,rainbow?'rgba(255,245,180,.95)':'rgba(255,213,90,.75)');
+    rg.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=rg;ctx.fillRect(sx-130,sy-130,260,260);
+    ctx.fillStyle=rainbow?'#ffe082':'#ffd45c';ctx.beginPath();ctx.arc(sx,sy,rainbow?28:22,0,Math.PI*2);ctx.fill();
+
+    /* Clouds move on their own + mouse parallax */
+    const drift=(t*.012)% (W+300);
+    cloud(((120+drift)%(W+300))-150,H*.18+py*8,1.05,.58);
+    cloud(((560+drift*.62)%(W+400))-200,H*.29+py*10,.72,.38);
+    cloud(((W-120-drift*.42)%(W+400))-100,H*.11+py*7,.82,.35);
+
+    /* Deep game-like landscape layers */
+    hill(H*.53,38,rainbow?'#8b5cf6':'#182b47',16);
+    hill(H*.63,52,rainbow?'#22c55e':'#0f3b35',28);
+    hill(H*.72,66,rainbow?'#16a34a':'#123b2c',42);
+
+    /* Distant structures in MCU */
+    if(!rainbow){
+      ctx.fillStyle='rgba(92,124,250,.20)';
+      for(let x=-40;x<W+60;x+=68){
+        const hh=70+((x*17)%130+130)%130;
+        const xx=x+px*35;
+        ctx.fillRect(xx,H*.67-hh,42,hh);
+        ctx.fillStyle='rgba(255,212,92,.28)';
+        for(let yy=H*.67-hh+12;yy<H*.67-8;yy+=18)ctx.fillRect(xx+8,yy,5,4);
+        ctx.fillStyle='rgba(92,124,250,.20)';
+      }
+    }
+
+    /* Cartoon vegetation */
+    for(let x=-30;x<W+50;x+=115)tree(x,H*.67,0.7,rainbow?'#15803d':'#155e45',52);
+    for(let x=35;x<W+80;x+=180)tree(x,H*.73,1.05,rainbow?'#166534':'#14532d',70);
+
+    /* Foreground ground */
+    ctx.fillStyle=rainbow?'#84cc16':'#0b2a20';
+    ctx.beginPath();ctx.moveTo(0,H*.77);
+    ctx.quadraticCurveTo(W*.25,H*.71,W*.5,H*.78);
+    ctx.quadraticCurveTo(W*.76,H*.85,W,H*.75);
+    ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fill();
+
+    /* Rocks / little props */
+    rock(W*.12,H*.84,1.1,rainbow?'#78716c':'#26384a',86);
+    rock(W*.38,H*.91,.75,rainbow?'#a8a29e':'#1f2937',100);
+    rock(W*.73,H*.83,.95,rainbow?'#57534e':'#34445b',115);
+    rock(W*.91,H*.92,.65,rainbow?'#78716c':'#243247',125);
+
+    /* Floating game-like accents */
+    const bob=Math.sin(t*.0018)*7;
+    ctx.save();ctx.translate(W*.28+px*145,H*.27+py*90+bob);ctx.rotate(-.08);
+    ctx.fillStyle=rainbow?'#fb7185':'#e53935';ctx.beginPath();ctx.arc(0,0,17,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#111827';ctx.beginPath();ctx.arc(-6,-4,3,0,Math.PI*2);ctx.arc(6,-4,3,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+
+    if(rainbow){
+      /* rainbow arc behind the hills */
+      ctx.save();ctx.globalAlpha=.28;ctx.lineWidth=14;
+      const colors=['#ef4444','#f97316','#facc15','#22c55e','#38bdf8','#8b5cf6'];
+      colors.forEach((col,i)=>{ctx.strokeStyle=col;ctx.beginPath();ctx.arc(W*.5,H*.72,190+i*14,Math.PI,Math.PI*2);ctx.stroke()});
+      ctx.restore();
+    }else{
+      /* MCU angular HUD beams */
+      ctx.save();ctx.globalAlpha=.12;ctx.strokeStyle='#5c7cfa';ctx.lineWidth=1;
+      for(let i=0;i<7;i++){ctx.beginPath();ctx.moveTo(W*.5+px*30,H*.1);ctx.lineTo(i*W/6,H*.75);ctx.stroke()}
+      ctx.restore();
+    }
+  }
+  addEventListener('resize',resize,{passive:true});
+  addEventListener('pointermove',e=>{mx=e.clientX/innerWidth;my=e.clientY/innerHeight},{passive:true});
+  reduce.addEventListener?.('change',sync);
+  new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['data-theme']});
+  resize();sync();requestAnimationFrame(draw);
+})();
+</script>
+
+<script>
+/* ================================================================
+   CHROMATICA AMBIENT BACKGROUND ENGINE — one canvas, low-cost, theme-aware
+   ================================================================ */
+(() => {
+  const canvas=document.getElementById('chromatica-bg');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d',{alpha:true});
+  let w=0,h=0,dpr=1,raf=0,last=0,enabled=true, mx=.5,my=.5;
+  let blobs=[];
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const excluded=new Set(['parchment','coffee','snow','midnight']);
+  const palettes={
+    blackberry:['#d946ef','#f43f5e','#f59e0b'],arctic:['#0ea5e9','#38bdf8','#cbd5e1'],
+    plaster:['#ffffff','#cfd2d8','#8e8e93'],rainbow:['#fde047','#fb923c','#ec4899','#22d3ee'],
+    ember:['#ff6b35','#f7931e','#fbbf24'],neon:['#39ff14','#00f0ff','#ff00ff'],
+    sakura:['#db2777','#f472b6','#fbbf24'],forest:['#4ade80','#22c55e','#a3e635'],
+    marvel:['#ffcf55','#e53935','#5c7cfa','#9b6cff']
+  };
+  function resize(){dpr=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);blobs=Array.from({length:7},(_,i)=>({x:Math.random()*w,y:Math.random()*h,r:Math.min(w,h)*(0.12+Math.random()*.10),vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.08,p:Math.random()*6.28,i}));}
+  function theme(){return document.body.dataset.theme||'rainbow'}
+  function rgba(hex,a){const n=parseInt(hex.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
+  function draw(t){
+    raf=requestAnimationFrame(draw); if(!enabled||reduced.matches||excluded.has(theme()))return;
+    if(t-last<32)return; last=t; const th=theme(), pal=palettes[th]||palettes.rainbow;
+    if(th==='marvel'||th==='rainbow'){ctx.clearRect(0,0,w,h);return;}
+    ctx.clearRect(0,0,w,h);
+    const px=(mx-.5)*28, py=(my-.5)*22;
+    ctx.save();
+    blobs.forEach((b,i)=>{
+      b.x+=b.vx;b.y+=b.vy;if(b.x<-b.r)b.x=w+b.r;if(b.x>w+b.r)b.x=-b.r;if(b.y<-b.r)b.y=h+b.r;if(b.y>h+b.r)b.y=-b.r;
+      const x=b.x+px*(.35+i*.08),y=b.y+py*(.30+i*.07);
+      const g=ctx.createRadialGradient(x,y,0,x,y,b.r);g.addColorStop(0,rgba(pal[i%pal.length],th==='marvel'?.16:.12));g.addColorStop(1,rgba(pal[i%pal.length],0));ctx.fillStyle=g;ctx.fillRect(x-b.r,y-b.r,b.r*2,b.r*2);
+    });
+    if(th==='marvel'||th==='rainbow'){
+      ctx.translate(px*.45,py*.35);ctx.globalAlpha=.12;ctx.strokeStyle=pal[0];ctx.lineWidth=1;
+      const gap=72, off=(t*.012)%gap;
+      for(let x=-h;x<w+h;x+=gap){ctx.beginPath();ctx.moveTo(x+off,-50);ctx.lineTo(x+off+h,h+50);ctx.stroke()}
+      for(let y=-h;y<h*2;y+=gap){ctx.beginPath();ctx.moveTo(-50,y+off);ctx.lineTo(w+50,y+off);ctx.stroke()}
+      ctx.globalAlpha=1;
+    }
+    ctx.restore();
+  }
+  function sync(){
+    enabled=localStorage.getItem('chromatica_animated_bg')!=='0';
+    document.documentElement.classList.toggle('motion-disabled',!enabled||reduced.matches);
+    const input=document.getElementById('animatedBackgroundToggle');if(input)input.checked=enabled;
+  }
+  window.setAnimatedBackground=function(v){enabled=!!v;localStorage.setItem('chromatica_animated_bg',enabled?'1':'0');sync();toast('Animated background '+(enabled?'enabled':'disabled'),'success',2200)};
+  window.addEventListener('pointermove',e=>{mx=e.clientX/innerWidth;my=e.clientY/innerHeight},{passive:true});
+  window.addEventListener('resize',resize,{passive:true});
+  new MutationObserver(()=>sync()).observe(document.body,{attributes:true,attributeFilter:['data-theme']});
+  reduced.addEventListener?.('change',sync); resize(); sync(); raf=requestAnimationFrame(draw);
+})();
+</script>
+<canvas id="world-parallax-bg" aria-hidden="true"></canvas>
 <canvas id="network-bg" aria-hidden="true" style="position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.42"></canvas>
 <script>
 (() => {
