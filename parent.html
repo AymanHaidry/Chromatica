@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0e17">
+<title>Chromatica Parent Portal</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👨‍👩‍👧%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0e17;
+  --surface:#111827;
+  --surface-elevated:#1f2937;
+  --surface-hover:#374151;
+  --primary:#ef4444;
+  --secondary:#3b82f6;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#dc2626;
+  --info:#06b6d4;
+  --text-primary:#f8fafc;
+  --text-secondary:#94a3b8;
+  --text-muted:#475569;
+  --border:rgba(255,255,255,0.06);
+  --gradient:linear-gradient(135deg,#ef4444,#3b82f6,#f59e0b);
+  --prism-1:#ef4444;
+  --prism-2:#3b82f6;
+  --prism-3:#f59e0b;
+  --glow:rgba(239,68,68,0.3);
+  --nav-bg:rgba(10,14,23,0.9);
+  --glass-bg:rgba(17,24,39,0.75);
+  --overlay-bg:rgba(0,0,0,0.7);
+  --track-bg:rgba(255,255,255,0.05);
+  --hover-bg:rgba(255,255,255,0.03);
+  --border-strong:rgba(255,255,255,0.1);
+  --shadow-color:rgba(0,0,0,0.5);
+}
+
+[data-theme="arctic"] {
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --surface-elevated:#f1f5f9;
+  --surface-hover:#e2e8f0;
+  --primary:#0ea5e9;
+  --secondary:#38bdf8;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --text-primary:#0f172a;
+  --text-secondary:#64748b;
+  --text-muted:#94a3b8;
+  --border:rgba(15,23,42,0.08);
+  --gradient:linear-gradient(135deg,#0ea5e9,#38bdf8,#cbd5e1);
+  --prism-1:#0ea5e9;
+  --prism-2:#38bdf8;
+  --prism-3:#cbd5e1;
+  --glow:rgba(14,165,233,0.2);
+  --nav-bg:rgba(248,250,252,0.9);
+  --glass-bg:rgba(255,255,255,0.75);
+  --overlay-bg:rgba(15,23,42,0.4);
+  --track-bg:rgba(15,23,42,0.06);
+  --hover-bg:rgba(15,23,42,0.03);
+  --border-strong:rgba(15,23,42,0.1);
+  --shadow-color:rgba(15,23,42,0.08);
+}
+
+[data-theme="sakura"] {
+  --bg:#fff0f5;
+  --surface:#ffffff;
+  --surface-elevated:#ffe4ec;
+  --surface-hover:#ffd6e3;
+  --primary:#db2777;
+  --secondary:#f472b6;
+  --success:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --text-primary:#4a0a23;
+  --text-secondary:#9d174d;
+  --text-muted:#f9a8d4;
+  --border:rgba(219,39,119,0.08);
+  --gradient:linear-gradient(135deg,#db2777,#f472b6,#fbbf24);
+  --prism-1:#db2777;
+  --prism-2:#f472b6;
+  --prism-3:#fbbf24;
+  --glow:rgba(219,39,119,0.2);
+  --nav-bg:rgba(255,240,245,0.9);
+  --glass-bg:rgba(255,228,236,0.75);
+  --overlay-bg:rgba(74,10,35,0.3);
+  --track-bg:rgba(219,39,119,0.06);
+  --hover-bg:rgba(219,39,119,0.03);
+  --border-strong:rgba(219,39,119,0.1);
+  --shadow-color:rgba(74,10,35,0.06);
+}
+
+[data-theme="forest"] {
+  --bg:#0c1f0c;
+  --surface:#143214;
+  --surface-elevated:#1a401a;
+  --surface-hover:#225022;
+  --primary:#4ade80;
+  --secondary:#22c55e;
+  --success:#10b981;
+  --warning:#eab308;
+  --danger:#ef4444;
+  --text-primary:#f0fdf4;
+  --text-secondary:#86efac;
+  --text-muted:#166534;
+  --border:rgba(74,222,128,0.08);
+  --gradient:linear-gradient(135deg,#4ade80,#22c55e,#a3e635);
+  --prism-1:#4ade80;
+  --prism-2:#22c55e;
+  --prism-3:#a3e635;
+  --glow:rgba(74,222,128,0.35);
+  --nav-bg:rgba(12,31,12,0.9);
+  --glass-bg:rgba(20,50,20,0.75);
+  --overlay-bg:rgba(0,0,0,0.6);
+  --track-bg:rgba(74,222,128,0.05);
+  --hover-bg:rgba(74,222,128,0.03);
+  --border-strong:rgba(74,222,128,0.12);
+  --shadow-color:rgba(0,0,0,0.5);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body {
+  font-family:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text-primary);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.06), transparent 28%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,.04), transparent 26%);
+  filter:blur(60px);
+  z-index:-1;
+}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes shimmer{0%{background-position:-200%0}100%{background-position:200%0}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.animate-fadeIn{animation:fadeIn 0.5s ease-out forwards}
+.animate-slideInRight{animation:slideInRight 0.4s ease-out forwards}
+.animate-pulse{animation:pulse 2s ease-in-out infinite}
+.animate-float{animation:float 3s ease-in-out infinite}
+
+.hidden{display:none!important}
+.text-center{text-align:center}
+.w-full{width:100%}
+.flex{display:flex}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+.gap-2{gap:8px}.gap-3{gap:12px}.gap-4{gap:16px}
+
+.gradient-text{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.btn{
+  font-family:"SF Pro Display","SF Pro Text",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;border:none;cursor:pointer;
+  transition:all .28s ease;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-primary{background:var(--gradient);color:#fff;box-shadow:0 12px 28px rgba(0,0,0,.2);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--glow)}
+.btn-secondary{background:var(--surface-elevated);color:var(--text-primary);border:1px solid var(--border);}
+.btn-secondary:hover{background:var(--surface-hover);border-color:var(--primary-medium)}
+.btn-ghost{background:transparent;color:var(--text-secondary);border:1px solid transparent}
+.btn-ghost:hover{color:var(--text-primary);background:var(--hover-bg)}
+.btn-sm{padding:8px 16px;font-size:13px;border-radius:10px}
+.btn-lg{padding:16px 32px;font-size:15px;border-radius:14px}
+
+.input-group{margin-bottom:20px}
+.input-label{display:block;font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:8px}
+.input-field{width:100%;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:18px;color:var(--text-primary);font-size:15px;transition:all .25s ease;outline:none;}
+.input-field:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-soft)}
+.input-field::placeholder{color:var(--text-muted)}
+
+.card{background:var(--glass-bg);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:24px;transition:all .35s ease;box-shadow:0 20px 50px rgba(0,0,0,.1);}
+.card:hover{border-color:var(--primary-soft);transform:translateY(-2px)}
+
+.nav{
+  position:fixed;top:18px;left:18px;right:18px;z-index:100;
+  background:var(--nav-bg);backdrop-filter:blur(40px) saturate(220%);-webkit-backdrop-filter:blur(40px) saturate(220%);
+  border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:0 24px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 18px 48px rgba(0,0,0,.12);
+}
+.nav-logo{font-weight:700;font-size:18px;letter-spacing:-0.02em;display:flex;align-items:center;gap:10px;color:var(--text-primary);}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-link{padding:8px 14px;border-radius:10px;font-size:13px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all 0.2s ease;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--text-primary);background:var(--primary-soft)}
+
+.page{padding:88px 24px 40px;max-width:1200px;margin:0 auto;min-height:100vh;display:none}
+.page.active{display:block;animation:fadeIn 0.4s ease-out}
+
+.auth-container{max-width:460px;margin:64px auto;padding:48px;background:var(--surface);border:1px solid var(--border);border-radius:32px;box-shadow:0 30px 80px rgba(0,0,0,.15);}
+.auth-header{text-align:center;margin-bottom:36px}
+.auth-header h2{font-size:28px;font-weight:700;margin-bottom:8px}
+.auth-header p{color:var(--text-secondary);font-size:15px}
+
+.stat-value{font-family:"JetBrains Mono",monospace;font-size:32px;font-weight:700;margin-top:4px}
+.stat-label{font-size:12px;color:var(--text-secondary);font-weight:500;text-transform:uppercase;letter-spacing:0.08em}
+.stat-delta{font-size:12px;font-family:"JetBrains Mono",monospace;margin-top:4px}
+.stat-delta.positive{color:var(--success)}.stat-delta.negative{color:var(--danger)}
+
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+
+.goal-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+.goal-item.completed{border-color:var(--success-medium);background:rgba(16,185,129,0.05)}
+.goal-item.failed{border-color:var(--danger-medium);background:rgba(220,38,38,0.05)}
+.goal-checkbox{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.goal-checkbox.checked{background:var(--success);color:white}
+.goal-info{flex:1;min-width:0}
+.goal-title{font-weight:600;font-size:14px;margin-bottom:2px}
+.goal-meta{display:flex;gap:10px;font-size:11px;color:var(--text-muted);font-family:"JetBrains Mono",monospace}
+
+.study-live-card{background:linear-gradient(135deg,var(--primary-soft),var(--secondary-soft));border:1px solid var(--primary-medium);border-radius:20px;padding:28px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden;}
+.study-live-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,var(--primary-glow),transparent 60%);opacity:0.3;pointer-events:none;}
+.study-live-indicator{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:12px;}
+.study-live-dot{width:8px;height:8px;border-radius:50%;background:var(--success);animation:pulse 1.5s ease-in-out infinite;}
+
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:16px;}
+.calendar-day{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;min-height:80px;transition:all 0.2s ease;cursor:pointer;}
+.calendar-day:hover{border-color:var(--primary-soft);background:var(--surface-elevated);}
+.calendar-day.today{border-color:var(--primary);box-shadow:0 0 15px var(--primary-soft);}
+.calendar-day-number{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;margin-bottom:6px;}
+.calendar-day-studied{background:var(--success-soft);border-color:var(--success-medium);}
+.calendar-day-missed{background:var(--danger-soft);border-color:var(--danger-medium);}
+.calendar-day-dot{width:6px;height:6px;border-radius:50%;margin:4px auto 0;}
+
+.notification-item{display:flex;align-items:flex-start;gap:14px;padding:16px;border-radius:14px;background:var(--surface);border:1px solid var(--border);margin-bottom:10px;transition:all 0.2s ease;}
+.notification-item:hover{border-color:var(--primary-soft);}
+.notification-item.unread{border-left:3px solid var(--primary);}
+.notification-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;background:var(--surface-elevated);}
+.notification-content{flex:1;min-width:0}
+.notification-title{font-weight:600;font-size:14px;margin-bottom:2px}
+.notification-body{font-size:13px;color:var(--text-secondary);line-height:1.5}
+.notification-time{font-size:11px;color:var(--text-muted);margin-top:4px;font-family:"JetBrains Mono",monospace}
+
+.study-history-item{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--border);margin-bottom:8px;}
+.study-history-subject{font-weight:600;font-size:14px;flex:1;}
+.study-history-time{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--text-muted);}
+.study-history-duration{font-family:"JetBrains Mono",monospace;font-size:14px;font-weight:700;color:var(--primary);}
+
+.toast-container{position:fixed;top:80px;right:24px;z-index:300;display:flex;flex-direction:column;gap:12px}
+.toast{background:var(--surface-elevated);border:1px solid var(--border);border-radius:12px;padding:16px 20px;min-width:300px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 40px var(--shadow-color);animation:slideInRight 0.4s ease-out forwards;font-size:14px;font-weight:500}
+.toast.success{border-left:3px solid var(--success)}.toast.error{border-left:3px solid var(--danger)}.toast.warning{border-left:3px solid var(--warning)}.toast.info{border-left:3px solid var(--primary)}
+
+.empty-state{text-align:center;padding:48px 24px;color:var(--text-muted)}
+.empty-state-icon{font-size:40px;margin-bottom:12px;opacity:0.5}
+.empty-state h3{font-size:18px;color:var(--text-secondary);margin-bottom:6px}
+
+.tabs{display:flex;gap:6px;background:var(--surface-elevated);border:1px solid var(--border);border-radius:999px;padding:6px;margin-bottom:24px;overflow-x:auto;}
+.tab{padding:10px 20px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s ease;color:var(--text-secondary);border:none;background:transparent;white-space:nowrap}
+.tab.active{background:var(--primary-soft);color:var(--primary);border-radius:999px;}
+.tab:hover:not(.active){color:var(--text-primary)}
+
+.theme-card{background:var(--surface);border:2px solid var(--border);border-radius:14px;padding:16px;cursor:pointer;transition:all 0.25s ease;text-align:center;}
+.theme-card:hover{border-color:var(--primary-medium);transform:translateY(-2px);}
+.theme-card.selected{border-color:var(--primary);background:var(--primary-faint);box-shadow:0 0 20px var(--primary-soft);}
+.theme-preview{width:100%;height:48px;border-radius:10px;margin-bottom:10px;}
+.theme-name{font-weight:700;font-size:13px;margin-bottom:2px;}
+.theme-desc{font-size:11px;color:var(--text-secondary);}
+
+.footer{text-align:center;padding:40px 24px;color:var(--text-muted);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--surface-elevated);border-radius:3px}
+
+@media(max-width:768px){
+  .dashboard-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .page{padding:80px 16px 24px}
+  .auth-container{margin:32px auto;padding:32px}
+  .calendar-grid{grid-template-columns:repeat(7,1fr);gap:4px;}
+  .calendar-day{min-height:60px;padding:8px 4px;font-size:11px;}
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<nav class="nav hidden" id="mainNav">
+<div class="nav-logo">
+<span class="gradient-text">👨‍👩‍👧 Parent Portal</span>
+</div>
+<div class="nav-links" id="navLinks">
+<div class="nav-link active" data-page="dashboard">Dashboard</div>
+<div class="nav-link" data-page="study">Study</div>
+<div class="nav-link" data-page="calendar">Calendar</div>
+<div class="nav-link" data-page="notifications">Notifications</div>
+<div class="nav-link" data-page="settings">Settings</div>
+</div>
+<div style="display:flex;align-items:center;gap:12px;">
+<div style="font-size:13px;color:var(--text-secondary);" id="navStudentName"></div>
+<button class="btn btn-ghost btn-sm" onclick="logout()">Log Out</button>
+</div>
+</nav>
+
+<!-- ============ LOGIN ============ -->
+<div class="page active" id="page-login">
+<div class="auth-container animate-fadeIn">
+<div class="auth-header">
+<div style="font-size:48px;margin-bottom:12px;">👨‍👩‍👧</div>
+<h2>Parent Portal</h2><p>Monitor your child's progress, study habits, and goal accountability.</p>
+</div>
+<form onsubmit="handleLogin(event)">
+<div class="input-group"><label class="input-label">Your Phone Number</label><input type="tel" class="input-field" id="loginPhone" placeholder="+1 234 567 8900" required></div>
+<div class="input-group"><label class="input-label">Parent PIN</label><input type="password" class="input-field" id="loginPin" placeholder="4-6 digit PIN" required maxlength="10"></div>
+<button type="submit" class="btn btn-primary w-full" style="margin-top:8px;">View Dashboard</button>
+</form>
+<div style="text-align:center;margin-top:20px;font-size:13px;color:var(--text-muted);">
+<p style="margin-bottom:8px;">Make sure your child has saved your phone number and PIN in their Chromatica Profile.</p>
+</div>
+</div>
+</div>
+
+<!-- ============ DASHBOARD ============ -->
+<div class="page" id="page-dashboard">
+<div style="margin-bottom:24px;">
+<h1 style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:4px;">Dashboard</h1>
+<p style="color:var(--text-secondary);font-size:14px;" id="dashSubtitle">Loading...</p>
+</div>
+
+<div class="study-live-card hidden" id="liveStudyCard">
+<div class="study-live-indicator"><div class="study-live-dot"></div><span>Studying Right Now</span></div>
+<div style="font-size:24px;font-weight:700;margin-bottom:4px;" id="liveStudySubject">--</div>
+<div style="font-size:13px;color:var(--text-secondary);" id="liveStudyTime">Started just now</div>
+</div>
+
+<div class="dashboard-grid">
+<div class="card" style="text-align:center;">
+<div class="stat-label">Streak</div>
+<div class="stat-value" style="color:var(--warning);"><span style="font-size:24px;">🔥</span> <span id="dashStreak">0</span></div>
+</div>
+<div class="card" style="text-align:center;">
+<div class="stat-label">Today's Progress</div>
+<div class="stat-value gradient-text" id="dashProgress">0%</div>
+</div>
+<div class="card" style="text-align:center;">
+<div class="stat-label">Study Today</div>
+<div class="stat-value" style="color:var(--primary);" id="dashStudy">0m</div>
+</div>
+<div class="card" style="text-align:center;">
+<div class="stat-label">Total Goals</div>
+<div class="stat-value" style="color:var(--info);" id="dashGoals">0</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+<div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+<h2 style="font-family:'Space Grotesk';font-size:20px;font-weight:700;">🎯 Today's Goals</h2>
+<div style="font-size:12px;color:var(--text-muted);font-family:'JetBrains Mono',monospace;" id="dashUpdated">--</div>
+</div>
+<div id="dashGoalsList"></div>
+</div>
+<div>
+<h2 style="font-family:'Space Grotesk';font-size:20px;font-weight:700;margin-bottom:16px;">📊 Study Breakdown</h2>
+<div class="card" id="studyBreakdown">
+<div class="empty-state" style="padding:24px;"><div class="empty-state-icon">📊</div><h3>No study data</h3></div>
+</div>
+<h2 style="font-family:'Space Grotesk';font-size:20px;font-weight:700;margin-top:24px;margin-bottom:16px;">🔔 Recent Alerts</h2>
+<div id="dashNotifications"></div>
+</div>
+</div>
+</div>
+
+<!-- ============ STUDY PAGE ============ -->
+<div class="page" id="page-study">
+<div style="margin-bottom:24px;">
+<h1 style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:4px;">Study Tracker</h1>
+<p style="color:var(--text-secondary);font-size:14px;">See what your child is studying and for how long.</p>
+</div>
+
+<div class="dashboard-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:24px;">
+<div class="card" style="text-align:center;">
+<div class="stat-label">Today's Focus</div>
+<div class="stat-value" style="color:var(--primary);" id="studyTotalToday">0m</div>
+</div>
+<div class="card" style="text-align:center;">
+<div class="stat-label">Sessions Today</div>
+<div class="stat-value" id="studySessionsToday">0</div>
+</div>
+<div class="card" style="text-align:center;">
+<div class="stat-label">Favorite Subject</div>
+<div class="stat-value" style="color:var(--secondary);font-size:20px;" id="studyFavorite">--</div>
+</div>
+</div>
+
+<div class="card" style="margin-bottom:24px;">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px;">Subject Breakdown (Last 7 Days)</h3>
+<div id="subjectBreakdown"></div>
+</div>
+
+<div class="card">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:16px;">Recent Study Sessions</h3>
+<div id="studyHistoryList"></div>
+</div>
+</div>
+
+<!-- ============ CALENDAR ============ -->
+<div class="page" id="page-calendar">
+<div style="margin-bottom:24px;">
+<h1 style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:4px;">Calendar</h1>
+<p style="color:var(--text-secondary);font-size:14px;">Goal completion and study history by day.</p>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+<button class="btn btn-secondary btn-sm" onclick="changeMonth(-1)">← Prev</button>
+<h2 style="font-family:'Space Grotesk';font-size:22px;font-weight:700;" id="calendarMonth">August 2026</h2>
+<button class="btn btn-secondary btn-sm" onclick="changeMonth(1)">Next →</button>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:8px;text-align:center;">
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">SUN</div>
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">MON</div>
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">TUE</div>
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">WED</div>
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">THU</div>
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">FRI</div>
+<div style="font-size:12px;color:var(--text-muted);font-weight:600;">SAT</div>
+</div>
+<div class="calendar-grid" id="calendarGrid"></div>
+
+<div style="display:flex;gap:16px;margin-top:20px;flex-wrap:wrap;">
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);"><span style="width:10px;height:10px;border-radius:50%;background:var(--success);"></span> Goals Done</div>
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);"><span style="width:10px;height:10px;border-radius:50%;background:var(--danger);"></span> Goals Missed</div>
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);"><span style="width:10px;height:10px;border-radius:50%;background:var(--primary);"></span> Studied</div>
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);"><span style="width:10px;height:10px;border-radius:50%;background:var(--warning);"></span> Both</div>
+</div>
+
+<div class="card" style="margin-top:24px;">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:12px;" id="dayDetailTitle">Select a day</h3>
+<div id="dayDetailContent"><p style="color:var(--text-muted);font-size:14px;">Click a calendar day to see details.</p></div>
+</div>
+</div>
+
+<!-- ============ NOTIFICATIONS ============ -->
+<div class="page" id="page-notifications">
+<div style="margin-bottom:24px;">
+<h1 style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:4px;">Notifications</h1>
+<p style="color:var(--text-secondary);font-size:14px;">Alerts about missed goals, deadlines, and study updates.</p>
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="filterNotifs('all',this)">All</button>
+<button class="tab" onclick="filterNotifs('unread',this)">Unread</button>
+<button class="tab" onclick="filterNotifs('goal_failed',this)">Missed Goals</button>
+<button class="tab" onclick="filterNotifs('deadline',this)">Deadlines</button>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+<div style="font-size:13px;color:var(--text-muted);" id="notifCount">0 notifications</div>
+<button class="btn btn-ghost btn-sm" onclick="markAllRead()">Mark all read</button>
+</div>
+<div id="notificationsList"></div>
+</div>
+
+<!-- ============ SETTINGS ============ -->
+<div class="page" id="page-settings">
+<div style="margin-bottom:24px;">
+<h1 style="font-family:'Space Grotesk';font-size:28px;font-weight:700;margin-bottom:4px;">Settings</h1>
+<p style="color:var(--text-secondary);font-size:14px;">Customize your parent portal experience.</p>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+<div class="card">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:20px;">Theme</h3>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;" id="themeGrid">
+<div class="theme-card selected" data-theme="default" onclick="setTheme('default')">
+<div class="theme-preview" style="background:linear-gradient(135deg,#ef4444,#3b82f6,#f59e0b);"></div>
+<div class="theme-name">Default</div>
+<div class="theme-desc">Guardian red</div>
+</div>
+<div class="theme-card" data-theme="arctic" onclick="setTheme('arctic')">
+<div class="theme-preview" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8,#cbd5e1);"></div>
+<div class="theme-name">Arctic</div>
+<div class="theme-desc">Clean & light</div>
+</div>
+<div class="theme-card" data-theme="sakura" onclick="setTheme('sakura')">
+<div class="theme-preview" style="background:linear-gradient(135deg,#db2777,#f472b6,#fbbf24);"></div>
+<div class="theme-name">Sakura</div>
+<div class="theme-desc">Soft pink</div>
+</div>
+<div class="theme-card" data-theme="forest" onclick="setTheme('forest')">
+<div class="theme-preview" style="background:linear-gradient(135deg,#4ade80,#22c55e,#a3e635);"></div>
+<div class="theme-name">Forest</div>
+<div class="theme-desc">Deep green</div>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h3 style="font-family:'Space Grotesk';font-size:18px;font-weight:700;margin-bottom:20px;">Account</h3>
+<div style="margin-bottom:16px;">
+<div style="font-size:13px;color:var(--text-muted);margin-bottom:4px;">Logged in as</div>
+<div style="font-weight:600;font-size:15px;" id="settingsPhone">--</div>
+</div>
+<div style="margin-bottom:16px;">
+<div style="font-size:13px;color:var(--text-muted);margin-bottom:4px;">Monitoring</div>
+<div style="font-weight:600;font-size:15px;" id="settingsStudent">--</div>
+</div>
+<button class="btn btn-danger w-full" onclick="logout()">Log Out</button>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div style="margin-bottom:8px;font-family:'Space Grotesk';font-weight:700;font-size:16px;"><span class="gradient-text">Chromatica Parent Portal</span></div>
+<div>Stay connected. Stay informed. Support their growth.</div>
+</div>
+
+<script>
+// ==================== SUPABASE ====================
+const SUPABASE_URL='https://hdfvzrakdzyatsmunevd.supabase.co';
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhkZnZ6cmFrZHp5YXRzbXVuZXZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU1MDE2MTIsImV4cCI6MjEwMTA3NzYxMn0.wYQ041ww_R2BBzfPSRvs5hCKVrpPEsIrw_H81r1uWXk';
+const supabaseClient=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
+
+// ==================== STATE ====================
+const STATE={
+  session:null,
+  student:null,
+  notifications:[],
+  goals:[],
+  studySessions:[],
+  currentMonth:new Date(),
+  selectedDay:null,
+  theme:'default',
+  notifFilter:'all'
+};
+
+// ==================== UTILS ====================
+function toast(msg,type='info',duration=4000){
+  const c=document.getElementById('toastContainer');
+  const t=document.createElement('div');
+  t.className='toast '+type;
+  const icons={success:'✅',error:'❌',warning:'⚠️',info:'ℹ️'};
+  t.innerHTML='<span style="font-size:18px;">'+icons[type]+'</span><span>'+msg+'</span>';
+  c.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(40px)';setTimeout(()=>t.remove(),300);},duration);
+}
+
+function formatDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function formatTimeAgo(iso){
+  const d=new Date(iso);
+  const diff=Date.now()-d.getTime();
+  if(diff<60000)return'Just now';
+  if(diff<3600000)return Math.floor(diff/60000)+'m ago';
+  if(diff<86400000)return Math.floor(diff/3600000)+'h ago';
+  return d.toLocaleDateString();
+}
+
+// ==================== THEME ====================
+function setTheme(theme){
+  document.body.setAttribute('data-theme',theme);
+  STATE.theme=theme;
+  localStorage.setItem('parent_theme',theme);
+  document.querySelectorAll('.theme-card').forEach(c=>c.classList.toggle('selected',c.dataset.theme===theme));
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta){
+    const colors={default:'#0a0e17',arctic:'#f8fafc',sakura:'#fff0f5',forest:'#0c1f0c'};
+    meta.setAttribute('content',colors[theme]||'#0a0e17');
+  }
+}
+function loadTheme(){
+  const saved=localStorage.getItem('parent_theme')||'default';
+  setTheme(saved);
+}
+
+// ==================== PAGE ROUTING ====================
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const page=document.getElementById('page-'+name);
+  if(page)page.classList.add('active');
+  window.scrollTo(0,0);
+
+  const showNav=['dashboard','study','calendar','notifications','settings'].includes(name);
+  document.getElementById('mainNav').classList.toggle('hidden',!showNav);
+
+  if(showNav){
+    document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+    const link=document.querySelector('.nav-link[data-page="'+name+'"]');
+    if(link)link.classList.add('active');
+  }
+
+  if(name==='dashboard')renderDashboard();
+  if(name==='study')renderStudy();
+  if(name==='calendar')renderCalendar();
+  if(name==='notifications')renderNotifications();
+}
+
+// ==================== AUTH ====================
+async function handleLogin(e){
+  e.preventDefault();
+  const rawPhone=document.getElementById('loginPhone').value.trim();
+  const strippedPhone=rawPhone.replace(/\D/g,'');
+  const pin=document.getElementById('loginPin').value.trim();
+  if(!rawPhone||!pin){toast('Enter phone and PIN.','warning');return;}
+
+  let {data,error}=await supabaseClient.from('profiles').select('*').eq('parent_phone',rawPhone);
+  if(error){toast('Error fetching data.','error');return;}
+  if(!data||data.length===0){
+    const {data:d2}=await supabaseClient.from('profiles').select('*').eq('parent_phone',strippedPhone);
+    data=d2;
+  }
+  if(!data||data.length===0){toast('No student found with that phone.','error',5000);return;}
+
+  const student=data.find(p=>{
+    const dbPin=(p.parent_pin||'').toString().trim();
+    return dbPin===pin.toString().trim();
+  });
+  if(!student){toast('Invalid PIN.','error',5000);return;}
+
+  STATE.session={
+    studentId:student.id,
+    studentName:student.name,
+    studentInitials:student.initials,
+    parentPhone:strippedPhone,
+    loggedInAt:new Date().toISOString()
+  };
+  STATE.student=student;
+  localStorage.setItem('parent_session',JSON.stringify(STATE.session));
+
+  document.getElementById('navStudentName').textContent=student.name;
+  document.getElementById('settingsPhone').textContent=strippedPhone;
+  document.getElementById('settingsStudent').textContent=student.name;
+
+  toast('Welcome, parent of '+student.name.split(' ')[0]+'!','success');
+  showPage('dashboard');
+  startPolling();
+}
+
+function logout(){
+  STATE.session=null;
+  STATE.student=null;
+  localStorage.removeItem('parent_session');
+  stopPolling();
+  showPage('login');
+  toast('Logged out.','info');
+}
+
+// ==================== DATA FETCHING ====================
+async function fetchStudentData(){
+  if(!STATE.session)return;
+  const {data:profile}=await supabaseClient.from('profiles').select('*').eq('id',STATE.session.studentId).single();
+  if(profile)STATE.student=profile;
+
+  const {data:goals}=await supabaseClient.from('goals').select('*').eq('user_id',STATE.session.studentId).order('created_at',{ascending:false}).limit(100);
+  STATE.goals=goals||[];
+
+  const {data:sessions}=await supabaseClient.from('study_sessions').select('*').eq('user_id',STATE.session.studentId).order('started_at',{ascending:false}).limit(200);
+  STATE.studySessions=sessions||[];
+
+  const {data:notifs}=await supabaseClient.from('parent_notifications').select('*').eq('parent_phone',STATE.session.parentPhone).order('created_at',{ascending:false}).limit(50);
+  STATE.notifications=notifs||[];
+}
+
+// ==================== POLLING ====================
+let pollInterval=null;
+function startPolling(){pollInterval=setInterval(fetchAndRender,15000);}
+function stopPolling(){if(pollInterval){clearInterval(pollInterval);pollInterval=null;}}
+async function fetchAndRender(){await fetchStudentData();const activePage=document.querySelector('.page.active');if(activePage){const name=activePage.id.replace('page-','');if(name==='dashboard')renderDashboard();if(name==='study')renderStudy();if(name==='calendar')renderCalendar();if(name==='notifications')renderNotifications();}}
+
+// ==================== DASHBOARD ====================
+function renderDashboard(){
+  if(!STATE.student)return;
+  const pd=STATE.student.parent_data||{};
+  const todayGoals=STATE.goals.filter(g=>g.date===formatDate(new Date()));
+  const progress=todayGoals.length===0?0:Math.round((todayGoals.filter(g=>g.completed).length/todayGoals.length)*100);
+  const todayStudy=STATE.studySessions.filter(s=>s.date===formatDate(new Date()));
+  const totalStudyMin=todayStudy.reduce((a,s)=>a+(s.duration_min||0),0);
+
+  document.getElementById('dashSubtitle').textContent='Monitoring '+STATE.student.name;
+  document.getElementById('dashStreak').textContent=STATE.student.streak||0;
+  document.getElementById('dashProgress').textContent=progress+'%';
+  document.getElementById('dashStudy').textContent=totalStudyMin+'m';
+  document.getElementById('dashGoals').textContent=STATE.student.goals_completed||0;
+  document.getElementById('dashUpdated').textContent='Updated: '+new Date().toLocaleTimeString();
+
+  // Live study status
+  const studyStatus=STATE.student.study_status||{};
+  const liveCard=document.getElementById('liveStudyCard');
+  if(studyStatus.is_studying&&studyStatus.subject){
+    liveCard.classList.remove('hidden');
+    document.getElementById('liveStudySubject').textContent=studyStatus.subject;
+    const started=new Date(studyStatus.started_at);
+    const mins=Math.floor((Date.now()-started.getTime())/60000);
+    document.getElementById('liveStudyTime').textContent='For '+mins+' minute'+(mins!==1?'s':'')+' · Started '+started.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  }else{
+    liveCard.classList.add('hidden');
+  }
+
+  // Goals list
+  const list=document.getElementById('dashGoalsList');
+  if(todayGoals.length===0){
+    list.innerHTML='<div class="empty-state" style="padding:24px;"><div class="empty-state-icon">📋</div><h3>No goals today</h3></div>';
+  }else{
+    const catIcons={study:'📚',work:'💼',health:'💪',creative:'🎨',other:'🔧'};
+    list.innerHTML=todayGoals.map(g=>`
+      <div class="goal-item ${g.completed?'completed':''} ${g.failed?'failed':''}">
+        <div class="goal-checkbox ${g.completed?'checked':''}" style="cursor:default;">${g.completed?'✓':''}</div>
+        <div class="goal-info">
+          <div class="goal-title ${g.completed?'completed':''}">${catIcons[g.category]||'🔧'} ${g.title}</div>
+          <div class="goal-meta">
+            <span>${g.time} min</span>
+            ${g.deadline?'<span>⏰ '+new Date(g.deadline).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</span>':''}
+            ${g.completed?'<span style="color:var(--success)">✅ Done</span>':''}
+            ${g.failed?'<span style="color:var(--danger)">❌ Missed</span>':''}
+            ${!g.completed&&!g.failed?'<span style="color:var(--warning)">⏳ Pending</span>':''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Study breakdown
+  const breakdown=document.getElementById('studyBreakdown');
+  if(todayStudy.length===0){
+    breakdown.innerHTML='<div class="empty-state" style="padding:24px;"><div class="empty-state-icon">📊</div><h3>No study data</h3></div>';
+  }else{
+    const subjectTotals={};
+    todayStudy.forEach(s=>{subjectTotals[s.subject]=(subjectTotals[s.subject]||0)+(s.duration_min||0);});
+    breakdown.innerHTML=Object.entries(subjectTotals).sort((a,b)=>b[1]-a[1]).map(([sub,min])=>`
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+        <div style="flex:1;"><div style="font-weight:600;font-size:14px;">${sub}</div></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--primary);">${min}m</div>
+      </div>
+      <div style="height:6px;background:var(--track-bg);border-radius:3px;overflow:hidden;margin-bottom:14px;">
+        <div style="height:100%;width:${Math.min((min/120)*100,100)}%;background:var(--gradient);border-radius:3px;"></div>
+      </div>
+    `).join('');
+  }
+
+  // Recent notifications
+  const notifContainer=document.getElementById('dashNotifications');
+  const recent=STATE.notifications.slice(0,3);
+  if(recent.length===0){
+    notifContainer.innerHTML='<div style="font-size:13px;color:var(--text-muted);padding:12px;">No alerts yet.</div>';
+  }else{
+    notifContainer.innerHTML=recent.map(n=>renderNotifItem(n)).join('');
+  }
+}
+
+// ==================== STUDY PAGE ====================
+function renderStudy(){
+  const today=formatDate(new Date());
+  const todayStudy=STATE.studySessions.filter(s=>s.date===today);
+  const totalMin=todayStudy.reduce((a,s)=>a+(s.duration_min||0),0);
+  document.getElementById('studyTotalToday').textContent=totalMin+'m';
+  document.getElementById('studySessionsToday').textContent=todayStudy.length;
+
+  // Favorite subject (last 7 days)
+  const weekAgo=new Date();weekAgo.setDate(weekAgo.getDate()-7);
+  const weekSessions=STATE.studySessions.filter(s=>new Date(s.started_at)>=weekAgo);
+  const subCounts={};
+  weekSessions.forEach(s=>{subCounts[s.subject]=(subCounts[s.subject]||0)+(s.duration_min||0);});
+  const fav=Object.entries(subCounts).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('studyFavorite').textContent=fav?fav[0]:'--';
+
+  // Subject breakdown
+  const breakdown=document.getElementById('subjectBreakdown');
+  if(weekSessions.length===0){
+    breakdown.innerHTML='<div class="empty-state" style="padding:24px;"><div class="empty-state-icon">📊</div><h3>No data this week</h3></div>';
+  }else{
+    breakdown.innerHTML=Object.entries(subCounts).sort((a,b)=>b[1]-a[1]).map(([sub,min])=>`
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+        <div style="flex:1;"><div style="font-weight:600;font-size:14px;">${sub}</div></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--primary);min-width:50px;text-align:right;">${min}m</div>
+      </div>
+      <div style="height:8px;background:var(--track-bg);border-radius:4px;overflow:hidden;margin-bottom:16px;">
+        <div style="height:100%;width:${Math.min((min/300)*100,100)}%;background:var(--gradient);border-radius:4px;transition:width 0.5s ease;"></div>
+      </div>
+    `).join('');
+  }
+
+  // History list
+  const list=document.getElementById('studyHistoryList');
+  if(STATE.studySessions.length===0){
+    list.innerHTML='<div class="empty-state" style="padding:24px;"><div class="empty-state-icon">⏱️</div><h3>No sessions yet</h3></div>';
+  }else{
+    const subIcons={Math:'📐',Science:'🔬',English:'📖',History:'🏛️',Coding:'💻',Physics:'⚛️',Chemistry:'🧪',Biology:'🧬',Economics:'📈',Art:'🎨',Music:'🎵',Other:'📚'};
+    list.innerHTML=STATE.studySessions.slice(0,30).map(s=>{
+      const t=new Date(s.started_at);
+      return `<div class="study-history-item">
+        <div style="font-size:20px;">${subIcons[s.subject]||'📚'}</div>
+        <div class="study-history-subject">${s.subject}</div>
+        <div class="study-history-time">${t.toLocaleDateString()} ${t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</div>
+        <div class="study-history-duration">${s.duration_min}m</div>
+      </div>`;
+    }).join('');
+  }
+}
+
+// ==================== CALENDAR ====================
+function renderCalendar(){
+  const year=STATE.currentMonth.getFullYear();
+  const month=STATE.currentMonth.getMonth();
+  document.getElementById('calendarMonth').textContent=new Date(year,month).toLocaleDateString('en-US',{month:'long',year:'numeric'});
+
+  const firstDay=new Date(year,month,1).getDay();
+  const daysInMonth=new Date(year,month+1,0).getDate();
+
+  const grid=document.getElementById('calendarGrid');
+  let html='';
+  for(let i=0;i<firstDay;i++)html+='<div></div>';
+
+  const todayStr=formatDate(new Date());
+
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const dayGoals=STATE.goals.filter(g=>g.date===dateStr);
+    const dayStudy=STATE.studySessions.filter(s=>s.date===dateStr);
+    const hasCompleted=dayGoals.some(g=>g.completed);
+    const hasFailed=dayGoals.some(g=>g.failed);
+    const hasStudy=dayStudy.length>0;
+
+    let cls='calendar-day';
+    if(dateStr===todayStr)cls+=' today';
+    if(hasCompleted&&!hasFailed)cls+=' calendar-day-studied';
+    if(hasFailed)cls+=' calendar-day-missed';
+
+    let dots='';
+    if(hasStudy)dots+='<div class="calendar-day-dot" style="background:var(--primary);"></div>';
+    if(hasCompleted)dots+='<div class="calendar-day-dot" style="background:var(--success);"></div>';
+    if(hasFailed)dots+='<div class="calendar-day-dot" style="background:var(--danger);"></div>';
+
+    html+=`<div class="${cls}" onclick="showDayDetail('${dateStr}')">
+      <div class="calendar-day-number">${d}</div>
+      ${dots}
+    </div>`;
+  }
+  grid.innerHTML=html;
+}
+
+function changeMonth(delta){
+  STATE.currentMonth.setMonth(STATE.currentMonth.getMonth()+delta);
+  renderCalendar();
+}
+
+function showDayDetail(dateStr){
+  STATE.selectedDay=dateStr;
+  document.getElementById('dayDetailTitle').textContent=new Date(dateStr).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  const dayGoals=STATE.goals.filter(g=>g.date===dateStr);
+  const dayStudy=STATE.studySessions.filter(s=>s.date===dateStr);
+  const totalStudyMin=dayStudy.reduce((a,s)=>a+(s.duration_min||0),0);
+
+  let html='';
+  if(dayGoals.length===0&&dayStudy.length===0){
+    html='<p style="color:var(--text-muted);font-size:14px;">No activity recorded for this day.</p>';
+  }else{
+    if(dayGoals.length>0){
+      html+='<div style="margin-bottom:16px;"><div style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Goals</div>';
+      const catIcons={study:'📚',work:'💼',health:'💪',creative:'🎨',other:'🔧'};
+      html+=dayGoals.map(g=>`
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:6px;">
+          <div style="font-size:16px;">${catIcons[g.category]||'🔧'}</div>
+          <div style="flex:1;font-size:14px;">${g.title}</div>
+          <div style="font-size:12px;color:${g.completed?'var(--success)':g.failed?'var(--danger)':'var(--warning)'};font-weight:600;">${g.completed?'✅ Done':g.failed?'❌ Missed':'⏳ Pending'}</div>
+        </div>
+      `).join('');
+      html+='</div>';
+    }
+    if(dayStudy.length>0){
+      html+='<div><div style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;">Study Sessions ('+totalStudyMin+'m total)</div>';
+      html+=dayStudy.map(s=>`
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:6px;">
+          <div style="font-size:16px;">📚</div>
+          <div style="flex:1;font-size:14px;">${s.subject}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--primary);font-weight:600;">${s.duration_min}m</div>
+        </div>
+      `).join('');
+      html+='</div>';
+    }
+  }
+  document.getElementById('dayDetailContent').innerHTML=html;
+}
+
+// ==================== NOTIFICATIONS ====================
+function filterNotifs(filter,btn){
+  STATE.notifFilter=filter;
+  document.querySelectorAll('#page-notifications .tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderNotifications();
+}
+
+function renderNotifItem(n){
+  const icons={goal_failed:'❌',deadline:'⏰',study_complete:'📚',streak_broken:'💔',default:'🔔'};
+  const icon=icons[n.type]||icons.default;
+  const unread=!n.read?'unread':'';
+  return `
+    <div class="notification-item ${unread}" onclick="markRead('${n.id}')">
+      <div class="notification-icon">${icon}</div>
+      <div class="notification-content">
+        <div class="notification-title">${n.title}</div>
+        <div class="notification-body">${n.body}</div>
+        <div class="notification-time">${formatTimeAgo(n.created_at)}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderNotifications(){
+  let notifs=[...STATE.notifications];
+  if(STATE.notifFilter==='unread')notifs=notifs.filter(n=>!n.read);
+  if(STATE.notifFilter==='goal_failed')notifs=notifs.filter(n=>n.type==='goal_failed');
+  if(STATE.notifFilter==='deadline')notifs=notifs.filter(n=>n.type==='deadline'||n.type==='goal_failed');
+
+  document.getElementById('notifCount').textContent=notifs.length+' notification'+(notifs.length!==1?'s':'');
+
+  const list=document.getElementById('notificationsList');
+  if(notifs.length===0){
+    list.innerHTML='<div class="empty-state" style="padding:32px;"><div class="empty-state-icon">🔔</div><h3>No notifications</h3></div>';
+  }else{
+    list.innerHTML=notifs.map(n=>renderNotifItem(n)).join('');
+  }
+}
+
+async function markRead(id){
+  await supabaseClient.from('parent_notifications').update({read:true}).eq('id',id);
+  const n=STATE.notifications.find(x=>x.id===id);
+  if(n)n.read=true;
+  renderNotifications();
+}
+
+async function markAllRead(){
+  if(!STATE.notifications.length)return;
+  const unreadIds=STATE.notifications.filter(n=>!n.read).map(n=>n.id);
+  if(!unreadIds.length){toast('All caught up!','info');return;}
+  for(const id of unreadIds){
+    await supabaseClient.from('parent_notifications').update({read:true}).eq('id',id);
+  }
+  STATE.notifications.forEach(n=>n.read=true);
+  renderNotifications();
+  toast('All marked as read.','success');
+}
+
+// ==================== INIT ====================
+async function init(){
+  loadTheme();
+  const saved=localStorage.getItem('parent_session');
+  if(saved){
+    STATE.session=JSON.parse(saved);
+    const {data:profile}=await supabaseClient.from('profiles').select('*').eq('id',STATE.session.studentId).single();
+    if(profile){
+      STATE.student=profile;
+      document.getElementById('navStudentName').textContent=profile.name;
+      document.getElementById('settingsPhone').textContent=STATE.session.parentPhone;
+      document.getElementById('settingsStudent').textContent=profile.name;
+      await fetchStudentData();
+      showPage('dashboard');
+      startPolling();
+    }else{
+      logout();
+    }
+  }else{
+    showPage('login');
+  }
+}
+
+// Nav clicks
+document.querySelectorAll('.nav-link').forEach(link=>{
+  link.addEventListener('click',()=>showPage(link.dataset.page));
+});
+
+init();
+</script>
+</body>
+</html>
